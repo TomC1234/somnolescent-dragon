@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Somnolescent Dragon — Free Ultrawide AI Wallpapers</title>
+  <meta name="description" content="Free ultrawide 21:9 AI wallpapers, curated with care. Fantasy, space, castles, waterfalls, Halloween, and more. Always growing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       EASY TO CHANGE: colors, fonts, spacing
+       Hard anchor: class names and HTML structure
+    ============================================================ */
+    :root {
+      --page-bg:       #1C1714;
+      --surface-1:     #231E1A;
+      --surface-2:     #2C2318;
+      --border:        #3A2E22;
+      --border-hover:  #C9893A;
+      --text-primary:  #F2EAD8;
+      --text-muted:    #A89070;
+      --text-dim:      #6B5540;
+      --accent:        #C9893A;
+      --accent-soft:   #9E6B72;
+      --font-display:  'Playfair Display', Georgia, serif;
+      --font-body:     'Lato', system-ui, sans-serif;
+      --radius-sm:     6px;
+      --radius-md:     10px;
+      --radius-lg:     14px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--page-bg);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ============================================================
+       TOP NAV — sticky, always visible
+    ============================================================ */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(28, 23, 20, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    .nav-brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      padding: 0.35rem 0.65rem;
+      border-radius: var(--radius-sm);
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+      background: var(--surface-2);
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+      overflow: hidden;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, #2E2018 0%, #1C1714 70%);
+      pointer-events: none;
+    }
+
+    .starfield {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .hero-glyph {
+      font-size: 3.2rem;
+      display: block;
+      margin-bottom: 1.25rem;
+      animation: breathe 5s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 20px #C9893A33); }
+      50%       { transform: translateY(-6px); filter: drop-shadow(0 0 32px #C9893A55); }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero-tagline {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      line-height: 1.8;
+      margin-bottom: 1.75rem;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.4;
+      margin: 0 auto 1rem;
+    }
+
+    .hero-sub {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--accent-soft);
+    }
+
+    /* ============================================================
+       FRESH FROM THE DRAGON — newest additions strip
+    ============================================================ */
+    .fresh-section {
+      padding: 2.5rem 2rem 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .fresh-strip {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+
+    .fresh-card {
+      flex: 0 0 220px;
+      height: 100px;
+      background: var(--surface-1);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      transition: border-color 0.25s;
+      cursor: pointer;
+    }
+
+    .fresh-card:hover { border-color: var(--border-hover); }
+
+    .fresh-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.75;
+      transition: opacity 0.25s;
+    }
+
+    .fresh-card:hover img { opacity: 0.9; }
+
+    .fresh-card-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.4rem 0.6rem;
+      background: linear-gradient(transparent, rgba(28,23,20,0.9));
+      font-size: 0.7rem;
+      color: var(--text-primary);
+      letter-spacing: 0.03em;
+    }
+
+    .fresh-placeholder {
+      width: 100%;
+      height: 100%;
+      background: var(--surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      opacity: 0.4;
+    }
+
+    .new-badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: var(--accent);
+      color: #1C1714;
+      font-size: 0.58rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    /* ============================================================
+       CATEGORY GRID
+    ============================================================ */
+    .gallery-section {
+      padding: 2.5rem 2rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .cat-card {
+      background: var(--surface-1);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1rem;
+      cursor: pointer;
+      transition: border-color 0.25s, background 0.25s, transform 0.2s;
+      display: block;
+      position: relative;
+    }
+
+    .cat-card:hover {
+      border-color: var(--border-hover);
+      background: var(--surface-2);
+      transform: translateY(-2px);
+    }
+
+    .cat-card-new {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--accent);
+      color: #1C1714;
+      font-size: 0.58rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+
+    .cat-icon {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .cat-name {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin-bottom: 0.3rem;
+    }
+
+    .cat-desc {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+
+    .cat-meta {
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .cat-card:hover .cat-meta { color: var(--text-muted); }
+
+    /* ============================================================
+       YOUTUBE CROSS-PLUG
+    ============================================================ */
+    .yt-plug {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 3rem;
+    }
+
+    .yt-plug-inner {
+      background: var(--surface-1);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      transition: border-color 0.25s;
+      cursor: pointer;
+    }
+
+    .yt-plug-inner:hover { border-color: var(--accent-soft); }
+
+    .yt-plug-text p:first-child {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .yt-plug-text p:last-child {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .yt-plug-cta {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-soft);
+      white-space: nowrap;
+      padding: 0.4rem 0.9rem;
+      border: 0.5px solid var(--accent-soft);
+      border-radius: var(--radius-sm);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .yt-plug-inner:hover .yt-plug-cta {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .site-footer {
+      border-top: 0.5px solid var(--border);
+      padding: 1.5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.25rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-disclosure {
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      width: 100%;
+      padding-top: 0.75rem;
+      border-top: 0.5px solid var(--border);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 640px) {
+      .site-nav { padding: 0 1rem; }
+      .nav-brand { font-size: 0.85rem; }
+      .nav-links a { padding: 0.3rem 0.4rem; font-size: 0.65rem; }
+      .hero { padding: 3.5rem 1.25rem 3rem; }
+      .fresh-section, .gallery-section, .yt-plug, .site-footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .category-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-glyph { animation: none; }
+      .cat-card:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <span class="nav-brand">The <span>Somnolescent</span> Dragon</span>
+      <ul class="nav-links">
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="whats-new.html">What's New</a></li>
+        <li><a href="suggest.html">Suggest a theme</a></li>
+        <li><a href="help.html">Help</a></li>
+        <li><a href="about.html">About the art</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Welcome">
+      <div class="hero-bg"></div>
+      <div class="starfield" id="starfield" aria-hidden="true"></div>
+      <div class="hero-content">
+        <span class="hero-glyph" aria-hidden="true">🐉</span>
+        <h1 class="hero-title">The Somnolescent Dragon</h1>
+        <p class="hero-tagline">Where we purposefully place and cycle curated AI art for your enjoyment, and your desktop's enjoyment too.</p>
+        <div class="hero-divider" aria-hidden="true"></div>
+        <p class="hero-sub">Free ultrawide 21:9 wallpapers &mdash; always growing</p>
+      </div>
+    </section>
+
+    <!-- FRESH FROM THE DRAGON -->
+    <section class="fresh-section" aria-label="Recently added wallpapers">
+      <p class="section-eyebrow">Fresh from the dragon</p>
+      <div class="fresh-strip" role="list">
+
+        <!-- Replace src="" with your R2 image URLs as you add them -->
+        <div class="fresh-card" role="listitem" title="Flights of Fantasy">
+          <div class="fresh-placeholder">🌿</div>
+          <span class="new-badge">New</span>
+          <span class="fresh-card-label">Flights of Fantasy</span>
+        </div>
+        <div class="fresh-card" role="listitem" title="Castles and Keeps">
+          <div class="fresh-placeholder">🏰</div>
+          <span class="new-badge">New</span>
+          <span class="fresh-card-label">Castles and Keeps</span>
+        </div>
+        <div class="fresh-card" role="listitem" title="Wondrous Water">
+          <div class="fresh-placeholder">🌊</div>
+          <span class="fresh-card-label">Wondrous Water</span>
+        </div>
+        <div class="fresh-card" role="listitem" title="Dreamscapes">
+          <div class="fresh-placeholder">🌫️</div>
+          <span class="fresh-card-label">Dreamscapes</span>
+        </div>
+        <div class="fresh-card" role="listitem" title="Cosmic Codex">
+          <div class="fresh-placeholder">🪐</div>
+          <span class="fresh-card-label">Cosmic Codex</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CATEGORY GRID -->
+    <section class="gallery-section" id="collections" aria-label="Browse all collections">
+      <p class="section-eyebrow">Browse the collections</p>
+      <div class="category-grid">
+
+        <a class="cat-card" href="flights-of-fantasy/index.html">
+          <span class="cat-card-new">Updated</span>
+          <span class="cat-icon" aria-hidden="true">🌿</span>
+          <p class="cat-name">Flights of Fantasy</p>
+          <p class="cat-desc">Cheerful warm fantasy — whimsical, adventurous, full of wonder.</p>
+          <span class="cat-meta">64 wallpapers</span>
+        </a>
+
+        <a class="cat-card" href="dreamscapes/index.html">
+          <span class="cat-icon" aria-hidden="true">🌫️</span>
+          <p class="cat-name">Dreamscapes</p>
+          <p class="cat-desc">Surreal ethereal landscapes that feel like a dream or a memory.</p>
+          <span class="cat-meta">25 wallpapers</span>
+        </a>
+
+        <a class="cat-card" href="cosmic-codex/index.html">
+          <span class="cat-icon" aria-hidden="true">🪐</span>
+          <p class="cat-name">Cosmic Codex</p>
+          <p class="cat-desc">Planets, alien worlds, ancient remnants among the stars.</p>
+          <span class="cat-meta">~30 wallpapers</span>
+        </a>
+
+        <a class="cat-card" href="castles-and-keeps/index.html">
+          <span class="cat-card-new">Updated</span>
+          <span class="cat-icon" aria-hidden="true">🏰</span>
+          <p class="cat-name">Castles and Keeps</p>
+          <p class="cat-desc">Historic castle architecture from Europe, Japan, India, and beyond.</p>
+          <span class="cat-meta">44 wallpapers</span>
+        </a>
+
+        <a class="cat-card" href="wondrous-water/index.html">
+          <span class="cat-icon" aria-hidden="true">🌊</span>
+          <p class="cat-name">Wondrous Water</p>
+          <p class="cat-desc">Waterfalls in nature, cities, ruins, and perspectives never seen.</p>
+          <span class="cat-meta">~46 wallpapers</span>
+        </a>
+
+        <a class="cat-card" href="musical-spice/index.html">
+          <span class="cat-icon" aria-hidden="true">🎻</span>
+          <p class="cat-name">Musical Spice</p>
+          <p class="cat-desc">Instruments in extraordinary, surreal, and exotic settings.</p>
+          <span class="cat-meta">Coming soon</span>
+        </a>
+
+        <a class="cat-card" href="halloween-and-haunts/index.html">
+          <span class="cat-card-new">Building</span>
+          <span class="cat-icon" aria-hidden="true">🕯️</span>
+          <p class="cat-name">Halloween and Haunts</p>
+          <p class="cat-desc">Atmospheric and charming spooky — never threatening, always haunting.</p>
+          <span class="cat-meta">In progress</span>
+        </a>
+
+        <a class="cat-card" href="winters-embrace/index.html">
+          <span class="cat-icon" aria-hidden="true">❄️</span>
+          <p class="cat-name">Winter's Embrace</p>
+          <p class="cat-desc">Cold beauty — stark, silver-blue, and atmospheric.</p>
+          <span class="cat-meta">Coming soon</span>
+        </a>
+
+        <a class="cat-card" href="christmas-heart/index.html">
+          <span class="cat-icon" aria-hidden="true">🕯️</span>
+          <p class="cat-name">Christmas Heart</p>
+          <p class="cat-desc">Festive warmth and Yule magic in ultrawide splendor.</p>
+          <span class="cat-meta">Coming soon</span>
+        </a>
+
+        <a class="cat-card" href="magical-miscellany/index.html">
+          <span class="cat-icon" aria-hidden="true">🍂</span>
+          <p class="cat-name">Magical Miscellany</p>
+          <p class="cat-desc">Other holidays, Autumn, Thanksgiving, and the wonderful catch-all.</p>
+          <span class="cat-meta">Coming soon</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- YOUTUBE CROSS-PLUG -->
+    <div class="yt-plug">
+      <a class="yt-plug-inner" href="https://www.youtube.com/@WeatheredLanternTales" target="_blank" rel="noopener">
+        <div class="yt-plug-text">
+          <p>📺 Weathered Lantern Tales</p>
+          <p>If you love fantasy and stories, visit our YouTube storytelling channel.</p>
+        </div>
+        <span class="yt-plug-cta">Visit on YouTube</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="site-footer">
+      <span class="footer-brand">The Somnolescent Dragon</span>
+      <ul class="footer-links">
+        <li><a href="whats-new.html">What's New</a></li>
+        <li><a href="suggest.html">Suggest a theme</a></li>
+        <li><a href="help.html">Help</a></li>
+        <li><a href="about.html">About the art</a></li>
+      </ul>
+      <p class="footer-disclosure">All wallpapers created using AI image generation, directed by fully detailed cinematic prompts and curated for quality. Free for personal desktop use.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Starfield — pure JS, no libraries
+    (function() {
+      var sf = document.getElementById('starfield');
+      if (!sf) return;
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < 70; i++) {
+        var s = document.createElement('div');
+        var size = Math.random() > 0.85 ? 2 : 1;
+        s.style.cssText = [
+          'position:absolute',
+          'border-radius:50%',
+          'background:#F2EAD8',
+          'width:' + size + 'px',
+          'height:' + size + 'px',
+          'left:' + (Math.random() * 100) + '%',
+          'top:' + (Math.random() * 100) + '%',
+          'opacity:' + (0.1 + Math.random() * 0.45),
+          'animation:twinkle ' + (2 + Math.random() * 4) + 's ease-in-out ' + (Math.random() * 6) + 's infinite'
+        ].join(';');
+        frag.appendChild(s);
+      }
+      sf.appendChild(frag);
+    })();
+  </script>
+
+  <style>
+    @keyframes twinkle {
+      0%, 100% { opacity: inherit; }
+      50% { opacity: 0.05; }
+    }
+  </style>
+
+</body>
+</html>
