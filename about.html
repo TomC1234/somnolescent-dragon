@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — The Somnolescent Dragon</title>
+  <meta name="description" content="About The Somnolescent Dragon — free ultrawide AI wallpapers, curated with care and offered freely. No accounts, no paywalls, no ads." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --page-bg:      #1C1714;
+      --surface-1:    #231E1A;
+      --surface-2:    #2C2318;
+      --border:       #3A2E22;
+      --border-hover: #C9893A;
+      --text-primary: #F2EAD8;
+      --text-muted:   #A89070;
+      --text-dim:     #6B5540;
+      --accent:       #C9893A;
+      --accent-soft:  #9E6B72;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Lato', system-ui, sans-serif;
+      --radius-sm:    6px;
+      --radius-md:    10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--page-bg); color: var(--text-primary); font-family: var(--font-body); font-weight: 400; line-height: 1.7; min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    .site-nav { position: sticky; top: 0; z-index: 100; background: rgba(28,23,20,0.92); backdrop-filter: blur(8px); border-bottom: 0.5px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 52px; }
+    .nav-brand { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--text-primary); white-space: nowrap; }
+    .nav-brand span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .nav-links a { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); padding: 0.35rem 0.65rem; border-radius: var(--radius-sm); transition: color 0.2s, background 0.2s; white-space: nowrap; }
+    .nav-links a:hover { color: var(--text-primary); background: var(--surface-2); }
+
+    /* BREADCRUMB */
+    .breadcrumb { padding: 0.85rem 2rem; border-bottom: 0.5px solid var(--border); display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; color: var(--text-dim); }
+    .breadcrumb a { color: var(--text-dim); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb-sep { opacity: 0.5; }
+    .breadcrumb-current { color: var(--text-muted); font-style: italic; }
+
+    /* PAGE CONTENT */
+    .page-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    .page-eyebrow {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .page-subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--accent-soft);
+      margin-bottom: 3rem;
+    }
+
+    /* ABOUT BODY COPY */
+    .about-body {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 2;
+    }
+
+    .about-body p {
+      margin-bottom: 1.5rem;
+    }
+
+    .about-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Pull quote styling for the sign-off */
+    .about-signoff {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 0.5px solid var(--border);
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-primary);
+      line-height: 1.8;
+    }
+
+    .about-signoff .enjoy {
+      display: block;
+      font-size: 1.15rem;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .about-signoff .attribution {
+      font-size: 0.85rem;
+      color: var(--accent-soft);
+    }
+
+    /* Inline links */
+    .about-link {
+      color: var(--accent);
+      border-bottom: 0.5px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    .about-link:hover { opacity: 1; }
+
+    /* FOOTER */
+    .site-footer { border-top: 0.5px solid var(--border); padding: 1.5rem 2rem; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: var(--font-display); font-style: italic; font-size: 0.82rem; color: var(--text-dim); }
+    .footer-links { display: flex; gap: 1.25rem; list-style: none; }
+    .footer-links a { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-disclosure { font-size: 0.68rem; color: var(--text-dim); width: 100%; padding-top: 0.75rem; border-top: 0.5px solid var(--border); line-height: 1.6; }
+
+    @media (max-width: 640px) {
+      .site-nav { padding: 0 1rem; }
+      .nav-links a { padding: 0.3rem 0.4rem; font-size: 0.65rem; }
+      .breadcrumb { padding: 0.75rem 1.25rem; }
+      .page-wrap { padding: 2.5rem 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-brand">The <span>Somnolescent</span> Dragon</a>
+      <ul class="nav-links">
+        <li><a href="index.html#collections">Collections</a></li>
+        <li><a href="whats-new.html">What's New</a></li>
+        <li><a href="suggest.html">Suggest a theme</a></li>
+        <li><a href="help.html">Help</a></li>
+        <li><a href="about.html">About the art</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">🐉 Home</a>
+    <span class="breadcrumb-sep">·</span>
+    <span class="breadcrumb-current">About</span>
+  </nav>
+
+  <main>
+    <div class="page-wrap">
+
+      <p class="page-eyebrow">About</p>
+      <h1 class="page-title">The Somnolescent Dragon</h1>
+      <p class="page-subtitle">Welcome, friend. Pull up a chair.</p>
+
+      <div class="about-body">
+
+        <p>You spend hours at your desk every day. Working, creating, thinking, dreaming. Your desktop is your workshop — the first thing you see in the morning and the last thing you see before you step away. It should be something worth looking at.</p>
+
+        <p>That's why The Somnolescent Dragon exists. Every image here was created with intention, curated with care, and offered freely — no accounts, no paywalls, no ads, no strings. Just beauty, ready for your screen.</p>
+
+        <p>Our wallpapers are AI-generated using detailed cinematic prompts and reviewed through multiple quality passes before they earn a place in the gallery. Think of it as art direction — every image is intentional, never accidental. If it's here, it passed the only test that matters: would I want this on my own desktop?</p>
+
+        <p>The Dragon believes in warm cultivation. You won't find horror, gore, or grit here. What you will find is wonder — fantasy worlds full of warmth, castles at golden hour, waterfalls in places you've never been, space that takes your breath away, music you can almost hear, and Halloween nights that feel like the best October of your childhood.</p>
+
+        <p>We organize our gallery into collections — curated sets that launch together, live for a season, and retire gracefully to make room for new dreams. Every collection has a name, a feeling, and a reason for being here. Nothing is filler. Nothing is "good enough." Every image earned its spot.</p>
+
+        <p>Have an idea for a collection? We'd love to hear it. <a class="about-link" href="suggest.html">Drop us a suggestion</a> and if it resonates, give the Dragon about two weeks — every image lives on our personal desktop before it graduates to yours.</p>
+
+        <p>New collections appear every couple of weeks. Check the <a class="about-link" href="whats-new.html">updates log</a> to see what's new, what's coming, and the occasional note about which image made us smile the most.</p>
+
+        <p>The Dragon creates when he's awake and dreams when he sleeps. Both states produce beauty. We hope some of that beauty settles into your day — whether it's the first thing that greets you at sunrise or the last thing you see before you close the laptop for the night.</p>
+
+      </div>
+
+      <div class="about-signoff">
+        <span class="enjoy">Enjoy. It's all for you.</span>
+        <span class="attribution">— The Somnolescent Dragon</span>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="site-footer">
+      <span class="footer-brand">The Somnolescent Dragon</span>
+      <ul class="footer-links">
+        <li><a href="whats-new.html">What's New</a></li>
+        <li><a href="suggest.html">Suggest a theme</a></li>
+        <li><a href="help.html">Help</a></li>
+        <li><a href="about.html">About the art</a></li>
+      </ul>
+      <p class="footer-disclosure">All wallpapers created using AI image generation, directed by fully detailed cinematic prompts and curated for quality. Free for personal desktop use.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

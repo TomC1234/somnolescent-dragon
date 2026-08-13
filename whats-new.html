@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What's New — The Somnolescent Dragon</title>
+  <meta name="description" content="New wallpaper collections, recent additions, and notes from the curator. The Somnolescent Dragon updates bi-weekly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --page-bg:      #1C1714;
+      --surface-1:    #231E1A;
+      --surface-2:    #2C2318;
+      --border:       #3A2E22;
+      --border-hover: #C9893A;
+      --text-primary: #F2EAD8;
+      --text-muted:   #A89070;
+      --text-dim:     #6B5540;
+      --accent:       #C9893A;
+      --accent-soft:  #9E6B72;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Lato', system-ui, sans-serif;
+      --radius-sm:    6px;
+      --radius-md:    10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--page-bg);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(28,23,20,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    .nav-brand span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      padding: 0.35rem 0.65rem;
+      border-radius: var(--radius-sm);
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover { color: var(--text-primary); background: var(--surface-2); }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      padding: 0.85rem 2rem;
+      border-bottom: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+
+    .breadcrumb a { color: var(--text-dim); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb-sep { opacity: 0.5; }
+    .breadcrumb-current { color: var(--text-muted); font-style: italic; }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 3rem 2rem 2.5rem;
+      border-bottom: 0.5px solid var(--border);
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .page-eyebrow {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .page-intro {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 520px;
+    }
+
+    /* FEATURED COLLECTION BLOCK */
+    /* Add new featured collection here at each update — replace contents, keep structure */
+    .featured-section {
+      padding: 2.5rem 2rem 0;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .featured-card {
+      background: var(--surface-1);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.25s;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .featured-card:hover { border-color: var(--border-hover); }
+
+    .featured-thumb {
+      width: 100%;
+      height: 180px;
+      background: var(--surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      border-bottom: 0.5px solid var(--border);
+      overflow: hidden;
+    }
+
+    .featured-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+
+    .featured-thumb-placeholder { opacity: 0.25; }
+
+    .featured-body { padding: 1.25rem 1.25rem 1rem; }
+
+    .featured-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .featured-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .featured-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .featured-cta {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      border: 0.5px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 0.4rem 0.9rem;
+      display: inline-block;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .featured-card:hover .featured-cta {
+      background: var(--accent);
+      color: #1C1714;
+    }
+
+    /* CHANGELOG */
+    /* Add new entries at the TOP, oldest entries at the bottom */
+    .changelog-section {
+      padding: 2.5rem 2rem 4rem;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .changelog-divider {
+      border: none;
+      border-top: 0.5px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .changelog-entry {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .changelog-entry:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .changelog-date {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .changelog-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    /* Personal voice copy — easy to find and edit */
+    .changelog-body {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+
+    .changelog-body p { margin-bottom: 0.75rem; }
+    .changelog-body p:last-child { margin-bottom: 0; }
+
+    .changelog-link {
+      color: var(--accent);
+      border-bottom: 0.5px solid var(--accent);
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .changelog-link:hover { opacity: 1; }
+
+    .changelog-tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin-right: 6px;
+      margin-bottom: 0.75rem;
+    }
+
+    .tag-new { background: var(--accent); color: #1C1714; }
+    .tag-retired { background: var(--surface-2); color: var(--text-muted); border: 0.5px solid var(--border); }
+    .tag-updated { background: var(--accent-soft); color: #1C1714; }
+
+    /* FOOTER */
+    .site-footer {
+      border-top: 0.5px solid var(--border);
+      padding: 1.5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-brand { font-family: var(--font-display); font-style: italic; font-size: 0.82rem; color: var(--text-dim); }
+    .footer-links { display: flex; gap: 1.25rem; list-style: none; }
+    .footer-links a { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-disclosure { font-size: 0.68rem; color: var(--text-dim); width: 100%; padding-top: 0.75rem; border-top: 0.5px solid var(--border); line-height: 1.6; }
+
+    @media (max-width: 640px) {
+      .site-nav { padding: 0 1rem; }
+      .nav-links a { padding: 0.3rem 0.4rem; font-size: 0.65rem; }
+      .breadcrumb { padding: 0.75rem 1.25rem; }
+      .page-hero, .featured-section, .changelog-section { padding-left: 1.25rem; padding-right: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-brand">The <span>Somnolescent</span> Dragon</a>
+      <ul class="nav-links">
+        <li><a href="index.html#collections">Collections</a></li>
+        <li><a href="whats-new.html">What's New</a></li>
+        <li><a href="suggest.html">Suggest a theme</a></li>
+        <li><a href="help.html">Help</a></li>
+        <li><a href="about.html">About the art</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">🐉 Home</a>
+    <span class="breadcrumb-sep">·</span>
+    <span class="breadcrumb-current">What's New</span>
+  </nav>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <p class="page-eyebrow">Updates</p>
+      <h1 class="page-title">What's New</h1>
+      <p class="page-intro">New collections, recent additions, and notes from the curator. Updated bi-weekly — check back often, the dragon is always dreaming something up.</p>
+    </div>
+
+    <!-- FEATURED COLLECTION -->
+    <!-- UPDATE THIS BLOCK each time a new collection launches -->
+    <section class="featured-section" aria-label="Featured collection">
+      <p class="section-eyebrow">Featured right now</p>
+      <a class="featured-card" href="flights-of-fantasy/index.html">
+        <div class="featured-thumb">
+          <!-- Replace with: <img src="YOUR_R2_URL" alt="Flights of Fantasy"> -->
+          <span class="featured-thumb-placeholder">🌿</span>
+        </div>
+        <div class="featured-body">
+          <p class="featured-label">Now open</p>
+          <p class="featured-name">Flights of Fantasy</p>
+          <p class="featured-desc">Where it all begins — 64 wallpapers of cheerful warm fantasy. Whimsical, adventurous, and full of wonder. No warfare, no monsters. Just the extraordinary going about its day.</p>
+          <span class="featured-cta">Browse the collection</span>
+        </div>
+      </a>
+    </section>
+
+    <!-- CHANGELOG -->
+    <!-- Newest entry always goes FIRST. Copy an entry block and paste above the previous one. -->
+    <section class="changelog-section" aria-label="Changelog">
+      <hr class="changelog-divider" />
+      <p class="section-eyebrow">The full record</p>
+
+      <!-- ENTRY 1 — Launch. Rewrite this in your own voice before going live. -->
+      <div class="changelog-entry">
+        <p class="changelog-date">August 2026</p>
+        <p class="changelog-title">The dragon opens one eye.</p>
+        <span class="changelog-tag tag-new">New</span>
+        <div class="changelog-body">
+          <p>Well, here we are. The Somnolescent Dragon is open, the gallery doors are unlocked, and we're starting with over 200 wallpapers across ten collections. Everything you see is new because none of it existed here yesterday.</p>
+          <p>Flights of Fantasy is the flagship for now — 64 wallpapers of warm cheerful fantasy that I'm genuinely proud of. Castles and Keeps and Wondrous Water are close behind with their own deep libraries. Cosmic Codex and Dreamscapes are smaller but curated with real care.</p>
+          <p>Halloween and Haunts is actively building — the Pumpkin Family in particular is shaping up to be something special. Musical Spice has 40 prompts written and is next in the generation queue. Winter's Embrace, Christmas Heart, and Magical Miscellany are coming as the seasons turn.</p>
+          <p>Updates bi-weekly. The dragon is always dreaming. Welcome.</p>
+        </div>
+      </div>
+
+      <!-- PASTE NEW ENTRIES ABOVE THIS LINE -->
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="site-footer">
+      <span class="footer-brand">The Somnolescent Dragon</span>
+      <ul class="footer-links">
+        <li><a href="whats-new.html">What's New</a></li>
+        <li><a href="suggest.html">Suggest a theme</a></li>
+        <li><a href="help.html">Help</a></li>
+        <li><a href="about.html">About the art</a></li>
+      </ul>
+      <p class="footer-disclosure">All wallpapers created using AI image generation, directed by fully detailed cinematic prompts and curated for quality. Free for personal desktop use.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
