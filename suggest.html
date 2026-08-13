@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suggest a Theme — The Somnolescent Dragon</title>
+  <meta name="description" content="Have an idea for a wallpaper collection? The Somnolescent Dragon would love to hear it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --page-bg:      #1C1714;
+      --surface-1:    #231E1A;
+      --surface-2:    #2C2318;
+      --border:       #3A2E22;
+      --border-hover: #C9893A;
+      --text-primary: #F2EAD8;
+      --text-muted:   #A89070;
+      --text-dim:     #6B5540;
+      --accent:       #C9893A;
+      --accent-soft:  #9E6B72;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Lato', system-ui, sans-serif;
+      --radius-sm:    6px;
+      --radius-md:    10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--page-bg); color: var(--text-primary); font-family: var(--font-body); font-weight: 400; line-height: 1.7; min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    .site-nav { position: sticky; top: 0; z-index: 100; background: rgba(28,23,20,0.92); backdrop-filter: blur(8px); border-bottom: 0.5px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 52px; }
+    .nav-brand { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--text-primary); white-space: nowrap; }
+    .nav-brand span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .nav-links a { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); padding: 0.35rem 0.65rem; border-radius: var(--radius-sm); transition: color 0.2s, background 0.2s; white-space: nowrap; }
+    .nav-links a:hover { color: var(--text-primary); background: var(--surface-2); }
+
+    /* BREADCRUMB */
+    .breadcrumb { padding: 0.85rem 2rem; border-bottom: 0.5px solid var(--border); display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; color: var(--text-dim); }
+    .breadcrumb a { color: var(--text-dim); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb-sep { opacity: 0.5; }
+    .breadcrumb-current { color: var(--text-muted); font-style: italic; }
+
+    /* PAGE CONTENT */
+    .page-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    .page-eyebrow {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .page-intro {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 2.5rem;
+    }
+
+    /* WHAT TO CONSIDER CARDS */
+    .consider-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .consider-eyebrow {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .consider-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .consider-card {
+      background: var(--surface-1);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1rem 0.875rem;
+    }
+
+    .consider-icon {
+      font-size: 1.2rem;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .consider-title {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+    }
+
+    .consider-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* WHAT DOESN'T FIT */
+    .no-fit-card {
+      background: var(--page-bg);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .no-fit-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      margin-bottom: 0.5rem;
+    }
+
+    .no-fit-list {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      line-height: 1.9;
+      list-style: none;
+    }
+
+    .no-fit-list li::before {
+      content: "—  ";
+      color: var(--text-dim);
+      opacity: 0.5;
+    }
+
+    /* DIVIDER */
+    .page-divider {
+      border: none;
+      border-top: 0.5px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    /* SUBMIT SECTION */
+    .submit-section {
+      text-align: center;
+    }
+
+    .submit-intro {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-display);
+      font-style: italic;
+    }
+
+    /* EASY TO CHANGE: update email address here if it ever changes */
+    .submit-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #1C1714;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.75rem 2rem;
+      border-radius: var(--radius-sm);
+      transition: opacity 0.2s, transform 0.15s;
+    }
+
+    .submit-btn:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+
+    .submit-note {
+      margin-top: 1rem;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    .site-footer { border-top: 0.5px solid var(--border); padding: 1.5rem 2rem; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: var(--font-display); font-style: italic; font-size: 0.82rem; color: var(--text-dim); }
+    .footer-links { display: flex; gap: 1.25rem; list-style: none; }
+    .footer-links a { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-disclosure { font-size: 0.68rem; color: var(--text-dim); width: 100%; padding-top: 0.75rem; border-top: 0.5px solid var(--border); line-height: 1.6; }
+
+    @media (max-width: 640px) {
+      .site-nav { padding: 0 1rem; }
+      .nav-links a { padding: 0.3rem 0.4rem; font-size: 0.65rem; }
+      .breadcrumb { padding: 0.75rem 1.25rem; }
+      .page-wrap { padding: 2.5rem 1.25rem 4rem; }
+      .consider-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .submit-btn:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-brand">The <span>Somnolescent</span> Dragon</a>
+      <ul class="nav-links">
+        <li><a href="index.html#collections">Collections</a></li>
+        <li><a href="whats-new.html">What's New</a></li>
+        <li><a href="suggest.html">Suggest a theme</a></li>
+        <li><a href="help.html">Help</a></li>
+        <li><a href="about.html">About the art</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">🐉 Home</a>
+    <span class="breadcrumb-sep">·</span>
+    <span class="breadcrumb-current">Suggest a Theme</span>
+  </nav>
+
+  <main>
+    <div class="page-wrap">
+
+      <p class="page-eyebrow">Suggest a Theme</p>
+      <h1 class="page-title">The Dragon is listening.</h1>
+      <p class="page-intro">Every collection here started with an idea. If something is missing from your desktop — a mood, a season, a subject, a world — we'd genuinely love to hear about it. We read every suggestion personally and cherry-pick the ones that resonate. If yours is chosen, give us about two weeks. Every image earns its place on our own desktop before it graduates to yours.</p>
+
+      <!-- WHAT TO CONSIDER -->
+      <div class="consider-section">
+        <p class="consider-eyebrow">What makes a good suggestion</p>
+        <div class="consider-grid">
+
+          <div class="consider-card">
+            <span class="consider-icon" aria-hidden="true">🌿</span>
+            <p class="consider-title">A feeling, not just a subject</p>
+            <p class="consider-desc">"Autumn forests at dusk" is stronger than "trees." The more evocative, the better.</p>
+          </div>
+
+          <div class="consider-card">
+            <span class="consider-icon" aria-hidden="true">🌍</span>
+            <p class="consider-title">A world worth wandering</p>
+            <p class="consider-desc">Places real or imagined, familiar or exotic — anywhere a desktop could transport you.</p>
+          </div>
+
+          <div class="consider-card">
+            <span class="consider-icon" aria-hidden="true">🕯️</span>
+            <p class="consider-title">Warmth over edge</p>
+            <p class="consider-desc">The Dragon leans toward wonder and beauty. Atmospheric is welcome. Disturbing is not.</p>
+          </div>
+
+          <div class="consider-card">
+            <span class="consider-icon" aria-hidden="true">✨</span>
+            <p class="consider-title">Something you'd actually use</p>
+            <p class="consider-desc">The best test: would you put it on your own desktop? If yes, it belongs here.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- WHAT DOESN'T FIT -->
+      <div class="no-fit-card">
+        <p class="no-fit-label">What doesn't fit here</p>
+        <ul class="no-fit-list">
+          <li>Horror, gore, or anything meant to disturb</li>
+          <li>Race cars, cybercities, or hyper-modern tech aesthetics</li>
+          <li>Anime or manga styles</li>
+          <li>Content featuring real people</li>
+          <li>Anything not suitable for a shared workspace</li>
+        </ul>
+      </div>
+
+      <hr class="page-divider" />
+
+      <!-- SUBMIT -->
+      <div class="submit-section">
+        <p class="submit-intro">Got something in mind? Send it our way — we'd love to hear it.</p>
+
+        <!-- EASY TO CHANGE: email address is in the href below -->
+        <a class="submit-btn" href="mailto:weatheredlanterntales@gmail.com?subject=Somnolescent%20Dragon%20%E2%80%94%20Theme%20Suggestion">
+          Send a suggestion
+        </a>
+
+        <p class="submit-note">Opens your email client. No account required, no form to fill out — just a note in your own words.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="site-footer">
+      <span class="footer-brand">The Somnolescent Dragon</span>
+      <ul class="footer-links">
+        <li><a href="whats-new.html">What's New</a></li>
+        <li><a href="suggest.html">Suggest a theme</a></li>
+        <li><a href="help.html">Help</a></li>
+        <li><a href="about.html">About the art</a></li>
+      </ul>
+      <p class="footer-disclosure">All wallpapers created using AI image generation, directed by fully detailed cinematic prompts and curated for quality. Free for personal desktop use.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
