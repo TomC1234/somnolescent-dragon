@@ -109,6 +109,44 @@
       border-bottom: 0.5px solid var(--border);
     }
 
+    /* ============================================================
+       CYCLING BANNER
+       EASY TO CHANGE: --banner-duration for timing
+       Image URLs live in the JavaScript below — search for BANNER IMAGES
+    ============================================================ */
+    :root {
+      --banner-duration: 10s;
+      --banner-fade: 1.5s;
+    }
+
+    .banner-layer {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity var(--banner-fade) ease-in-out;
+      pointer-events: none;
+    }
+
+    .banner-layer.active { opacity: 1; }
+
+    /* Dark overlay so text always stays readable over any image */
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(28, 23, 20, 0.55) 0%,
+        rgba(28, 23, 20, 0.35) 40%,
+        rgba(28, 23, 20, 0.75) 100%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Fallback gradient shown before images load */
     .hero-bg {
       position: absolute;
       inset: 0;
@@ -120,11 +158,12 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
+      z-index: 2;
     }
 
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 3;
       max-width: 620px;
       margin: 0 auto;
     }
@@ -479,7 +518,19 @@
 
     <!-- HERO -->
     <section class="hero" aria-label="Welcome">
+      <!-- Fallback gradient -->
       <div class="hero-bg"></div>
+
+      <!-- BANNER LAYERS — JavaScript cycles these -->
+      <div class="banner-layer" id="banner-0" aria-hidden="true"></div>
+      <div class="banner-layer" id="banner-1" aria-hidden="true"></div>
+      <div class="banner-layer" id="banner-2" aria-hidden="true"></div>
+      <div class="banner-layer" id="banner-3" aria-hidden="true"></div>
+      <div class="banner-layer" id="banner-4" aria-hidden="true"></div>
+
+      <!-- Overlay keeps text readable over any image -->
+      <div class="banner-overlay" aria-hidden="true"></div>
+
       <div class="starfield" id="starfield" aria-hidden="true"></div>
       <div class="hero-content">
         <span class="hero-glyph" aria-hidden="true">🐉</span>
@@ -653,6 +704,60 @@
         frag.appendChild(s);
       }
       sf.appendChild(frag);
+    })();
+  </script>
+
+  <script>
+    // ============================================================
+    // CYCLING BANNER
+    // EASY TO CHANGE: swap R2 URLs below when images are ready
+    // Keep filenames as banner_1.png through banner_5.png in R2
+    // ============================================================
+    (function() {
+      var BANNER_IMAGES = [
+        'https://YOUR-BUCKET.r2.dev/banners/banner_1.png',
+        'https://YOUR-BUCKET.r2.dev/banners/banner_2.png',
+        'https://YOUR-BUCKET.r2.dev/banners/banner_3.png',
+        'https://YOUR-BUCKET.r2.dev/banners/banner_4.png',
+        'https://YOUR-BUCKET.r2.dev/banners/banner_5.png'
+      ];
+
+      var DURATION = 10000;  // 10 seconds — EASY TO CHANGE
+      var FADE     = 1500;   // 1.5 second crossfade — EASY TO CHANGE
+
+      var layers  = [];
+      for (var i = 0; i < 5; i++) {
+        var el = document.getElementById('banner-' + i);
+        if (el) layers.push(el);
+      }
+
+      if (!layers.length || !BANNER_IMAGES.length) return;
+
+      // Preload all images silently
+      BANNER_IMAGES.forEach(function(src, i) {
+        var img = new Image();
+        img.onload = function() {
+          layers[i].style.backgroundImage = 'url(' + src + ')';
+        };
+        img.src = src;
+      });
+
+      var current = 0;
+
+      function showBanner(index) {
+        layers.forEach(function(l) { l.classList.remove('active'); });
+        layers[index].classList.add('active');
+      }
+
+      // Show first banner immediately
+      showBanner(0);
+
+      // Cycle every DURATION ms
+      setInterval(function() {
+        current = (current + 1) % BANNER_IMAGES.length;
+        showBanner(current);
+      }, DURATION);
+
     })();
   </script>
 
