@@ -145,6 +145,18 @@
 
     .banner-layer.active { opacity: 1; }
 
+    .banner-layer {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity var(--banner-fade) ease-in-out;
+      pointer-events: none;
+      z-index: 1;
+    }
+
     /* Dark overlay so text always stays readable over any image */
     .banner-overlay {
       position: absolute;
@@ -156,7 +168,7 @@
         rgba(28, 23, 20, 0.75) 100%
       );
       pointer-events: none;
-      z-index: 1;
+      z-index: 2;
     }
 
     /* Fallback gradient shown before images load */
@@ -165,13 +177,14 @@
       inset: 0;
       background: radial-gradient(ellipse 80% 60% at 50% 0%, #2E2018 0%, #1C1714 70%);
       pointer-events: none;
+      z-index: 0;
     }
 
     .starfield {
       position: absolute;
       inset: 0;
       pointer-events: none;
-      z-index: 2;
+      z-index: 3;
     }
 
     .firefly-canvas {
@@ -180,12 +193,12 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 3;
+      z-index: 4;
     }
 
     .hero-content {
       position: relative;
-      z-index: 3;
+      z-index: 5;
       max-width: 620px;
       margin: 0 auto;
     }
