@@ -141,21 +141,10 @@
       opacity: 0;
       transition: opacity var(--banner-fade) ease-in-out;
       pointer-events: none;
+      z-index: 1;
     }
 
     .banner-layer.active { opacity: 1; }
-
-    .banner-layer {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center top;
-      background-repeat: no-repeat;
-      opacity: 0;
-      transition: opacity var(--banner-fade) ease-in-out;
-      pointer-events: none;
-      z-index: 1;
-    }
 
     /* Dark overlay so text always stays readable over any image */
     .banner-overlay {
@@ -180,25 +169,9 @@
       z-index: 0;
     }
 
-    .starfield {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 3;
-    }
-
-    .firefly-canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 4;
-    }
-
     .hero-content {
       position: relative;
-      z-index: 5;
+      z-index: 3;
       max-width: 620px;
       margin: 0 auto;
     }
@@ -569,8 +542,6 @@
       <!-- Overlay keeps text readable over any image -->
       <div class="banner-overlay" aria-hidden="true"></div>
 
-      <div class="starfield" id="starfield" aria-hidden="true"></div>
-      <canvas class="firefly-canvas" id="firefly-canvas" aria-hidden="true"></canvas>
       <div class="hero-content">
         <h1 class="hero-title">The Somnolescent Dragon</h1>
         <p class="hero-tagline">Where we purposefully place and cycle curated AI art for your enjoyment, and your desktop's enjoyment too.</p>
@@ -719,114 +690,6 @@
     </div>
   </footer>
 
-  <script>
-    // Starfield — pure JS, no libraries
-    (function() {
-      var sf = document.getElementById('starfield');
-      if (!sf) return;
-      var frag = document.createDocumentFragment();
-      for (var i = 0; i < 70; i++) {
-        var s = document.createElement('div');
-        var size = Math.random() > 0.85 ? 2 : 1;
-        s.style.cssText = [
-          'position:absolute',
-          'border-radius:50%',
-          'background:#F2EAD8',
-          'width:' + size + 'px',
-          'height:' + size + 'px',
-          'left:' + (Math.random() * 100) + '%',
-          'top:' + (Math.random() * 100) + '%',
-          'opacity:' + (0.1 + Math.random() * 0.45),
-          'animation:twinkle ' + (2 + Math.random() * 4) + 's ease-in-out ' + (Math.random() * 6) + 's infinite'
-        ].join(';');
-        frag.appendChild(s);
-      }
-      sf.appendChild(frag);
-    })();
-  </script>
-
-  <script>
-    // ============================================================
-    // FIREFLIES
-    // EASY TO CHANGE: COUNT, SIZE, SPEED, COLOR below
-    // ============================================================
-    (function() {
-      var canvas = document.getElementById('firefly-canvas');
-      if (!canvas) return;
-      var ctx = canvas.getContext('2d');
-
-      var COUNT  = 35;       // number of fireflies — EASY TO CHANGE
-      var COLOR  = '180, 130, 50'; // warm amber RGB — EASY TO CHANGE
-      var SPEED  = 0.4;      // drift speed — EASY TO CHANGE
-      var SIZE   = 2.5;      // max glow radius — EASY TO CHANGE
-
-      function resize() {
-        canvas.width  = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-      }
-      resize();
-      window.addEventListener('resize', resize);
-
-      // Create fireflies
-      var flies = [];
-      for (var i = 0; i < COUNT; i++) {
-        flies.push({
-          x:       Math.random() * canvas.width,
-          y:       Math.random() * canvas.height,
-          vx:      (Math.random() - 0.5) * SPEED,
-          vy:      -(Math.random() * SPEED + 0.1), // drift upward mostly
-          opacity: Math.random(),
-          opDir:   Math.random() > 0.5 ? 1 : -1,
-          opSpeed: 0.004 + Math.random() * 0.008,
-          size:    SIZE * (0.5 + Math.random() * 0.8),
-          wobble:  Math.random() * Math.PI * 2,
-          wobbleSpeed: 0.01 + Math.random() * 0.02
-        });
-      }
-
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        flies.forEach(function(f) {
-          // Pulse opacity
-          f.opacity += f.opSpeed * f.opDir;
-          if (f.opacity >= 1)   { f.opacity = 1;   f.opDir = -1; }
-          if (f.opacity <= 0.05){ f.opacity = 0.05; f.opDir =  1; }
-
-          // Wobble drift
-          f.wobble += f.wobbleSpeed;
-          f.x += f.vx + Math.sin(f.wobble) * 0.3;
-          f.y += f.vy;
-
-          // Wrap around edges
-          if (f.y < -10)             f.y = canvas.height + 10;
-          if (f.x < -10)             f.x = canvas.width  + 10;
-          if (f.x > canvas.width+10) f.x = -10;
-
-          // Draw glow
-          var grd = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.size * 3);
-          grd.addColorStop(0,   'rgba(' + COLOR + ',' + f.opacity + ')');
-          grd.addColorStop(0.4, 'rgba(' + COLOR + ',' + (f.opacity * 0.4) + ')');
-          grd.addColorStop(1,   'rgba(' + COLOR + ',0)');
-
-          ctx.beginPath();
-          ctx.arc(f.x, f.y, f.size * 3, 0, Math.PI * 2);
-          ctx.fillStyle = grd;
-          ctx.fill();
-
-          // Bright center dot
-          ctx.beginPath();
-          ctx.arc(f.x, f.y, f.size * 0.4, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(255, 220, 120,' + (f.opacity * 0.9) + ')';
-          ctx.fill();
-        });
-
-        requestAnimationFrame(draw);
-      }
-
-      draw();
-    })();
-  </script>
     // EASY TO CHANGE: swap R2 URLs below when images are ready
     // Keep filenames as banner_1.png through banner_5.png in R2
     // ============================================================
@@ -879,8 +742,6 @@
   </script>
 
   <style>
-    @keyframes twinkle {
-      0%, 100% { opacity: inherit; }
       50% { opacity: 0.05; }
     }
   </style>
