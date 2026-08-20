@@ -701,6 +701,47 @@
       .hero-glyph { animation: none; }
       .cat-card:hover { transform: none; }
     }
+
+    /* ============================================================
+       MARQUEE STRIP
+       EASY TO CHANGE: --marquee-speed, colors, text content below
+    ============================================================ */
+    .marquee-strip {
+      background: var(--surface-1);
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0.6rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      animation: marquee 30s linear infinite;
+    }
+
+    .marquee-track:hover { animation-play-state: paused; }
+
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0 1.5rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+    }
+
+    .marquee-dot {
+      color: var(--accent);
+      font-size: 0.5rem;
+    }
   </style>
 </head>
 <body>
@@ -745,6 +786,14 @@
         <p class="hero-privacy">No accounts. No ads. No noise. Just art.</p>
       </div>
     </section>
+
+
+    <!-- MARQUEE STRIP -->
+    <div class="marquee-strip" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item">Flights of Fantasy<span class="marquee-dot">◆</span></span><span class="marquee-item">Castles and Keeps<span class="marquee-dot">◆</span></span><span class="marquee-item">Wondrous Water<span class="marquee-dot">◆</span></span><span class="marquee-item">Cosmic Codex<span class="marquee-dot">◆</span></span><span class="marquee-item">Dreamscapes<span class="marquee-dot">◆</span></span><span class="marquee-item">Musical Spice<span class="marquee-dot">◆</span></span><span class="marquee-item">Halloween and Haunts<span class="marquee-dot">◆</span></span><span class="marquee-item">Winter's Embrace<span class="marquee-dot">◆</span></span><span class="marquee-item">Christmas Heart<span class="marquee-dot">◆</span></span><span class="marquee-item">Magical Miscellany<span class="marquee-dot">◆</span></span><span class="marquee-item">No accounts<span class="marquee-dot">◆</span></span><span class="marquee-item">No ads<span class="marquee-dot">◆</span></span><span class="marquee-item">No tracking<span class="marquee-dot">◆</span></span><span class="marquee-item">Just art<span class="marquee-dot">◆</span></span><span class="marquee-item">Free downloads<span class="marquee-dot">◆</span></span><span class="marquee-item">Always growing<span class="marquee-dot">◆</span></span><span class="marquee-item">Flights of Fantasy<span class="marquee-dot">◆</span></span><span class="marquee-item">Castles and Keeps<span class="marquee-dot">◆</span></span><span class="marquee-item">Wondrous Water<span class="marquee-dot">◆</span></span><span class="marquee-item">Cosmic Codex<span class="marquee-dot">◆</span></span><span class="marquee-item">Dreamscapes<span class="marquee-dot">◆</span></span><span class="marquee-item">Musical Spice<span class="marquee-dot">◆</span></span><span class="marquee-item">Halloween and Haunts<span class="marquee-dot">◆</span></span><span class="marquee-item">Winter's Embrace<span class="marquee-dot">◆</span></span><span class="marquee-item">Christmas Heart<span class="marquee-dot">◆</span></span><span class="marquee-item">Magical Miscellany<span class="marquee-dot">◆</span></span><span class="marquee-item">No accounts<span class="marquee-dot">◆</span></span><span class="marquee-item">No ads<span class="marquee-dot">◆</span></span><span class="marquee-item">No tracking<span class="marquee-dot">◆</span></span><span class="marquee-item">Just art<span class="marquee-dot">◆</span></span><span class="marquee-item">Free downloads<span class="marquee-dot">◆</span></span><span class="marquee-item">Always growing<span class="marquee-dot">◆</span></span>
+      </div>
+    </div>
 
     <!-- FRESH FROM THE DRAGON -->
     <section class="fresh-section" aria-label="Fresh from the Dragon">
@@ -1035,6 +1084,47 @@
     @keyframes twinkle {
       0%, 100% { opacity: inherit; }
       50% { opacity: 0.05; }
+    }
+
+    /* ============================================================
+       MARQUEE STRIP
+       EASY TO CHANGE: --marquee-speed, colors, text content below
+    ============================================================ */
+    .marquee-strip {
+      background: var(--surface-1);
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0.6rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      animation: marquee 30s linear infinite;
+    }
+
+    .marquee-track:hover { animation-play-state: paused; }
+
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0 1.5rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+    }
+
+    .marquee-dot {
+      color: var(--accent);
+      font-size: 0.5rem;
     }
   </style>
 
