@@ -1095,19 +1095,17 @@
     var freshCurrent   = 0;
 
     // Wire cards via event delegation on fresh-strip
-    document.addEventListener('DOMContentLoaded', function() {
-      var strip = document.getElementById('fresh-strip');
-      if (strip) {
-        strip.addEventListener('click', function(e) {
-          var card = e.target.closest('.fresh-card[data-idx]');
-          if (!card) return;
-          freshCurrent = parseInt(card.dataset.idx, 10);
-          loadFreshLightbox(freshCurrent);
-          freshLightbox.classList.add('open');
-          document.body.style.overflow = 'hidden';
-        });
-      }
-    });
+    var strip = document.getElementById('fresh-strip');
+    if (strip) {
+      strip.addEventListener('click', function(e) {
+        var card = e.target.closest('.fresh-card[data-idx]');
+        if (!card) return;
+        freshCurrent = parseInt(card.dataset.idx, 10);
+        loadFreshLightbox(freshCurrent);
+        freshLightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    }
     // dummy to avoid reference errors
     function openFreshLightbox() {}
 
