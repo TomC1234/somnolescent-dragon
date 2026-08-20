@@ -245,8 +245,116 @@
     }
 
     /* ============================================================
-       FRESH FROM THE DRAGON — Dragon's personal picks
+       FRESH LIGHTBOX
     ============================================================ */
+    #fresh-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(14,11,9,0.96);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    #fresh-lightbox.open { display: flex; }
+
+    #fresh-lightbox .lightbox-inner {
+      max-width: 1200px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    #fresh-lightbox .lightbox-img-wrap {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--surface-1);
+      border: 0.5px solid var(--border);
+    }
+
+    #fresh-lightbox .lightbox-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 70vh;
+      object-fit: contain;
+    }
+
+    #fresh-lightbox .lightbox-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    #fresh-lightbox .lightbox-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    #fresh-lightbox .lightbox-meta {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    #fresh-lightbox .lightbox-close {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.5rem;
+      font-size: 1.5rem;
+      color: var(--text-dim);
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+      z-index: 1001;
+    }
+
+    #fresh-lightbox .lightbox-close:hover { color: var(--text-primary); }
+
+    #fresh-lightbox .lightbox-prev,
+    #fresh-lightbox .lightbox-next {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: var(--text-dim);
+      cursor: pointer;
+      background: var(--surface-1);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem 0.75rem;
+      line-height: 1;
+      z-index: 1001;
+    }
+
+    #fresh-lightbox .lightbox-prev { left: 1rem; }
+    #fresh-lightbox .lightbox-next { right: 1rem; }
+
+    #fresh-lightbox .dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--accent);
+      color: #1C1714;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.55rem 1.25rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      border: none;
+    }
     .fresh-section {
       padding: 2.5rem 2rem 0;
       max-width: 1200px;
