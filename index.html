@@ -245,7 +245,7 @@
     }
 
     /* ============================================================
-       FRESH FROM THE DRAGON — newest additions strip
+       FRESH FROM THE DRAGON — Dragon's personal picks
     ============================================================ */
     .fresh-section {
       padding: 2.5rem 2rem 0;
@@ -258,63 +258,93 @@
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .fresh-eyebrow-sub {
+      font-size: 0.72rem;
+      font-style: italic;
+      color: var(--text-dim);
       margin-bottom: 1rem;
+      font-family: var(--font-display);
     }
 
     .fresh-strip {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
       gap: 10px;
-      overflow-x: auto;
-      padding-bottom: 0.5rem;
-      scrollbar-width: thin;
-      scrollbar-color: var(--border) transparent;
     }
 
     .fresh-card {
-      flex: 0 0 220px;
-      height: 100px;
       background: var(--surface-1);
       border: 0.5px solid var(--border);
       border-radius: var(--radius-md);
       overflow: hidden;
       position: relative;
-      transition: border-color 0.25s;
+      transition: border-color 0.25s, transform 0.2s;
       cursor: pointer;
+      display: block;
     }
 
-    .fresh-card:hover { border-color: var(--border-hover); }
+    .fresh-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
 
-    .fresh-card img {
+    .fresh-thumb {
+      width: 100%;
+      aspect-ratio: 21 / 9;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .fresh-thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.75;
-      transition: opacity 0.25s;
+      opacity: 0.85;
+      transition: opacity 0.25s, transform 0.4s;
     }
 
-    .fresh-card:hover img { opacity: 0.9; }
+    .fresh-card:hover .fresh-thumb img {
+      opacity: 1;
+      transform: scale(1.03);
+    }
+
+    .fresh-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28,23,20,0.85) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.25s;
+      display: flex;
+      align-items: flex-end;
+      padding: 0.5rem;
+    }
+
+    .fresh-card:hover .fresh-overlay { opacity: 1; }
+
+    .fresh-dl-btn {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #1C1714;
+      background: var(--accent);
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+    }
+
+    .fresh-card-footer {
+      padding: 0.5rem 0.6rem;
+      text-align: center;
+    }
 
     .fresh-card-label {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 0.4rem 0.6rem;
-      background: linear-gradient(transparent, rgba(28,23,20,0.9));
-      font-size: 0.7rem;
-      color: var(--text-primary);
-      letter-spacing: 0.03em;
-    }
-
-    .fresh-placeholder {
-      width: 100%;
-      height: 100%;
-      background: var(--surface-2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      opacity: 0.4;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      font-style: italic;
+      font-family: var(--font-display);
     }
 
     .new-badge {
@@ -329,6 +359,7 @@
       letter-spacing: 0.08em;
       padding: 2px 6px;
       border-radius: 3px;
+      z-index: 1;
     }
 
     /* ============================================================
@@ -350,11 +381,12 @@
       background: var(--surface-1);
       border: 0.5px solid var(--border);
       border-radius: var(--radius-md);
-      padding: 1.25rem 1rem;
+      padding: 1rem;
       cursor: pointer;
       transition: border-color 0.25s, background 0.25s, transform 0.2s;
       display: block;
       position: relative;
+      text-align: center;
     }
 
     .cat-card:hover {
@@ -378,9 +410,7 @@
     }
 
     .cat-icon {
-      font-size: 1.5rem;
-      display: block;
-      margin-bottom: 0.6rem;
+      display: none;
     }
 
     .cat-name {
@@ -388,6 +418,7 @@
       font-size: 0.95rem;
       color: var(--text-primary);
       line-height: 1.3;
+      margin-top: 0.75rem;
       margin-bottom: 0.3rem;
     }
 
@@ -606,34 +637,70 @@
     </section>
 
     <!-- FRESH FROM THE DRAGON -->
-    <section class="fresh-section" aria-label="Recently added wallpapers">
+    <section class="fresh-section" aria-label="Fresh from the Dragon">
       <p class="section-eyebrow">Fresh from the dragon</p>
+      <p class="fresh-eyebrow-sub">Five wallpapers dreamed and chosen by the Dragon — not found anywhere else on the site.</p>
       <div class="fresh-strip" role="list">
-
-        <!-- Replace src="" with your R2 image URLs as you add them -->
-        <div class="fresh-card" role="listitem" title="Flights of Fantasy">
-          <div class="fresh-placeholder">🌿</div>
+        <a class="fresh-card" role="listitem" onclick="triggerFreshDownload('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/fresh_1.png', 'fresh_1-ultrawide'); return false;" href="#">
           <span class="new-badge">New</span>
-          <span class="fresh-card-label">Flights of Fantasy</span>
-        </div>
-        <div class="fresh-card" role="listitem" title="Castles and Keeps">
-          <div class="fresh-placeholder">🏰</div>
+          <div class="fresh-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/fresh_1.png" alt="Fresh from the Dragon pick 1" loading="lazy" />
+            <div class="fresh-overlay">
+              <span class="fresh-dl-btn">⬇ Download</span>
+            </div>
+          </div>
+          <div class="fresh-card-footer">
+            <span class="fresh-card-label">Dreamed by the Dragon</span>
+          </div>
+        </a>
+        <a class="fresh-card" role="listitem" onclick="triggerFreshDownload('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/fresh_2.png', 'fresh_2-ultrawide'); return false;" href="#">
           <span class="new-badge">New</span>
-          <span class="fresh-card-label">Castles and Keeps</span>
-        </div>
-        <div class="fresh-card" role="listitem" title="Wondrous Water">
-          <div class="fresh-placeholder">🌊</div>
-          <span class="fresh-card-label">Wondrous Water</span>
-        </div>
-        <div class="fresh-card" role="listitem" title="Dreamscapes">
-          <div class="fresh-placeholder">🌫️</div>
-          <span class="fresh-card-label">Dreamscapes</span>
-        </div>
-        <div class="fresh-card" role="listitem" title="Cosmic Codex">
-          <div class="fresh-placeholder">🪐</div>
-          <span class="fresh-card-label">Cosmic Codex</span>
-        </div>
-
+          <div class="fresh-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/fresh_2.png" alt="Fresh from the Dragon pick 2" loading="lazy" />
+            <div class="fresh-overlay">
+              <span class="fresh-dl-btn">⬇ Download</span>
+            </div>
+          </div>
+          <div class="fresh-card-footer">
+            <span class="fresh-card-label">Dreamed by the Dragon</span>
+          </div>
+        </a>
+        <a class="fresh-card" role="listitem" onclick="triggerFreshDownload('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/fresh_3.png', 'fresh_3-ultrawide'); return false;" href="#">
+          <span class="new-badge">New</span>
+          <div class="fresh-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/fresh_3.png" alt="Fresh from the Dragon pick 3" loading="lazy" />
+            <div class="fresh-overlay">
+              <span class="fresh-dl-btn">⬇ Download</span>
+            </div>
+          </div>
+          <div class="fresh-card-footer">
+            <span class="fresh-card-label">Dreamed by the Dragon</span>
+          </div>
+        </a>
+        <a class="fresh-card" role="listitem" onclick="triggerFreshDownload('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/fresh_4.png', 'fresh_4-ultrawide'); return false;" href="#">
+          <span class="new-badge">New</span>
+          <div class="fresh-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/fresh_4.png" alt="Fresh from the Dragon pick 4" loading="lazy" />
+            <div class="fresh-overlay">
+              <span class="fresh-dl-btn">⬇ Download</span>
+            </div>
+          </div>
+          <div class="fresh-card-footer">
+            <span class="fresh-card-label">Dreamed by the Dragon</span>
+          </div>
+        </a>
+        <a class="fresh-card" role="listitem" onclick="triggerFreshDownload('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/fresh_5.png', 'fresh_5-ultrawide'); return false;" href="#">
+          <span class="new-badge">New</span>
+          <div class="fresh-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/fresh_5.png" alt="Fresh from the Dragon pick 5" loading="lazy" />
+            <div class="fresh-overlay">
+              <span class="fresh-dl-btn">⬇ Download</span>
+            </div>
+          </div>
+          <div class="fresh-card-footer">
+            <span class="fresh-card-label">Dreamed by the Dragon</span>
+          </div>
+        </a>
       </div>
     </section>
 
@@ -984,6 +1051,17 @@
         }, stagger);
       });
     })();
+  </script>
+
+  <script>
+    function triggerFreshDownload(src, name) {
+      var a = document.createElement('a');
+      a.href = src;
+      a.download = name + '.png';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
   </script>
 </body>
 </html>
