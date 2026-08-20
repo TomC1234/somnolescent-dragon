@@ -573,7 +573,7 @@
 
     function triggerDownload(src, name) {
       if (!src || src === '#') return;
-      var workerSrc = src.replace('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev'', 'https://jolly-snowflake-8dd0.thomascox7509.workers.dev'');
+      var workerSrc = src.replace('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev', 'https://jolly-snowflake-8dd0.thomascox7509.workers.dev');
       var a = document.createElement('a');
       a.href = workerSrc;
       a.download = name + '.png';
