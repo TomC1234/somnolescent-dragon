@@ -1055,12 +1055,21 @@
 
   <script>
     function triggerFreshDownload(src, name) {
-      var a = document.createElement('a');
-      a.href = src;
-      a.download = name + '.png';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+      fetch(src)
+        .then(function(res) { return res.blob(); })
+        .then(function(blob) {
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = name + '.png';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        })
+        .catch(function() {
+          window.open(src, '_blank');
+        });
     }
   </script>
 </body>
