@@ -408,6 +408,42 @@
     .cat-card:hover .cat-meta { color: var(--text-muted); }
 
     /* ============================================================
+       CATEGORY CARD CYCLING THUMBNAILS
+       EASY TO CHANGE: thumb height, transition speed
+    ============================================================ */
+    .cat-thumb {
+      width: 100%;
+      aspect-ratio: 8 / 3;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      border-bottom: 0.5px solid var(--border);
+      background: var(--surface-2);
+    }
+
+    .cat-thumb-layer {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+
+    .cat-thumb-layer.active { opacity: 1; }
+
+    .cat-thumb-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      opacity: 0.2;
+    }
+
+    /* ============================================================
        YOUTUBE CROSS-PLUG
     ============================================================ */
     .yt-plug {
@@ -606,73 +642,133 @@
       <p class="section-eyebrow">Browse the collections</p>
       <div class="category-grid">
 
-        <a class="cat-card" href="flights-of-fantasy/index.html">
+        <a class="cat-card" href="flights-of-fantasy/index.html" data-slug="flights-of-fantasy">
           <span class="cat-card-new">Updated</span>
+          <div class="cat-thumb">
+            <div class="cat-thumb-layer" data-layer="0"></div>
+            <div class="cat-thumb-layer" data-layer="1"></div>
+            <div class="cat-thumb-layer" data-layer="2"></div>
+            <div class="cat-thumb-placeholder">🌿</div>
+          </div>
           <span class="cat-icon" aria-hidden="true">🌿</span>
           <p class="cat-name">Flights of Fantasy</p>
           <p class="cat-desc">Cheerful warm fantasy — whimsical, adventurous, full of wonder.</p>
           <span class="cat-meta">64 wallpapers</span>
         </a>
 
-        <a class="cat-card" href="dreamscapes/index.html">
+        <a class="cat-card" href="dreamscapes/index.html" data-slug="dreamscapes">
+          <div class="cat-thumb">
+            <div class="cat-thumb-layer" data-layer="0"></div>
+            <div class="cat-thumb-layer" data-layer="1"></div>
+            <div class="cat-thumb-layer" data-layer="2"></div>
+            <div class="cat-thumb-placeholder">🌫️</div>
+          </div>
           <span class="cat-icon" aria-hidden="true">🌫️</span>
           <p class="cat-name">Dreamscapes</p>
           <p class="cat-desc">Surreal ethereal landscapes that feel like a dream or a memory.</p>
           <span class="cat-meta">25 wallpapers</span>
         </a>
 
-        <a class="cat-card" href="cosmic-codex/index.html">
+        <a class="cat-card" href="cosmic-codex/index.html" data-slug="cosmic-codex">
+          <div class="cat-thumb">
+            <div class="cat-thumb-layer" data-layer="0"></div>
+            <div class="cat-thumb-layer" data-layer="1"></div>
+            <div class="cat-thumb-layer" data-layer="2"></div>
+            <div class="cat-thumb-placeholder">🪐</div>
+          </div>
           <span class="cat-icon" aria-hidden="true">🪐</span>
           <p class="cat-name">Cosmic Codex</p>
           <p class="cat-desc">Planets, alien worlds, ancient remnants among the stars.</p>
           <span class="cat-meta">~30 wallpapers</span>
         </a>
 
-        <a class="cat-card" href="castles-and-keeps/index.html">
+        <a class="cat-card" href="castles-and-keeps/index.html" data-slug="castles-and-keeps">
           <span class="cat-card-new">Updated</span>
+          <div class="cat-thumb">
+            <div class="cat-thumb-layer" data-layer="0"></div>
+            <div class="cat-thumb-layer" data-layer="1"></div>
+            <div class="cat-thumb-layer" data-layer="2"></div>
+            <div class="cat-thumb-placeholder">🏰</div>
+          </div>
           <span class="cat-icon" aria-hidden="true">🏰</span>
           <p class="cat-name">Castles and Keeps</p>
           <p class="cat-desc">Historic castle architecture from Europe, Japan, India, and beyond.</p>
           <span class="cat-meta">44 wallpapers</span>
         </a>
 
-        <a class="cat-card" href="wondrous-water/index.html">
+        <a class="cat-card" href="wondrous-water/index.html" data-slug="wondrous-water">
+          <div class="cat-thumb">
+            <div class="cat-thumb-layer" data-layer="0"></div>
+            <div class="cat-thumb-layer" data-layer="1"></div>
+            <div class="cat-thumb-layer" data-layer="2"></div>
+            <div class="cat-thumb-placeholder">🌊</div>
+          </div>
           <span class="cat-icon" aria-hidden="true">🌊</span>
           <p class="cat-name">Wondrous Water</p>
           <p class="cat-desc">Waterfalls in nature, cities, ruins, and perspectives never seen.</p>
           <span class="cat-meta">~46 wallpapers</span>
         </a>
 
-        <a class="cat-card" href="musical-spice/index.html">
+        <a class="cat-card" href="musical-spice/index.html" data-slug="musical-spice">
+          <div class="cat-thumb">
+            <div class="cat-thumb-layer" data-layer="0"></div>
+            <div class="cat-thumb-layer" data-layer="1"></div>
+            <div class="cat-thumb-layer" data-layer="2"></div>
+            <div class="cat-thumb-placeholder">🎻</div>
+          </div>
           <span class="cat-icon" aria-hidden="true">🎻</span>
           <p class="cat-name">Musical Spice</p>
           <p class="cat-desc">Instruments in extraordinary, surreal, and exotic settings.</p>
           <span class="cat-meta">Coming soon</span>
         </a>
 
-        <a class="cat-card" href="halloween-and-haunts/index.html">
+        <a class="cat-card" href="halloween-and-haunts/index.html" data-slug="halloween-and-haunts">
           <span class="cat-card-new">Building</span>
+          <div class="cat-thumb">
+            <div class="cat-thumb-layer" data-layer="0"></div>
+            <div class="cat-thumb-layer" data-layer="1"></div>
+            <div class="cat-thumb-layer" data-layer="2"></div>
+            <div class="cat-thumb-placeholder">🕯️</div>
+          </div>
           <span class="cat-icon" aria-hidden="true">🕯️</span>
           <p class="cat-name">Halloween and Haunts</p>
           <p class="cat-desc">Atmospheric and charming spooky — never threatening, always haunting.</p>
           <span class="cat-meta">In progress</span>
         </a>
 
-        <a class="cat-card" href="winters-embrace/index.html">
+        <a class="cat-card" href="winters-embrace/index.html" data-slug="winters-embrace">
+          <div class="cat-thumb">
+            <div class="cat-thumb-layer" data-layer="0"></div>
+            <div class="cat-thumb-layer" data-layer="1"></div>
+            <div class="cat-thumb-layer" data-layer="2"></div>
+            <div class="cat-thumb-placeholder">❄️</div>
+          </div>
           <span class="cat-icon" aria-hidden="true">❄️</span>
           <p class="cat-name">Winter's Embrace</p>
           <p class="cat-desc">Cold beauty — stark, silver-blue, and atmospheric.</p>
           <span class="cat-meta">Coming soon</span>
         </a>
 
-        <a class="cat-card" href="christmas-heart/index.html">
+        <a class="cat-card" href="christmas-heart/index.html" data-slug="christmas-heart">
+          <div class="cat-thumb">
+            <div class="cat-thumb-layer" data-layer="0"></div>
+            <div class="cat-thumb-layer" data-layer="1"></div>
+            <div class="cat-thumb-layer" data-layer="2"></div>
+            <div class="cat-thumb-placeholder">🕯️</div>
+          </div>
           <span class="cat-icon" aria-hidden="true">🕯️</span>
           <p class="cat-name">Christmas Heart</p>
           <p class="cat-desc">Festive warmth and Yule magic in ultrawide splendor.</p>
           <span class="cat-meta">Coming soon</span>
         </a>
 
-        <a class="cat-card" href="magical-miscellany/index.html">
+        <a class="cat-card" href="magical-miscellany/index.html" data-slug="magical-miscellany">
+          <div class="cat-thumb">
+            <div class="cat-thumb-layer" data-layer="0"></div>
+            <div class="cat-thumb-layer" data-layer="1"></div>
+            <div class="cat-thumb-layer" data-layer="2"></div>
+            <div class="cat-thumb-placeholder">🍂</div>
+          </div>
           <span class="cat-icon" aria-hidden="true">🍂</span>
           <p class="cat-name">Magical Miscellany</p>
           <p class="cat-desc">Other holidays, Autumn, Thanksgiving, and the wonderful catch-all.</p>
@@ -837,6 +933,56 @@
         requestAnimationFrame(draw);
       }
       draw();
+    })();
+  </script>
+
+  <script>
+    // ============================================================
+    // CATEGORY CARD CYCLING THUMBNAILS
+    // EASY TO CHANGE: DURATION, FADE, and R2 base URL below
+    // R2 folder structure: {slug}/thumbs/thumb_1.png, thumb_2.png, thumb_3.png
+    // ============================================================
+    (function() {
+      var R2 = 'https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev';
+      var DURATION = 12000; // 12 seconds — EASY TO CHANGE
+      var COUNT = 3;        // images per category — EASY TO CHANGE
+
+      var cards = document.querySelectorAll('.cat-card[data-slug]');
+
+      cards.forEach(function(card, cardIndex) {
+        var slug = card.dataset.slug;
+        var layers = card.querySelectorAll('.cat-thumb-layer');
+        var current = 0;
+
+        // Preload and assign images
+        var images = [];
+        for (var i = 1; i <= COUNT; i++) {
+          images.push(R2 + '/' + slug + '/thumbs/thumb_' + i + '.jpg.jpeg');
+        }
+
+        // Preload silently
+        images.forEach(function(src, idx) {
+          var img = new Image();
+          img.onload = function() {
+            layers[idx].style.backgroundImage = 'url(' + src + ')';
+          };
+          img.src = src;
+        });
+
+        // Show first layer immediately
+        layers[0].classList.add('active');
+
+        // Stagger start time so cards don't all cycle together
+        var stagger = cardIndex * 1800;
+
+        setTimeout(function() {
+          setInterval(function() {
+            layers[current].classList.remove('active');
+            current = (current + 1) % COUNT;
+            layers[current].classList.add('active');
+          }, DURATION);
+        }, stagger);
+      });
     })();
   </script>
 </body>
