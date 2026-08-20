@@ -1055,21 +1055,14 @@
 
   <script>
     function triggerFreshDownload(src, name) {
-      fetch(src)
-        .then(function(res) { return res.blob(); })
-        .then(function(blob) {
-          var url = URL.createObjectURL(blob);
-          var a = document.createElement('a');
-          a.href = url;
-          a.download = name + '.png';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-        })
-        .catch(function() {
-          window.open(src, '_blank');
-        });
+      // Route through Worker to force download header
+      var workerSrc = src.replace('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev', 'https://jolly-snowflake-8dd0.thomascox7509.workers.dev');
+      var a = document.createElement('a');
+      a.href = workerSrc;
+      a.download = name + '.png';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     }
   </script>
 </body>
