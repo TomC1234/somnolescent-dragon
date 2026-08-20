@@ -72,6 +72,24 @@
     .more-card-name { font-family: var(--font-display); font-size: 0.8rem; color: var(--text-primary); line-height: 1.3; margin-bottom: 0.2rem; }
     .more-card-count { font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.04em; }
     .more-card:hover .more-card-count { color: var(--text-muted); }
+    .more-card-thumb {
+      width: 100%;
+      aspect-ratio: 8 / 3;
+      overflow: hidden;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      border-bottom: 0.5px solid var(--border);
+      background: var(--surface-2);
+      margin: -1rem -0.875rem 0.75rem;
+      width: calc(100% + 1.75rem);
+    }
+    .more-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: opacity 0.25s;
+    }
+    .more-card:hover .more-card-thumb img { opacity: 1; }
     .site-footer { border-top: 0.5px solid var(--border); padding: 1.5rem 2rem; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .footer-brand { font-family: var(--font-display); font-style: italic; font-size: 0.82rem; color: var(--text-dim); }
     .footer-links { display: flex; gap: 1.25rem; list-style: none; }
@@ -137,47 +155,47 @@
       <p class="section-eyebrow">More collections</p>
       <div class="more-strip" role="list">
         <a class="more-card" href="../flights-of-fantasy/index.html" role="listitem">
-          <span class="more-card-icon" aria-hidden="true">🌿</span>
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/flights-of-fantasy/thumbs/thumb_1.jpeg" alt="flights-of-fantasy" loading="lazy" /></div>
           <p class="more-card-name">Flights of Fantasy</p>
           <span class="more-card-count">64 wallpapers</span>
         </a>
         <a class="more-card" href="../cosmic-codex/index.html" role="listitem">
-          <span class="more-card-icon" aria-hidden="true">🪐</span>
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/cosmic-codex/thumbs/thumb_1.jpeg" alt="cosmic-codex" loading="lazy" /></div>
           <p class="more-card-name">Cosmic Codex</p>
           <span class="more-card-count">~30 wallpapers</span>
         </a>
         <a class="more-card" href="../castles-and-keeps/index.html" role="listitem">
-          <span class="more-card-icon" aria-hidden="true">🏰</span>
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/thumbs/thumb_1.jpeg" alt="castles-and-keeps" loading="lazy" /></div>
           <p class="more-card-name">Castles and Keeps</p>
           <span class="more-card-count">44 wallpapers</span>
         </a>
         <a class="more-card" href="../wondrous-water/index.html" role="listitem">
-          <span class="more-card-icon" aria-hidden="true">🌊</span>
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/wondrous-water/thumbs/thumb_1.jpeg" alt="wondrous-water" loading="lazy" /></div>
           <p class="more-card-name">Wondrous Water</p>
           <span class="more-card-count">~46 wallpapers</span>
         </a>
         <a class="more-card" href="../musical-spice/index.html" role="listitem">
-          <span class="more-card-icon" aria-hidden="true">🎻</span>
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/musical-spice/thumbs/thumb_1.jpeg" alt="musical-spice" loading="lazy" /></div>
           <p class="more-card-name">Musical Spice</p>
           <span class="more-card-count">Coming soon</span>
         </a>
         <a class="more-card" href="../halloween-and-haunts/index.html" role="listitem">
-          <span class="more-card-icon" aria-hidden="true">🕯️</span>
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/thumbs/thumb_1.jpeg" alt="halloween-and-haunts" loading="lazy" /></div>
           <p class="more-card-name">Halloween and Haunts</p>
           <span class="more-card-count">In progress</span>
         </a>
         <a class="more-card" href="../winters-embrace/index.html" role="listitem">
-          <span class="more-card-icon" aria-hidden="true">❄️</span>
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/thumbs/thumb_1.jpeg" alt="winters-embrace" loading="lazy" /></div>
           <p class="more-card-name">Winter's Embrace</p>
           <span class="more-card-count">Coming soon</span>
         </a>
         <a class="more-card" href="../christmas-heart/index.html" role="listitem">
-          <span class="more-card-icon" aria-hidden="true">🕯️</span>
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/thumbs/thumb_1.jpeg" alt="christmas-heart" loading="lazy" /></div>
           <p class="more-card-name">Christmas Heart</p>
           <span class="more-card-count">Coming soon</span>
         </a>
         <a class="more-card" href="../magical-miscellany/index.html" role="listitem">
-          <span class="more-card-icon" aria-hidden="true">🍂</span>
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/magical-miscellany/thumbs/thumb_1.jpeg" alt="magical-miscellany" loading="lazy" /></div>
           <p class="more-card-name">Magical Miscellany</p>
           <span class="more-card-count">Coming soon</span>
         </a>
