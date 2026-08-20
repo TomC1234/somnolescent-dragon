@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Castles and Keeps — The Somnolescent Dragon</title>
-  <meta name="description" content="Historic castle architecture from Europe, Japan, India, the Moorish world, and beyond. No people, no vehicles — only stone, time, and signs of life through objects." />
+  <title>Castle Belonging — Castles and Keeps — The Somnolescent Dragon</title>
+  <meta name="description" content="View-from perspectives of historic castles — as if you live there. Free ultrawide 21:9 AI wallpapers from The Somnolescent Dragon." />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -28,43 +28,90 @@
       --radius-sm:    6px;
       --radius-md:    10px;
     }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { background: var(--page-bg); color: var(--text-primary); font-family: var(--font-body); font-weight: 400; line-height: 1.7; min-height: 100vh; }
     a { color: inherit; text-decoration: none; }
+    main { width: 100%; }
+
+    /* NAV */
     .site-nav { position: sticky; top: 0; z-index: 100; background: rgba(28,23,20,0.92); backdrop-filter: blur(8px); border-bottom: 0.5px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 52px; }
     .nav-brand { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--text-primary); white-space: nowrap; }
     .nav-brand span { color: var(--accent); }
     .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
-    .nav-links a { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); padding: 0.35rem 0.65rem; border-radius: var(--radius-sm); transition: color 0.2s, background 0.2s; white-space: nowrap; }
+    .nav-links a { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); padding: 0.35rem 0.65rem; border-radius: var(--radius-sm); transition: color 0.2s, background 0.2s; white-space: nowrap; }
     .nav-links a:hover { color: var(--text-primary); background: var(--surface-2); }
-    .breadcrumb { padding: 0.85rem 2rem; border-bottom: 0.5px solid var(--border); display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; color: var(--text-dim); }
+
+    /* BREADCRUMB */
+    .breadcrumb { padding: 0.85rem 2rem; border-bottom: 0.5px solid var(--border); display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; color: var(--text-dim); flex-wrap: wrap; }
     .breadcrumb a { color: var(--text-dim); transition: color 0.2s; }
     .breadcrumb a:hover { color: var(--accent); }
     .breadcrumb-sep { opacity: 0.5; }
     .breadcrumb-current { color: var(--text-muted); font-style: italic; }
-    .cat-hero { padding: 3rem 2rem 2.5rem; border-bottom: 0.5px solid var(--border); max-width: 1200px; margin: 0 auto; }
-    .cat-eyebrow { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 0.75rem; }
-    .cat-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.2; }
-    .cat-description { font-size: 0.9rem; color: var(--text-muted); max-width: 560px; line-height: 1.8; margin-bottom: 1.25rem; }
-    .cat-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .cat-stat { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); }
-    .cat-stat strong { display: block; font-size: 1.1rem; font-family: var(--font-display); color: var(--text-primary); font-weight: 400; letter-spacing: 0; text-transform: none; }
-    .collections-section { padding: 2.5rem 2rem 1rem; max-width: 1200px; margin: 0 auto; }
-    .section-eyebrow { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 1.25rem; }
-    .collections-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
-    .collection-card { background: var(--surface-1); border: 0.5px solid var(--border); border-radius: var(--radius-md); overflow: hidden; cursor: pointer; transition: border-color 0.25s, transform 0.2s; display: block; position: relative; }
-    .collection-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
-    .collection-thumb { width: 100%; height: 130px; background: var(--surface-2); display: flex; align-items: center; justify-content: center; font-size: 2rem; border-bottom: 0.5px solid var(--border); overflow: hidden; }
-    .collection-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.25s; }
-    .collection-card:hover .collection-thumb img { opacity: 1; }
-    .collection-thumb-placeholder { opacity: 0.3; }
-    .collection-body { padding: 1rem 1rem 0.875rem; }
-    .collection-name { font-family: var(--font-display); font-size: 1rem; color: var(--text-muted); font-style: italic; margin-bottom: 0.35rem; line-height: 1.3; }
-    .collection-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.6rem; }
-    .collection-meta { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); }
-    .collection-card:hover .collection-meta { color: var(--text-muted); }
-    .more-section { padding: 2.5rem 2rem 3rem; max-width: 1200px; margin: 2rem auto 0; border-top: 0.5px solid var(--border); }
+
+    /* PAGE HEADER */
+    .page-header { padding: 2rem 2rem 1.5rem; max-width: 1400px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-bottom: 0.5px solid var(--border); }
+    .page-eyebrow { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 0.4rem; }
+    .page-title { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: var(--text-primary); line-height: 1.2; margin-bottom: 0.4rem; }
+    .page-subtitle { font-size: 0.85rem; color: var(--text-dim); max-width: 480px; line-height: 1.8; }
+    .header-right { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+    .wallpaper-count { font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; }
+    .search-wrap { position: relative; }
+    .search-input { background: var(--surface-1); border: 0.5px solid var(--border); border-radius: var(--radius-sm); color: var(--text-primary); font-family: var(--font-body); font-size: 0.78rem; padding: 0.45rem 0.75rem 0.45rem 2rem; width: 200px; transition: border-color 0.2s; outline: none; }
+    .search-input::placeholder { color: var(--text-dim); }
+    .search-input:focus { border-color: var(--border-hover); }
+    .search-icon { position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); font-size: 0.75rem; color: var(--text-dim); pointer-events: none; }
+
+    /* WALLPAPER GRID */
+    .grid-section { padding: 1.5rem 2rem 2rem; max-width: 1400px; margin: 0 auto; }
+    .wallpaper-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+
+    /* WALLPAPER CARD */
+    .wp-card { background: var(--surface-1); border: 0.5px solid var(--border); border-radius: var(--radius-md); overflow: hidden; cursor: pointer; transition: border-color 0.25s, transform 0.2s; position: relative; display: block; }
+    .wp-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .wp-thumb { width: 100%; aspect-ratio: 21/9; overflow: hidden; background: var(--surface-2); position: relative; display: flex; align-items: center; justify-content: center; }
+    .wp-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, opacity 0.25s; opacity: 0.85; }
+    .wp-card:hover .wp-thumb img { transform: scale(1.03); opacity: 1; }
+    .wp-thumb-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; opacity: 0.15; background: var(--surface-2); }
+    .wp-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,23,20,0.85) 0%, transparent 50%); opacity: 0; transition: opacity 0.25s; display: flex; align-items: flex-end; padding: 0.75rem; }
+    .wp-card:hover .wp-overlay { opacity: 1; }
+    .wp-quick-dl { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: #1C1714; background: var(--accent); padding: 0.3rem 0.75rem; border-radius: var(--radius-sm); font-weight: 700; }
+    .wp-body { padding: 0.6rem 0.75rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+    .wp-name { font-size: 0.72rem; color: var(--text-dim); line-height: 1.4; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .wp-res { font-size: 0.62rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; flex-shrink: 0; }
+
+    /* EMPTY STATE */
+    .empty-state { text-align: center; padding: 4rem 2rem; display: none; }
+    .empty-state.visible { display: block; }
+    .empty-state p { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--text-dim); }
+
+    /* LIGHTBOX */
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(14,11,9,0.96); align-items: center; justify-content: center; padding: 1.5rem; }
+    .lightbox.open { display: flex; }
+    .lightbox-inner { max-width: 1200px; width: 100%; display: flex; flex-direction: column; gap: 1rem; }
+    .lightbox-img-wrap { width: 100%; border-radius: var(--radius-md); overflow: hidden; background: var(--surface-1); border: 0.5px solid var(--border); }
+    .lightbox-img-wrap img { width: 100%; height: auto; display: block; max-height: 70vh; object-fit: contain; }
+    .lightbox-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .lightbox-title { font-family: var(--font-display); font-size: 1rem; color: var(--text-primary); margin-bottom: 0.2rem; }
+    .lightbox-meta { font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; }
+    .lightbox-actions { display: flex; gap: 0.75rem; align-items: center; }
+    .res-picker { display: flex; align-items: center; gap: 0.5rem; background: var(--surface-1); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 0.35rem 0.75rem; font-size: 0.72rem; color: var(--text-dim); }
+    .res-detected { color: var(--accent); font-weight: 700; }
+    .res-change { font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; border-bottom: 0.5px solid var(--text-dim); transition: color 0.2s; }
+    .res-change:hover { color: var(--accent); }
+    .dl-btn { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--accent); color: #1C1714; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.55rem 1.25rem; border-radius: var(--radius-sm); transition: opacity 0.2s, transform 0.15s; cursor: pointer; border: none; }
+    .dl-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .lightbox-close { position: fixed; top: 1.25rem; right: 1.5rem; font-size: 1.5rem; color: var(--text-dim); cursor: pointer; transition: color 0.2s; background: none; border: none; line-height: 1; }
+    .lightbox-close:hover { color: var(--text-primary); }
+    .lightbox-prev, .lightbox-next { position: fixed; top: 50%; transform: translateY(-50%); font-size: 1.5rem; color: var(--text-dim); cursor: pointer; background: var(--surface-1); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 0.5rem 0.75rem; transition: color 0.2s, border-color 0.2s; line-height: 1; }
+    .lightbox-prev { left: 1rem; }
+    .lightbox-next { right: 1rem; }
+    .lightbox-prev:hover, .lightbox-next:hover { color: var(--text-primary); border-color: var(--border-hover); }
+
+    /* MORE COLLECTIONS STRIP */
+    .more-section { padding: 2rem 2rem 3rem; max-width: 1400px; margin: 0 auto; border-top: 0.5px solid var(--border); }
+    .section-eyebrow { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 1rem; }
     .more-strip { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 0.5rem; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
     .more-card { flex: 0 0 160px; background: var(--surface-1); border: 0.5px solid var(--border); border-radius: var(--radius-md); padding: 1rem 0.875rem; cursor: pointer; transition: border-color 0.25s, background 0.25s; display: block; }
     .more-card:hover { border-color: var(--border-hover); background: var(--surface-2); }
@@ -72,139 +119,507 @@
     .more-card-name { font-family: var(--font-display); font-size: 0.8rem; color: var(--text-primary); line-height: 1.3; margin-bottom: 0.2rem; }
     .more-card-count { font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.04em; }
     .more-card:hover .more-card-count { color: var(--text-muted); }
-    .site-footer { border-top: 0.5px solid var(--border); padding: 1.5rem 2rem; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+
+    /* FOOTER */
+    .site-footer { border-top: 0.5px solid var(--border); padding: 1.5rem 2rem; max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .footer-brand { font-family: var(--font-display); font-style: italic; font-size: 0.82rem; color: var(--text-dim); }
     .footer-links { display: flex; gap: 1.25rem; list-style: none; }
     .footer-links a { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); transition: color 0.2s; }
     .footer-links a:hover { color: var(--accent); }
     .footer-disclosure { font-size: 0.68rem; color: var(--text-dim); width: 100%; padding-top: 0.75rem; border-top: 0.5px solid var(--border); line-height: 1.6; }
-    @media (max-width: 640px) {
-      .site-nav { padding: 0 1rem; }
-      .nav-links a { padding: 0.3rem 0.4rem; font-size: 0.65rem; }
-      .breadcrumb { padding: 0.75rem 1.25rem; }
-      .cat-hero, .collections-section, .more-section, .site-footer { padding-left: 1.25rem; padding-right: 1.25rem; }
-      .collections-grid { grid-template-columns: 1fr; }
-    }
-    @media (prefers-reduced-motion: reduce) { .collection-card:hover { transform: none; } }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) { .wallpaper-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; } .lightbox-prev { left: 0.25rem; } .lightbox-next { right: 0.25rem; } .res-picker { display: none; } }
+    @media (max-width: 640px) { .site-nav { padding: 0 1rem; } .nav-links a { padding: 0.3rem 0.4rem; font-size: 0.65rem; } .breadcrumb { padding: 0.75rem 1.25rem; } .page-header, .grid-section, .more-section, .site-footer { padding-left: 1.25rem; padding-right: 1.25rem; } }
+    @media (prefers-reduced-motion: reduce) { .wp-card:hover { transform: none; } .wp-card:hover .wp-thumb img { transform: none; } .dl-btn:hover { transform: none; } }
   </style>
 </head>
 <body>
+
+  <!-- NAV -->
   <header>
     <nav class="site-nav" aria-label="Main navigation">
-      <a href="../index.html" class="nav-brand">The <span>Somnolescent</span> Dragon</a>
+      <a href="../../index.html" class="nav-brand">The <span>Somnolescent</span> Dragon</a>
       <ul class="nav-links">
-        <li><a href="../index.html#collections">Collections</a></li>
-        <li><a href="../whats-new.html">What's New</a></li>
-        <li><a href="../suggest.html">Suggest a theme</a></li>
-        <li><a href="../help.html">Help</a></li>
-        <li><a href="../about.html">About the art</a></li>
+        <li><a href="../../index.html#collections">Collections</a></li>
+        <li><a href="../../whats-new.html">What's New</a></li>
+        <li><a href="../../suggest.html">Suggest a theme</a></li>
+        <li><a href="../../help.html">Help</a></li>
+        <li><a href="../../about.html">About the art</a></li>
       </ul>
     </nav>
   </header>
+
+  <!-- BREADCRUMB -->
   <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="../index.html">🐉 Home</a>
+    <a href="../../index.html">🐉 Home</a>
     <span class="breadcrumb-sep">·</span>
-    <span class="breadcrumb-current">Castles and Keeps</span>
+    <a href="../index.html">Castles and Keeps</a>
+    <span class="breadcrumb-sep">·</span>
+    <span class="breadcrumb-current">Castle Belonging</span>
   </nav>
+
   <main>
-    <div class="cat-hero">
-      <p class="cat-eyebrow">Collection</p>
-      <h1 class="cat-title">Castles and Keeps</h1>
-      <p class="cat-description">Historic castle architecture from Europe, Japan, India, the Moorish world, and beyond. No people, no vehicles — only stone, time, and signs of life through objects.</p>
-      <div class="cat-stats">
-        <div class="cat-stat"><strong>24</strong>Wallpapers</div>
-        <div class="cat-stat"><strong>Painterly</strong>Art style</div>
-        <div class="cat-stat"><strong>21:9</strong>Ultrawide</div>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="header-left">
+        <p class="page-eyebrow">Castles and Keeps</p>
+        <h1 class="page-title">Castle Belonging</h1>
+        <p class="page-subtitle">These are not castles observed from a distance — they are castles lived in. View-from perspectives that place you inside the walls, on the ramparts, at the window. You are not a visitor here. You belong.</p>
+      </div>
+      <div class="header-right">
+        <span class="wallpaper-count" id="wp-count">— wallpapers</span>
+        <div class="search-wrap">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input class="search-input" type="search" placeholder="Search this collection..." id="search-input" aria-label="Search wallpapers" />
+        </div>
       </div>
     </div>
-    <section class="collections-section" aria-label="Sub-collections">
-      <p class="section-eyebrow">Browse the collections</p>
-      <div class="collections-grid">
-        <!-- Named collections go here as they are ready — The Miscellany is always last -->
-        <a class="collection-card" href="/castles-and-keeps/castle-belonging/index.html">
-          <div class="collection-thumb">
-            <span class="collection-thumb-placeholder">🏰</span>
+
+    <!-- WALLPAPER GRID -->
+    <section class="grid-section" aria-label="Wallpaper grid">
+      <div class="wallpaper-grid" id="wallpaper-grid">
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-balcony-coffee-provence-lavender-ultrawide.png" data-name="castle-belonging-balcony-coffee-provence-lavender-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-balcony-coffee-provence-lavender-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-balcony-coffee-provence-lavender-ultrawide.png" alt="castle-belonging-balcony-coffee-provence-lavender-ultrawide" loading="lazy" />
           </div>
-          <div class="collection-body">
-            <p class="collection-name">Castle Belonging</p>
-            <p class="collection-desc">View-from perspectives that place you inside the walls, on the ramparts, at the window. You are not a visitor here. You belong.</p>
-            <span class="collection-meta">Now open</span>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-balcony-coffee-provence-lavender-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
           </div>
-        </a>
-        <a class="collection-card" href="/castles-and-keeps/the-miscellany/index.html">
-          <div class="collection-thumb">
-            <span class="collection-thumb-placeholder">✨</span>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-beach-normandy-tidal-island-ultrawide.png" data-name="castle-belonging-beach-normandy-tidal-island-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-beach-normandy-tidal-island-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-beach-normandy-tidal-island-ultrawide.png" alt="castle-belonging-beach-normandy-tidal-island-ultrawide" loading="lazy" />
           </div>
-          <div class="collection-body">
-            <p class="collection-name">The Miscellany</p>
-            <p class="collection-desc">Every piece here belongs — some are just finding their collection. Check back as new collections take shape.</p>
-            <span class="collection-meta">Various</span>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-beach-normandy-tidal-island-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
           </div>
-        </a>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-bookshop-window-edinburgh-crag-ultrawide.png" data-name="castle-belonging-bookshop-window-edinburgh-crag-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-bookshop-window-edinburgh-crag-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-bookshop-window-edinburgh-crag-ultrawide.png" alt="castle-belonging-bookshop-window-edinburgh-crag-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-bookshop-window-edinburgh-crag-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-cafe-window-burgundy-france-ultrawide.png" data-name="castle-belonging-cafe-window-burgundy-france-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-cafe-window-burgundy-france-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-cafe-window-burgundy-france-ultrawide.png" alt="castle-belonging-cafe-window-burgundy-france-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-cafe-window-burgundy-france-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-cemetery-gate-transylvania-autumn-ultrawide.png" data-name="castle-belonging-cemetery-gate-transylvania-autumn-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-cemetery-gate-transylvania-autumn-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-cemetery-gate-transylvania-autumn-ultrawide.png" alt="castle-belonging-cemetery-gate-transylvania-autumn-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-cemetery-gate-transylvania-autumn-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-church-steps-salzburg-fortress-ultrawide.png" data-name="castle-belonging-church-steps-salzburg-fortress-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-church-steps-salzburg-fortress-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-church-steps-salzburg-fortress-ultrawide.png" alt="castle-belonging-church-steps-salzburg-fortress-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-church-steps-salzburg-fortress-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-covered-bridge-swiss-river-castle-ultrawide.png" data-name="castle-belonging-covered-bridge-swiss-river-castle-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-covered-bridge-swiss-river-castle-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-covered-bridge-swiss-river-castle-ultrawide.png" alt="castle-belonging-covered-bridge-swiss-river-castle-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-covered-bridge-swiss-river-castle-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-dock-dawn-norwegian-fjord-ultrawide.png" data-name="castle-belonging-dock-dawn-norwegian-fjord-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-dock-dawn-norwegian-fjord-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-dock-dawn-norwegian-fjord-ultrawide.png" alt="castle-belonging-dock-dawn-norwegian-fjord-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-dock-dawn-norwegian-fjord-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-farmhouse-kitchen-tuscany-olive-grove-ultrawide.png" data-name="castle-belonging-farmhouse-kitchen-tuscany-olive-grove-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-farmhouse-kitchen-tuscany-olive-grove-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-farmhouse-kitchen-tuscany-olive-grove-ultrawide.png" alt="castle-belonging-farmhouse-kitchen-tuscany-olive-grove-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-farmhouse-kitchen-tuscany-olive-grove-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-fishing-boat-scottish-loch-ultrawide.png" data-name="castle-belonging-fishing-boat-scottish-loch-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-fishing-boat-scottish-loch-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-fishing-boat-scottish-loch-ultrawide.png" alt="castle-belonging-fishing-boat-scottish-loch-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-fishing-boat-scottish-loch-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-garden-bench-cotswold-copper-beech-ultrawide.png" data-name="castle-belonging-garden-bench-cotswold-copper-beech-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-garden-bench-cotswold-copper-beech-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-garden-bench-cotswold-copper-beech-ultrawide.png" alt="castle-belonging-garden-bench-cotswold-copper-beech-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-garden-bench-cotswold-copper-beech-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-greenhouse-english-estate-rose-garden-ultrawide.png" data-name="castle-belonging-greenhouse-english-estate-rose-garden-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-greenhouse-english-estate-rose-garden-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-greenhouse-english-estate-rose-garden-ultrawide.png" alt="castle-belonging-greenhouse-english-estate-rose-garden-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-greenhouse-english-estate-rose-garden-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hammock-amalfi-coast-lemon-trees-ultrawide.png" data-name="castle-belonging-hammock-amalfi-coast-lemon-trees-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hammock-amalfi-coast-lemon-trees-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hammock-amalfi-coast-lemon-trees-ultrawide.png" alt="castle-belonging-hammock-amalfi-coast-lemon-trees-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-hammock-amalfi-coast-lemon-trees-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hilltop-orchard-welsh-borders-ultrawide.png" data-name="castle-belonging-hilltop-orchard-welsh-borders-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hilltop-orchard-welsh-borders-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hilltop-orchard-welsh-borders-ultrawide.png" alt="castle-belonging-hilltop-orchard-welsh-borders-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-hilltop-orchard-welsh-borders-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hot-air-balloon-loire-valley-ultrawide.png" data-name="castle-belonging-hot-air-balloon-loire-valley-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hot-air-balloon-loire-valley-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hot-air-balloon-loire-valley-ultrawide.png" alt="castle-belonging-hot-air-balloon-loire-valley-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-hot-air-balloon-loire-valley-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-market-square-alsace-ultrawide.png" data-name="castle-belonging-market-square-alsace-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-market-square-alsace-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-market-square-alsace-ultrawide.png" alt="castle-belonging-market-square-alsace-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-market-square-alsace-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-monastery-garden-tuscany-ultrawide.png" data-name="castle-belonging-monastery-garden-tuscany-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-monastery-garden-tuscany-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-monastery-garden-tuscany-ultrawide.png" alt="castle-belonging-monastery-garden-tuscany-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-monastery-garden-tuscany-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-painters-easel-dordogne-river-chateau-ultrawide.png" data-name="castle-belonging-painters-easel-dordogne-river-chateau-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-painters-easel-dordogne-river-chateau-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-painters-easel-dordogne-river-chateau-ultrawide.png" alt="castle-belonging-painters-easel-dordogne-river-chateau-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-painters-easel-dordogne-river-chateau-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-riverside-reading-loire-chateau-ultrawide.png" data-name="castle-belonging-riverside-reading-loire-chateau-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-riverside-reading-loire-chateau-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-riverside-reading-loire-chateau-ultrawide.png" alt="castle-belonging-riverside-reading-loire-chateau-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-riverside-reading-loire-chateau-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-rowboat-bavarian-lake-alpine-reflection-ultrawide.png" data-name="castle-belonging-rowboat-bavarian-lake-alpine-reflection-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-rowboat-bavarian-lake-alpine-reflection-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-rowboat-bavarian-lake-alpine-reflection-ultrawide.png" alt="castle-belonging-rowboat-bavarian-lake-alpine-reflection-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-rowboat-bavarian-lake-alpine-reflection-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-stone-wall-irish-tower-house-ultrawide.png" data-name="castle-belonging-stone-wall-irish-tower-house-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-stone-wall-irish-tower-house-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-stone-wall-irish-tower-house-ultrawide.png" alt="castle-belonging-stone-wall-irish-tower-house-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-stone-wall-irish-tower-house-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-train-window-swiss-alps-lake-ultrawide.png" data-name="castle-belonging-train-window-swiss-alps-lake-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-train-window-swiss-alps-lake-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-train-window-swiss-alps-lake-ultrawide.png" alt="castle-belonging-train-window-swiss-alps-lake-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-train-window-swiss-alps-lake-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-vineyard-terrace-rhineland-ultrawide.png" data-name="castle-belonging-vineyard-terrace-rhineland-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-vineyard-terrace-rhineland-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-vineyard-terrace-rhineland-ultrawide.png" alt="castle-belonging-vineyard-terrace-rhineland-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-vineyard-terrace-rhineland-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-winery-doorway-piedmont-vineyard-ultrawide.png" data-name="castle-belonging-winery-doorway-piedmont-vineyard-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-winery-doorway-piedmont-vineyard-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-winery-doorway-piedmont-vineyard-ultrawide.png" alt="castle-belonging-winery-doorway-piedmont-vineyard-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-winery-doorway-piedmont-vineyard-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="empty-state" id="empty-state" aria-live="polite">
+        <p>No wallpapers match that search. Try a different word.</p>
       </div>
     </section>
+
+    <!-- MORE COLLECTIONS STRIP -->
     <section class="more-section" aria-label="More collections">
       <p class="section-eyebrow">More collections</p>
       <div class="more-strip" role="list">
-        <a class="more-card" href="../flights-of-fantasy/index.html" role="listitem">
+        <a class="more-card" href="/castles-and-keeps/the-miscellany/index.html" role="listitem">
+          <span class="more-card-icon" aria-hidden="true">✨</span>
+          <p class="more-card-name">The Miscellany</p>
+          <span class="more-card-count">Castles and Keeps</span>
+        </a>
+        <a class="more-card" href="/flights-of-fantasy/index.html" role="listitem">
           <span class="more-card-icon" aria-hidden="true">🌿</span>
           <p class="more-card-name">Flights of Fantasy</p>
           <span class="more-card-count">64 wallpapers</span>
         </a>
-        <a class="more-card" href="../dreamscapes/index.html" role="listitem">
+        <a class="more-card" href="/dreamscapes/index.html" role="listitem">
           <span class="more-card-icon" aria-hidden="true">🌫️</span>
           <p class="more-card-name">Dreamscapes</p>
           <span class="more-card-count">25 wallpapers</span>
         </a>
-        <a class="more-card" href="../cosmic-codex/index.html" role="listitem">
+        <a class="more-card" href="/cosmic-codex/index.html" role="listitem">
           <span class="more-card-icon" aria-hidden="true">🪐</span>
           <p class="more-card-name">Cosmic Codex</p>
           <span class="more-card-count">~30 wallpapers</span>
         </a>
-        <a class="more-card" href="../wondrous-water/index.html" role="listitem">
+        <a class="more-card" href="/wondrous-water/index.html" role="listitem">
           <span class="more-card-icon" aria-hidden="true">🌊</span>
           <p class="more-card-name">Wondrous Water</p>
           <span class="more-card-count">~46 wallpapers</span>
         </a>
-        <a class="more-card" href="../musical-spice/index.html" role="listitem">
+        <a class="more-card" href="/musical-spice/index.html" role="listitem">
           <span class="more-card-icon" aria-hidden="true">🎻</span>
           <p class="more-card-name">Musical Spice</p>
           <span class="more-card-count">Coming soon</span>
         </a>
-        <a class="more-card" href="../halloween-and-haunts/index.html" role="listitem">
+        <a class="more-card" href="/halloween-and-haunts/index.html" role="listitem">
           <span class="more-card-icon" aria-hidden="true">🕯️</span>
           <p class="more-card-name">Halloween and Haunts</p>
           <span class="more-card-count">In progress</span>
         </a>
-        <a class="more-card" href="../winters-embrace/index.html" role="listitem">
+        <a class="more-card" href="/winters-embrace/index.html" role="listitem">
           <span class="more-card-icon" aria-hidden="true">❄️</span>
           <p class="more-card-name">Winter's Embrace</p>
           <span class="more-card-count">Coming soon</span>
         </a>
-        <a class="more-card" href="../christmas-heart/index.html" role="listitem">
+        <a class="more-card" href="/christmas-heart/index.html" role="listitem">
           <span class="more-card-icon" aria-hidden="true">🕯️</span>
           <p class="more-card-name">Christmas Heart</p>
           <span class="more-card-count">Coming soon</span>
         </a>
-        <a class="more-card" href="../magical-miscellany/index.html" role="listitem">
+        <a class="more-card" href="/magical-miscellany/index.html" role="listitem">
           <span class="more-card-icon" aria-hidden="true">🍂</span>
           <p class="more-card-name">Magical Miscellany</p>
           <span class="more-card-count">Coming soon</span>
         </a>
       </div>
     </section>
+
   </main>
+
+  <!-- FOOTER -->
   <footer>
     <div class="site-footer">
       <span class="footer-brand">The Somnolescent Dragon</span>
       <ul class="footer-links">
-        <li><a href="../whats-new.html">What's New</a></li>
-        <li><a href="../suggest.html">Suggest a theme</a></li>
-        <li><a href="../help.html">Help</a></li>
-        <li><a href="../about.html">About the art</a></li>
+        <li><a href="../../whats-new.html">What's New</a></li>
+        <li><a href="../../suggest.html">Suggest a theme</a></li>
+        <li><a href="../../help.html">Help</a></li>
+        <li><a href="../../about.html">About the art</a></li>
       </ul>
-      <p class="footer-disclosure">All wallpapers created using AI image generation, directed by fully detailed cinematic prompts and curated for quality. Free for personal desktop use.</p>
+      <p class="footer-disclosure">All wallpapers created using AI image generation, directed by fully detailed cinematic prompts and curated for quality. Free for personal desktop use. No accounts, no ads, no tracking.</p>
     </div>
   </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Wallpaper preview">
+    <button class="lightbox-close" id="lb-close" aria-label="Close preview">✕</button>
+    <button class="lightbox-prev" id="lb-prev" aria-label="Previous wallpaper">‹</button>
+    <button class="lightbox-next" id="lb-next" aria-label="Next wallpaper">›</button>
+    <div class="lightbox-inner">
+      <div class="lightbox-img-wrap"><img id="lb-img" src="" alt="" /></div>
+      <div class="lightbox-footer">
+        <div class="lightbox-info">
+          <p class="lightbox-title" id="lb-title"></p>
+          <p class="lightbox-meta">3128 × 1344 &nbsp;·&nbsp; Ultrawide 21:9 &nbsp;·&nbsp; Free download</p>
+        </div>
+        <div class="lightbox-actions">
+          <div class="res-picker" id="res-picker">
+            <span>Your screen:</span>
+            <span class="res-detected" id="res-detected"></span>
+            <span class="res-change" id="res-change">change</span>
+          </div>
+          <button class="dl-btn" id="dl-btn">⬇ Download</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const grid      = document.getElementById('wallpaper-grid');
+    const searchIn  = document.getElementById('search-input');
+    const emptyState = document.getElementById('empty-state');
+    const wpCount   = document.getElementById('wp-count');
+    const lightbox  = document.getElementById('lightbox');
+    const lbImg     = document.getElementById('lb-img');
+    const lbTitle   = document.getElementById('lb-title');
+    const lbClose   = document.getElementById('lb-close');
+    const lbPrev    = document.getElementById('lb-prev');
+    const lbNext    = document.getElementById('lb-next');
+    const dlBtn     = document.getElementById('dl-btn');
+
+    let cards = Array.from(grid.querySelectorAll('.wp-card'));
+    let currentIndex = 0;
+
+    function updateCount() {
+      const v = cards.filter(c => c.style.display !== 'none').length;
+      wpCount.textContent = v + ' wallpaper' + (v !== 1 ? 's' : '');
+      emptyState.classList.toggle('visible', v === 0);
+    }
+    updateCount();
+
+    searchIn.addEventListener('input', function() {
+      const q = this.value.toLowerCase().trim();
+      cards.forEach(c => { c.style.display = (!q || (c.dataset.name || '').toLowerCase().includes(q)) ? '' : 'none'; });
+      updateCount();
+    });
+
+
+
+    function getVisible() { return cards.filter(c => c.style.display !== 'none'); }
+
+    function openLightbox(card) {
+      const v = getVisible();
+      currentIndex = v.indexOf(card);
+      loadLightbox(v[currentIndex]);
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function loadLightbox(card) {
+      const src = card.dataset.full || card.dataset.src;
+      const name = card.dataset.name || 'wallpaper';
+      lbImg.src = src;
+      lbImg.alt = name;
+      lbTitle.textContent = name;
+      dlBtn.onclick = () => triggerDownload(src, name);
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+
+    function navigateLightbox(dir) {
+      const v = getVisible();
+      currentIndex = (currentIndex + dir + v.length) % v.length;
+      loadLightbox(v[currentIndex]);
+    }
+
+    grid.addEventListener('click', function(e) {
+      const card = e.target.closest('.wp-card');
+      if (!card) return;
+      if (e.target.closest('.wp-quick-dl')) {
+        e.stopPropagation();
+        triggerDownload(card.dataset.src, card.dataset.name);
+        return;
+      }
+      if (card.dataset.src && card.dataset.src !== '#') openLightbox(card);
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click', () => navigateLightbox(-1));
+    lbNext.addEventListener('click', () => navigateLightbox(1));
+    lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLightbox(); });
+
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigateLightbox(-1);
+      if (e.key === 'ArrowRight') navigateLightbox(1);
+    });
+
+    function triggerDownload(src, name) {
+      if (!src || src === '#') return;
+      var workerSrc = src.replace('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev', 'https://jolly-snowflake-8dd0.thomascox7509.workers.dev');
+      var a = document.createElement('a');
+      a.href = workerSrc;
+      a.download = name + '.png';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  </script>
+
 </body>
 </html>
