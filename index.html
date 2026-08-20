@@ -721,6 +721,64 @@
     @keyframes fogdrift { 0% { transform: translateX(0); } 100% { transform: translateX(-200px); } }
     .leaf { animation: leaffall var(--lf, 8s) ease-in-out infinite; }
     @keyframes leaffall { 0% { transform: translate(0,0) rotate(0deg); opacity:0; } 20% { opacity:0.7; } 80% { opacity:0.5; } 100% { transform: translate(var(--lx,30px), 80px) rotate(var(--lr,120deg)); opacity:0; } }
+
+    /* ============================================================
+       SHIMMER / SHINE EFFECT ON CARD HOVER
+       EASY TO CHANGE: shimmer color opacity and speed below
+    ============================================================ */
+    .cat-card {
+      overflow: hidden;
+    }
+
+    .cat-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -75%;
+      width: 50%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.08) 50%,
+        rgba(255,255,255,0) 100%
+      );
+      transform: skewX(-20deg);
+      transition: none;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .cat-card:hover::after {
+      animation: shimmer 0.6s ease forwards;
+    }
+
+    @keyframes shimmer {
+      0%   { left: -75%; opacity: 1; }
+      100% { left: 125%; opacity: 1; }
+    }
+
+    .fresh-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -75%;
+      width: 50%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.08) 50%,
+        rgba(255,255,255,0) 100%
+      );
+      transform: skewX(-20deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .fresh-card:hover::after {
+      animation: shimmer 0.6s ease forwards;
+    }
   </style>
 </head>
 <body>
@@ -1200,6 +1258,64 @@
     @keyframes fogdrift { 0% { transform: translateX(0); } 100% { transform: translateX(-200px); } }
     .leaf { animation: leaffall var(--lf, 8s) ease-in-out infinite; }
     @keyframes leaffall { 0% { transform: translate(0,0) rotate(0deg); opacity:0; } 20% { opacity:0.7; } 80% { opacity:0.5; } 100% { transform: translate(var(--lx,30px), 80px) rotate(var(--lr,120deg)); opacity:0; } }
+
+    /* ============================================================
+       SHIMMER / SHINE EFFECT ON CARD HOVER
+       EASY TO CHANGE: shimmer color opacity and speed below
+    ============================================================ */
+    .cat-card {
+      overflow: hidden;
+    }
+
+    .cat-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -75%;
+      width: 50%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.08) 50%,
+        rgba(255,255,255,0) 100%
+      );
+      transform: skewX(-20deg);
+      transition: none;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .cat-card:hover::after {
+      animation: shimmer 0.6s ease forwards;
+    }
+
+    @keyframes shimmer {
+      0%   { left: -75%; opacity: 1; }
+      100% { left: 125%; opacity: 1; }
+    }
+
+    .fresh-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -75%;
+      width: 50%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.08) 50%,
+        rgba(255,255,255,0) 100%
+      );
+      transform: skewX(-20deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .fresh-card:hover::after {
+      animation: shimmer 0.6s ease forwards;
+    }
   </style>
 
 

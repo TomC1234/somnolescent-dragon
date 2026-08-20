@@ -147,6 +147,21 @@
     .footer-disclosure { font-size: 0.68rem; color: var(--text-dim); width: 100%; padding-top: 0.75rem; border-top: 0.5px solid var(--border); line-height: 1.6; }
 
     /* RESPONSIVE */
+    .wp-card::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -75%;
+      width: 50%;
+      height: 200%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%);
+      transform: skewX(-20deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .wp-card:hover::after { animation: shimmer 0.6s ease forwards; }
+    @keyframes shimmer { 0% { left: -75%; opacity: 1; } 100% { left: 125%; opacity: 1; } }
+
     @media (max-width: 768px) { .wallpaper-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; } .lightbox-prev { left: 0.25rem; } .lightbox-next { right: 0.25rem; } .res-picker { display: none; } }
     @media (max-width: 640px) { .site-nav { padding: 0 1rem; } .nav-links a { padding: 0.3rem 0.4rem; font-size: 0.65rem; } .breadcrumb { padding: 0.75rem 1.25rem; } .page-header, .grid-section, .more-section, .site-footer { padding-left: 1.25rem; padding-right: 1.25rem; } }
     @media (prefers-reduced-motion: reduce) { .wp-card:hover { transform: none; } .wp-card:hover .wp-thumb img { transform: none; } .dl-btn:hover { transform: none; } }
