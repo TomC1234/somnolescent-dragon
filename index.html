@@ -1094,7 +1094,7 @@
     var freshDlBtn     = document.getElementById('fresh-dl-btn');
     var freshCurrent   = 0;
 
-    function openFreshLightbox(src, name) {
+    window.openFreshLightbox = function openFreshLightbox(src, name) {
       freshCurrent = freshImages.findIndex(function(f) { return f.src === src; });
       if (freshCurrent < 0) freshCurrent = 0;
       loadFreshLightbox(freshCurrent);
