@@ -640,8 +640,8 @@
     <section class="fresh-section" aria-label="Fresh from the Dragon">
       <p class="section-eyebrow">Fresh from the dragon</p>
       <p class="fresh-eyebrow-sub">Five wallpapers dreamed and chosen by the Dragon — not found anywhere else on the site.</p>
-      <div class="fresh-strip" role="list">
-        <div class="fresh-card" role="listitem" onclick="openFreshLightbox('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_1.png', 'dragons-private-selection_1')" tabindex="0">
+      <div class="fresh-strip" role="list" id="fresh-strip">
+        <div class="fresh-card" role="listitem" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_1.png" data-name="dragons-private-selection_1" data-idx="0" tabindex="0">
           <div class="fresh-thumb">
             <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_1.png" alt="Dragon's Private Selection 1" loading="lazy" />
             <div class="fresh-overlay">
@@ -652,7 +652,7 @@
             <span class="fresh-card-label">Dreamed by the Dragon</span>
           </div>
         </div>
-        <div class="fresh-card" role="listitem" onclick="openFreshLightbox('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_2.png', 'dragons-private-selection_2')" tabindex="0">
+        <div class="fresh-card" role="listitem" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_2.png" data-name="dragons-private-selection_2" data-idx="1" tabindex="0">
           <div class="fresh-thumb">
             <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_2.png" alt="Dragon's Private Selection 2" loading="lazy" />
             <div class="fresh-overlay">
@@ -663,7 +663,7 @@
             <span class="fresh-card-label">Dreamed by the Dragon</span>
           </div>
         </div>
-        <div class="fresh-card" role="listitem" onclick="openFreshLightbox('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_3.png', 'dragons-private-selection_3')" tabindex="0">
+        <div class="fresh-card" role="listitem" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_3.png" data-name="dragons-private-selection_3" data-idx="2" tabindex="0">
           <div class="fresh-thumb">
             <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_3.png" alt="Dragon's Private Selection 3" loading="lazy" />
             <div class="fresh-overlay">
@@ -674,7 +674,7 @@
             <span class="fresh-card-label">Dreamed by the Dragon</span>
           </div>
         </div>
-        <div class="fresh-card" role="listitem" onclick="openFreshLightbox('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_4.png', 'dragons-private-selection_4')" tabindex="0">
+        <div class="fresh-card" role="listitem" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_4.png" data-name="dragons-private-selection_4" data-idx="3" tabindex="0">
           <div class="fresh-thumb">
             <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_4.png" alt="Dragon's Private Selection 4" loading="lazy" />
             <div class="fresh-overlay">
@@ -685,7 +685,7 @@
             <span class="fresh-card-label">Dreamed by the Dragon</span>
           </div>
         </div>
-        <div class="fresh-card" role="listitem" onclick="openFreshLightbox('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_5.png', 'dragons-private-selection_5')" tabindex="0">
+        <div class="fresh-card" role="listitem" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_5.png" data-name="dragons-private-selection_5" data-idx="4" tabindex="0">
           <div class="fresh-thumb">
             <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_5.png" alt="Dragon's Private Selection 5" loading="lazy" />
             <div class="fresh-overlay">
@@ -1094,13 +1094,22 @@
     var freshDlBtn     = document.getElementById('fresh-dl-btn');
     var freshCurrent   = 0;
 
-    window.openFreshLightbox = function openFreshLightbox(src, name) {
-      freshCurrent = freshImages.findIndex(function(f) { return f.src === src; });
-      if (freshCurrent < 0) freshCurrent = 0;
-      loadFreshLightbox(freshCurrent);
-      freshLightbox.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
+    // Wire cards via event delegation on fresh-strip
+    document.addEventListener('DOMContentLoaded', function() {
+      var strip = document.getElementById('fresh-strip');
+      if (strip) {
+        strip.addEventListener('click', function(e) {
+          var card = e.target.closest('.fresh-card[data-idx]');
+          if (!card) return;
+          freshCurrent = parseInt(card.dataset.idx, 10);
+          loadFreshLightbox(freshCurrent);
+          freshLightbox.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+    });
+    // dummy to avoid reference errors
+    function openFreshLightbox() {}
 
     function loadFreshLightbox(index) {
       var item = freshImages[index];
