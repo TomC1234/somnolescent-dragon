@@ -1094,6 +1094,10 @@
     var freshDlBtn     = document.getElementById('fresh-dl-btn');
     var freshCurrent   = 0;
 
+    // Force closed on load — safety reset
+    freshLightbox.classList.remove('open');
+    document.body.style.overflow = '';
+
     // Wire cards via event delegation on fresh-strip
     var strip = document.getElementById('fresh-strip');
     if (strip) {
