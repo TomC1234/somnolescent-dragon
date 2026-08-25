@@ -223,6 +223,26 @@
     @media (prefers-reduced-motion: reduce) {
       .submit-btn:hover { transform: none; }
     }
+
+    /* ============================================================
+       BOTTOM SCENE
+    ============================================================ */
+    .dragon-scene {
+      width: 100%;
+      display: block;
+      margin-top: -2px;
+      line-height: 0;
+    }
+
+    .grass-blade { animation: sway var(--d, 3s) ease-in-out infinite alternate; }
+    @keyframes sway { 0% { transform: rotate(var(--r1, -3deg)); } 100% { transform: rotate(var(--r2, 3deg)); } }
+    .firefly { animation: drift var(--fd, 4s) ease-in-out infinite alternate, pulse var(--fp, 2s) ease-in-out infinite; }
+    @keyframes drift { 0% { transform: translate(0,0); } 100% { transform: translate(var(--dx, 10px), var(--dy, -15px)); } }
+    @keyframes pulse { 0%,100% { opacity: 0.15; } 50% { opacity: 0.9; } }
+    .fog-layer { animation: fogdrift var(--fog-d, 20s) linear infinite; }
+    @keyframes fogdrift { 0% { transform: translateX(0); } 100% { transform: translateX(-200px); } }
+    .leaf { animation: leaffall var(--lf, 8s) ease-in-out infinite; }
+    @keyframes leaffall { 0% { transform: translate(0,0) rotate(0deg); opacity:0; }
   </style>
 </head>
 <body>
@@ -316,6 +336,128 @@
 
     </div>
   </main>
+
+    <!-- BOTTOM SCENE -->
+    <div class="dragon-scene" aria-hidden="true">
+      <svg width="100%" viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="sc-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1C1714"/>
+            <stop offset="60%" stop-color="#2E1A0E"/>
+            <stop offset="100%" stop-color="#3D2410"/>
+          </linearGradient>
+          <linearGradient id="sc-ground" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1A2A0A"/>
+            <stop offset="100%" stop-color="#0D1806"/>
+          </linearGradient>
+          <linearGradient id="sc-mist" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#C9893A" stop-opacity="0"/>
+            <stop offset="30%" stop-color="#C9893A" stop-opacity="0.04"/>
+            <stop offset="70%" stop-color="#C9893A" stop-opacity="0.04"/>
+            <stop offset="100%" stop-color="#C9893A" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+
+        <rect width="1200" height="280" fill="url(#sc-sky)"/>
+
+        <ellipse cx="200" cy="220" rx="350" ry="120" fill="#1A2208" opacity="0.6"/>
+        <ellipse cx="700" cy="235" rx="400" ry="100" fill="#16200A" opacity="0.7"/>
+        <ellipse cx="1100" cy="225" rx="300" ry="110" fill="#1A2208" opacity="0.6"/>
+
+        <circle cx="900" cy="60" r="45" fill="#C9893A" opacity="0.06"/>
+        <circle cx="900" cy="60" r="28" fill="#E8B86D" opacity="0.12"/>
+        <circle cx="900" cy="60" r="16" fill="#F2D5A0" opacity="0.25"/>
+
+        <circle cx="50" cy="30" r="1.2" fill="#F2EAD8" opacity="0.6"/>
+        <circle cx="150" cy="20" r="0.8" fill="#F2EAD8" opacity="0.5"/>
+        <circle cx="280" cy="45" r="1" fill="#F2EAD8" opacity="0.4"/>
+        <circle cx="400" cy="15" r="1.2" fill="#F2EAD8" opacity="0.7"/>
+        <circle cx="520" cy="35" r="0.8" fill="#F2EAD8" opacity="0.5"/>
+        <circle cx="650" cy="25" r="1" fill="#F2EAD8" opacity="0.4"/>
+        <circle cx="750" cy="40" r="0.8" fill="#F2EAD8" opacity="0.6"/>
+        <circle cx="1000" cy="20" r="1" fill="#F2EAD8" opacity="0.5"/>
+        <circle cx="1100" cy="35" r="0.8" fill="#F2EAD8" opacity="0.4"/>
+        <circle cx="1180" cy="15" r="1.2" fill="#F2EAD8" opacity="0.6"/>
+
+        <g class="fog-layer" style="--fog-d:25s"><rect x="-200" y="200" width="1600" height="40" fill="url(#sc-mist)" opacity="0.8"/></g>
+        <g class="fog-layer" style="--fog-d:35s; animation-direction:reverse;"><rect x="-100" y="215" width="1600" height="30" fill="url(#sc-mist)" opacity="0.5"/></g>
+
+        <rect x="0" y="230" width="1200" height="50" fill="url(#sc-ground)"/>
+
+        <g opacity="0.5">
+          <g class="grass-blade" style="--d:3.2s;--r1:-2deg;--r2:2.5deg;transform-origin:20px 235px"><rect x="18" y="200" width="3" height="35" rx="1.5" fill="#2A4A10"/></g>
+          <g class="grass-blade" style="--d:2.8s;--r1:-3deg;--r2:2deg;transform-origin:60px 233px"><rect x="58" y="205" width="2.5" height="28" rx="1.2" fill="#264510"/></g>
+          <g class="grass-blade" style="--d:3.5s;--r1:-1.5deg;--r2:3deg;transform-origin:110px 234px"><rect x="108" y="202" width="3" height="32" rx="1.5" fill="#2A4A10"/></g>
+          <g class="grass-blade" style="--d:2.6s;--r1:-2.5deg;--r2:2deg;transform-origin:180px 233px"><rect x="179" y="208" width="2" height="25" rx="1" fill="#224010"/></g>
+          <g class="grass-blade" style="--d:3.8s;--r1:-2deg;--r2:3deg;transform-origin:250px 233px"><rect x="248" y="203" width="3" height="30" rx="1.5" fill="#2A4A10"/></g>
+          <g class="grass-blade" style="--d:3.1s;--r1:-3deg;--r2:2deg;transform-origin:330px 233px"><rect x="328" y="206" width="2.5" height="27" rx="1.2" fill="#264510"/></g>
+          <g class="grass-blade" style="--d:2.9s;--r1:-2deg;--r2:2.5deg;transform-origin:400px 233px"><rect x="398" y="204" width="3" height="29" rx="1.5" fill="#2A4A10"/></g>
+          <g class="grass-blade" style="--d:3.3s;--r1:-1deg;--r2:3deg;transform-origin:480px 233px"><rect x="479" y="207" width="2" height="26" rx="1" fill="#224010"/></g>
+          <g class="grass-blade" style="--d:2.7s;--r1:-2.5deg;--r2:2deg;transform-origin:560px 233px"><rect x="558" y="203" width="3" height="30" rx="1.5" fill="#2A4A10"/></g>
+          <g class="grass-blade" style="--d:3.6s;--r1:-2deg;--r2:2.5deg;transform-origin:640px 233px"><rect x="638" y="205" width="2.5" height="28" rx="1.2" fill="#264510"/></g>
+          <g class="grass-blade" style="--d:3s;--r1:-3deg;--r2:2deg;transform-origin:720px 233px"><rect x="718" y="202" width="3" height="31" rx="1.5" fill="#2A4A10"/></g>
+          <g class="grass-blade" style="--d:2.8s;--r1:-2deg;--r2:3deg;transform-origin:800px 233px"><rect x="799" y="206" width="2" height="27" rx="1" fill="#224010"/></g>
+          <g class="grass-blade" style="--d:3.4s;--r1:-1.5deg;--r2:2.5deg;transform-origin:880px 233px"><rect x="878" y="204" width="3" height="29" rx="1.5" fill="#2A4A10"/></g>
+          <g class="grass-blade" style="--d:3.1s;--r1:-2.5deg;--r2:2deg;transform-origin:960px 233px"><rect x="958" y="207" width="2.5" height="26" rx="1.2" fill="#264510"/></g>
+          <g class="grass-blade" style="--d:2.9s;--r1:-2deg;--r2:3deg;transform-origin:1040px 233px"><rect x="1038" y="203" width="3" height="30" rx="1.5" fill="#2A4A10"/></g>
+          <g class="grass-blade" style="--d:3.7s;--r1:-3deg;--r2:2deg;transform-origin:1120px 233px"><rect x="1118" y="205" width="2.5" height="28" rx="1.2" fill="#264510"/></g>
+          <g class="grass-blade" style="--d:3.2s;--r1:-2deg;--r2:2.5deg;transform-origin:1170px 233px"><rect x="1168" y="202" width="3" height="31" rx="1.5" fill="#2A4A10"/></g>
+        </g>
+
+        <g>
+          <g class="grass-blade" style="--d:2.5s;--r1:-4deg;--r2:3deg;transform-origin:35px 230px"><path d="M35 230 Q32 210 35 190" stroke="#3A6618" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:3s;--r1:-3deg;--r2:4deg;transform-origin:38px 230px"><path d="M38 230 Q40 208 37 185" stroke="#4A7A20" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:2.8s;--r1:-5deg;--r2:3deg;transform-origin:90px 230px"><path d="M90 230 Q87 205 91 178" stroke="#3A6618" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:3.2s;--r1:-3deg;--r2:5deg;transform-origin:93px 230px"><path d="M93 230 Q96 212 92 188" stroke="#4A7A20" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:2.6s;--r1:-4deg;--r2:3deg;transform-origin:160px 230px"><path d="M160 230 Q157 208 161 182" stroke="#3A6618" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:3.4s;--r1:-3deg;--r2:4deg;transform-origin:164px 230px"><path d="M164 230 Q167 215 163 192" stroke="#4A7A20" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:2.9s;--r1:-5deg;--r2:3deg;transform-origin:230px 230px"><path d="M230 230 Q227 205 231 175" stroke="#3A6618" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:3.1s;--r1:-3deg;--r2:5deg;transform-origin:234px 230px"><path d="M234 230 Q237 212 233 188" stroke="#4A7A20" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:2.7s;--r1:-4deg;--r2:3deg;transform-origin:310px 230px"><path d="M310 230 Q307 208 311 180" stroke="#3A6618" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:3.3s;--r1:-3deg;--r2:4deg;transform-origin:314px 230px"><path d="M314 230 Q317 215 313 190" stroke="#4A7A20" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:2.5s;--r1:-5deg;--r2:3deg;transform-origin:390px 230px"><path d="M390 230 Q387 205 391 178" stroke="#3A6618" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:3s;--r1:-3deg;--r2:5deg;transform-origin:394px 230px"><path d="M394 230 Q397 212 393 188" stroke="#4A7A20" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:2.8s;--r1:-4deg;--r2:3deg;transform-origin:470px 230px"><path d="M470 230 Q467 208 471 182" stroke="#3A6618" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:3.2s;--r1:-3deg;--r2:4deg;transform-origin:474px 230px"><path d="M474 230 Q477 215 473 192" stroke="#4A7A20" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:2.6s;--r1:-5deg;--r2:3deg;transform-origin:550px 230px"><path d="M550 230 Q547 205 551 175" stroke="#3A6618" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:3.4s;--r1:-3deg;--r2:5deg;transform-origin:554px 230px"><path d="M554 230 Q557 212 553 188" stroke="#4A7A20" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:2.9s;--r1:-4deg;--r2:3deg;transform-origin:630px 230px"><path d="M630 230 Q627 208 631 180" stroke="#3A6618" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:3.1s;--r1:-3deg;--r2:4deg;transform-origin:634px 230px"><path d="M634 230 Q637 215 633 190" stroke="#4A7A20" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:2.7s;--r1:-5deg;--r2:3deg;transform-origin:710px 230px"><path d="M710 230 Q707 205 711 178" stroke="#3A6618" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:3.3s;--r1:-3deg;--r2:5deg;transform-origin:714px 230px"><path d="M714 230 Q717 212 713 188" stroke="#4A7A20" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:2.5s;--r1:-4deg;--r2:3deg;transform-origin:790px 230px"><path d="M790 230 Q787 208 791 182" stroke="#3A6618" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:3s;--r1:-3deg;--r2:4deg;transform-origin:794px 230px"><path d="M794 230 Q797 215 793 192" stroke="#4A7A20" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:2.8s;--r1:-5deg;--r2:3deg;transform-origin:870px 230px"><path d="M870 230 Q867 205 871 175" stroke="#3A6618" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:3.2s;--r1:-3deg;--r2:5deg;transform-origin:874px 230px"><path d="M874 230 Q877 212 873 188" stroke="#4A7A20" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:2.6s;--r1:-4deg;--r2:3deg;transform-origin:950px 230px"><path d="M950 230 Q947 208 951 180" stroke="#3A6618" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:3.4s;--r1:-3deg;--r2:4deg;transform-origin:954px 230px"><path d="M954 230 Q957 215 953 190" stroke="#4A7A20" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:2.9s;--r1:-5deg;--r2:3deg;transform-origin:1030px 230px"><path d="M1030 230 Q1027 205 1031 178" stroke="#3A6618" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:3.1s;--r1:-3deg;--r2:5deg;transform-origin:1034px 230px"><path d="M1034 230 Q1037 212 1033 188" stroke="#4A7A20" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:2.7s;--r1:-4deg;--r2:3deg;transform-origin:1110px 230px"><path d="M1110 230 Q1107 208 1111 182" stroke="#3A6618" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:3.3s;--r1:-3deg;--r2:4deg;transform-origin:1114px 230px"><path d="M1114 230 Q1117 215 1113 192" stroke="#4A7A20" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:2.5s;--r1:-5deg;--r2:3deg;transform-origin:1170px 230px"><path d="M1170 230 Q1167 205 1171 178" stroke="#3A6618" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="grass-blade" style="--d:3s;--r1:-3deg;--r2:5deg;transform-origin:1174px 230px"><path d="M1174 230 Q1177 212 1173 188" stroke="#4A7A20" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+        </g>
+
+        <g class="firefly" style="--fd:4s;--fp:2.3s;--dx:12px;--dy:-18px"><circle cx="80" cy="195" r="2.5" fill="#FFD080"/><circle cx="80" cy="195" r="5" fill="#FFD080" opacity="0.3"/></g>
+        <g class="firefly" style="--fd:5.5s;--fp:3.1s;--dx:-8px;--dy:-12px"><circle cx="200" cy="180" r="2" fill="#E8C060"/><circle cx="200" cy="180" r="4" fill="#E8C060" opacity="0.3"/></g>
+        <g class="firefly" style="--fd:3.8s;--fp:2.7s;--dx:15px;--dy:-20px"><circle cx="350" cy="190" r="2.5" fill="#FFD080"/><circle cx="350" cy="190" r="5" fill="#FFD080" opacity="0.3"/></g>
+        <g class="firefly" style="--fd:6s;--fp:2s;--dx:-10px;--dy:-15px"><circle cx="500" cy="175" r="2" fill="#E8C060"/><circle cx="500" cy="175" r="4" fill="#E8C060" opacity="0.3"/></g>
+        <g class="firefly" style="--fd:4.5s;--fp:3.5s;--dx:8px;--dy:-22px"><circle cx="650" cy="185" r="2.5" fill="#FFD080"/><circle cx="650" cy="185" r="5" fill="#FFD080" opacity="0.3"/></g>
+        <g class="firefly" style="--fd:5s;--fp:2.8s;--dx:-12px;--dy:-10px"><circle cx="780" cy="195" r="2" fill="#E8C060"/><circle cx="780" cy="195" r="4" fill="#E8C060" opacity="0.3"/></g>
+        <g class="firefly" style="--fd:3.5s;--fp:3.2s;--dx:10px;--dy:-18px"><circle cx="920" cy="180" r="2.5" fill="#FFD080"/><circle cx="920" cy="180" r="5" fill="#FFD080" opacity="0.3"/></g>
+        <g class="firefly" style="--fd:6.5s;--fp:2.4s;--dx:-15px;--dy:-14px"><circle cx="1060" cy="190" r="2" fill="#E8C060"/><circle cx="1060" cy="190" r="4" fill="#E8C060" opacity="0.3"/></g>
+        <g class="firefly" style="--fd:4.2s;--fp:3s;--dx:9px;--dy:-20px"><circle cx="1150" cy="178" r="2.5" fill="#FFD080"/><circle cx="1150" cy="178" r="5" fill="#FFD080" opacity="0.3"/></g>
+
+        <g class="leaf" style="--lf:9s;--lx:40px;--lr:130deg;animation-delay:0s"><ellipse cx="120" cy="160" rx="5" ry="3" fill="#5A3A10" opacity="0.6" transform="rotate(20,120,160)"/></g>
+        <g class="leaf" style="--lf:12s;--lx:-30px;--lr:100deg;animation-delay:2s"><ellipse cx="450" cy="140" rx="4" ry="2.5" fill="#6A4A15" opacity="0.5" transform="rotate(-15,450,140)"/></g>
+        <g class="leaf" style="--lf:10s;--lx:25px;--lr:150deg;animation-delay:4s"><ellipse cx="800" cy="150" rx="5" ry="3" fill="#5A3A10" opacity="0.6" transform="rotate(30,800,150)"/></g>
+        <g class="leaf" style="--lf:11s;--lx:-35px;--lr:110deg;animation-delay:1s"><ellipse cx="1100" cy="145" rx="4" ry="2.5" fill="#6A4A15" opacity="0.5" transform="rotate(-10,1100,145)"/></g>
+
+        <path d="M1160 240 Q1175 220 1185 210 Q1192 205 1198 215 Q1195 225 1185 228 Q1178 232 1170 238 Q1165 242 1160 240Z" fill="#0D1500" opacity="0.7"/>
+        <path d="M1185 208 Q1195 198 1200 202" stroke="#1A2A08" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
 
   <!-- FOOTER -->
   <footer>
