@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Christmas Heart — The Somnolescent Dragon</title>
-  <meta name="description" content="Festive warmth and Yule magic in ultrawide splendor. The season's wonder rendered in painterly light and quiet joy." />
+  <title>Tannenbaum — Christmas Heart — The Somnolescent Dragon</title>
+  <meta name="description" content="Christmas trees in extraordinary settings across the world. Free ultrawide 21:9 AI wallpapers from The Somnolescent Dragon." />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -28,43 +28,90 @@
       --radius-sm:    6px;
       --radius-md:    10px;
     }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { background: var(--page-bg); color: var(--text-primary); font-family: var(--font-body); font-weight: 400; line-height: 1.7; min-height: 100vh; }
     a { color: inherit; text-decoration: none; }
+    main { width: 100%; }
+
+    /* NAV */
     .site-nav { position: sticky; top: 0; z-index: 100; background: rgba(28,23,20,0.92); backdrop-filter: blur(8px); border-bottom: 0.5px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 52px; }
     .nav-brand { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--text-primary); white-space: nowrap; }
     .nav-brand span { color: var(--accent); }
     .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
-    .nav-links a { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); padding: 0.35rem 0.65rem; border-radius: var(--radius-sm); transition: color 0.2s, background 0.2s; white-space: nowrap; }
+    .nav-links a { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); padding: 0.35rem 0.65rem; border-radius: var(--radius-sm); transition: color 0.2s, background 0.2s; white-space: nowrap; }
     .nav-links a:hover { color: var(--text-primary); background: var(--surface-2); }
-    .breadcrumb { padding: 0.85rem 2rem; border-bottom: 0.5px solid var(--border); display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; color: var(--text-dim); }
+
+    /* BREADCRUMB */
+    .breadcrumb { padding: 0.85rem 2rem; border-bottom: 0.5px solid var(--border); display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; color: var(--text-dim); flex-wrap: wrap; }
     .breadcrumb a { color: var(--text-dim); transition: color 0.2s; }
     .breadcrumb a:hover { color: var(--accent); }
     .breadcrumb-sep { opacity: 0.5; }
     .breadcrumb-current { color: var(--text-muted); font-style: italic; }
-    .cat-hero { padding: 3rem 2rem 2.5rem; border-bottom: 0.5px solid var(--border); max-width: 1200px; margin: 0 auto; }
-    .cat-eyebrow { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 0.75rem; }
-    .cat-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.2; }
-    .cat-description { font-size: 0.9rem; color: var(--text-muted); max-width: 560px; line-height: 1.8; margin-bottom: 1.25rem; }
-    .cat-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .cat-stat { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); }
-    .cat-stat strong { display: block; font-size: 1.1rem; font-family: var(--font-display); color: var(--text-primary); font-weight: 400; letter-spacing: 0; text-transform: none; }
-    .collections-section { padding: 2.5rem 2rem 1rem; max-width: 1200px; margin: 0 auto; }
-    .section-eyebrow { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 1.25rem; }
-    .collections-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
-    .collection-card { background: var(--surface-1); border: 0.5px solid var(--border); border-radius: var(--radius-md); overflow: hidden; cursor: pointer; transition: border-color 0.25s, transform 0.2s; display: block; position: relative; }
-    .collection-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
-    .collection-thumb { width: 100%; height: 130px; background: var(--surface-2); display: flex; align-items: center; justify-content: center; font-size: 2rem; border-bottom: 0.5px solid var(--border); overflow: hidden; }
-    .collection-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.25s; }
-    .collection-card:hover .collection-thumb img { opacity: 1; }
-    .collection-thumb-placeholder { opacity: 0.3; }
-    .collection-body { padding: 1rem 1rem 0.875rem; }
-    .collection-name { font-family: var(--font-display); font-size: 1rem; color: var(--text-muted); font-style: italic; margin-bottom: 0.35rem; line-height: 1.3; }
-    .collection-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.6rem; }
-    .collection-meta { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); }
-    .collection-card:hover .collection-meta { color: var(--text-muted); }
-    .more-section { padding: 2.5rem 2rem 3rem; max-width: 1200px; margin: 2rem auto 0; border-top: 0.5px solid var(--border); }
+
+    /* PAGE HEADER */
+    .page-header { padding: 2rem 2rem 1.5rem; max-width: 1400px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-bottom: 0.5px solid var(--border); }
+    .page-eyebrow { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 0.4rem; }
+    .page-title { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: var(--text-primary); line-height: 1.2; margin-bottom: 0.4rem; }
+    .page-subtitle { font-size: 0.85rem; color: var(--text-dim); max-width: 480px; line-height: 1.8; }
+    .header-right { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+    .wallpaper-count { font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; }
+    .search-wrap { position: relative; }
+    .search-input { background: var(--surface-1); border: 0.5px solid var(--border); border-radius: var(--radius-sm); color: var(--text-primary); font-family: var(--font-body); font-size: 0.78rem; padding: 0.45rem 0.75rem 0.45rem 2rem; width: 200px; transition: border-color 0.2s; outline: none; }
+    .search-input::placeholder { color: var(--text-dim); }
+    .search-input:focus { border-color: var(--border-hover); }
+    .search-icon { position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); font-size: 0.75rem; color: var(--text-dim); pointer-events: none; }
+
+    /* WALLPAPER GRID */
+    .grid-section { padding: 1.5rem 2rem 2rem; max-width: 1400px; margin: 0 auto; }
+    .wallpaper-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+
+    /* WALLPAPER CARD */
+    .wp-card { background: var(--surface-1); border: 0.5px solid var(--border); border-radius: var(--radius-md); overflow: hidden; cursor: pointer; transition: border-color 0.25s, transform 0.2s; position: relative; display: block; }
+    .wp-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .wp-thumb { width: 100%; aspect-ratio: 21/9; overflow: hidden; background: var(--surface-2); position: relative; display: flex; align-items: center; justify-content: center; }
+    .wp-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, opacity 0.25s; opacity: 0.85; }
+    .wp-card:hover .wp-thumb img { transform: scale(1.03); opacity: 1; }
+    .wp-thumb-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; opacity: 0.15; background: var(--surface-2); }
+    .wp-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,23,20,0.85) 0%, transparent 50%); opacity: 0; transition: opacity 0.25s; display: flex; align-items: flex-end; padding: 0.75rem; }
+    .wp-card:hover .wp-overlay { opacity: 1; }
+    .wp-quick-dl { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: #1C1714; background: var(--accent); padding: 0.3rem 0.75rem; border-radius: var(--radius-sm); font-weight: 700; }
+    .wp-body { padding: 0.6rem 0.75rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+    .wp-name { font-size: 0.72rem; color: var(--text-dim); line-height: 1.4; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .wp-res { font-size: 0.62rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; flex-shrink: 0; }
+
+    /* EMPTY STATE */
+    .empty-state { text-align: center; padding: 4rem 2rem; display: none; }
+    .empty-state.visible { display: block; }
+    .empty-state p { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--text-dim); }
+
+    /* LIGHTBOX */
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(14,11,9,0.96); align-items: center; justify-content: center; padding: 1.5rem; }
+    .lightbox.open { display: flex; }
+    .lightbox-inner { max-width: 1200px; width: 100%; display: flex; flex-direction: column; gap: 1rem; }
+    .lightbox-img-wrap { width: 100%; border-radius: var(--radius-md); overflow: hidden; background: var(--surface-1); border: 0.5px solid var(--border); }
+    .lightbox-img-wrap img { width: 100%; height: auto; display: block; max-height: 70vh; object-fit: contain; }
+    .lightbox-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .lightbox-title { font-family: var(--font-display); font-size: 1rem; color: var(--text-primary); margin-bottom: 0.2rem; }
+    .lightbox-meta { font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; }
+    .lightbox-actions { display: flex; gap: 0.75rem; align-items: center; }
+    .res-picker { display: flex; align-items: center; gap: 0.5rem; background: var(--surface-1); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 0.35rem 0.75rem; font-size: 0.72rem; color: var(--text-dim); }
+    .res-detected { color: var(--accent); font-weight: 700; }
+    .res-change { font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; border-bottom: 0.5px solid var(--text-dim); transition: color 0.2s; }
+    .res-change:hover { color: var(--accent); }
+    .dl-btn { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--accent); color: #1C1714; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.55rem 1.25rem; border-radius: var(--radius-sm); transition: opacity 0.2s, transform 0.15s; cursor: pointer; border: none; }
+    .dl-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .lightbox-close { position: fixed; top: 1.25rem; right: 1.5rem; font-size: 1.5rem; color: var(--text-dim); cursor: pointer; transition: color 0.2s; background: none; border: none; line-height: 1; }
+    .lightbox-close:hover { color: var(--text-primary); }
+    .lightbox-prev, .lightbox-next { position: fixed; top: 50%; transform: translateY(-50%); font-size: 1.5rem; color: var(--text-dim); cursor: pointer; background: var(--surface-1); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 0.5rem 0.75rem; transition: color 0.2s, border-color 0.2s; line-height: 1; }
+    .lightbox-prev { left: 1rem; }
+    .lightbox-next { right: 1rem; }
+    .lightbox-prev:hover, .lightbox-next:hover { color: var(--text-primary); border-color: var(--border-hover); }
+
+    /* MORE COLLECTIONS STRIP */
+    .more-section { padding: 2rem 2rem 3rem; max-width: 1400px; margin: 0 auto; border-top: 0.5px solid var(--border); }
+    .section-eyebrow { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 1rem; }
     .more-strip { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 0.5rem; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
     .more-card { flex: 0 0 160px; background: var(--surface-1); border: 0.5px solid var(--border); border-radius: var(--radius-md); padding: 1rem 0.875rem; cursor: pointer; transition: border-color 0.25s, background 0.25s; display: block; }
     .more-card:hover { border-color: var(--border-hover); background: var(--surface-2); }
@@ -90,139 +137,895 @@
       transition: opacity 0.25s;
     }
     .more-card:hover .more-card-thumb img { opacity: 1; }
-    .site-footer { border-top: 0.5px solid var(--border); padding: 1.5rem 2rem; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+
+    /* FOOTER */
+    .site-footer { border-top: 0.5px solid var(--border); padding: 1.5rem 2rem; max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .footer-brand { font-family: var(--font-display); font-style: italic; font-size: 0.82rem; color: var(--text-dim); }
     .footer-links { display: flex; gap: 1.25rem; list-style: none; }
     .footer-links a { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); transition: color 0.2s; }
     .footer-links a:hover { color: var(--accent); }
     .footer-disclosure { font-size: 0.68rem; color: var(--text-dim); width: 100%; padding-top: 0.75rem; border-top: 0.5px solid var(--border); line-height: 1.6; }
-    @media (max-width: 640px) {
-      .site-nav { padding: 0 1rem; }
-      .nav-links a { padding: 0.3rem 0.4rem; font-size: 0.65rem; }
-      .breadcrumb { padding: 0.75rem 1.25rem; }
-      .cat-hero, .collections-section, .more-section, .site-footer { padding-left: 1.25rem; padding-right: 1.25rem; }
-      .collections-grid { grid-template-columns: 1fr; }
+
+    /* RESPONSIVE */
+    .wp-card::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -75%;
+      width: 50%;
+      height: 200%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%);
+      transform: skewX(-20deg);
+      opacity: 0;
+      pointer-events: none;
     }
-    @media (prefers-reduced-motion: reduce) { .collection-card:hover { transform: none; } }
+    .wp-card:hover::after { animation: shimmer 0.6s ease forwards; }
+    @keyframes shimmer { 0% { left: -75%; opacity: 1; } 100% { left: 125%; opacity: 1; } }
+
+
+    .dragon-scene { width: 100%; display: block; margin-top: -2px; line-height: 0; }
+    .tree-sway { animation: treesway var(--d,5s) ease-in-out infinite alternate; }
+    @keyframes treesway { 0% { transform: rotate(var(--r1,-0.8deg)); } 100% { transform: rotate(var(--r2,0.8deg)); } }
+    .snowflake { animation: snowfall var(--sf,8s) linear infinite; }
+    @keyframes snowfall { 0% { transform: translateY(-10px); opacity:0; } 10% { opacity:var(--so,0.7); } 90% { opacity:0.5; } 100% { transform: translateY(270px) translateX(var(--sx,10px)); opacity:0; } }
+    .flame { animation: flicker var(--fl,0.8s) ease-in-out infinite alternate; }
+    @keyframes flicker { 0% { opacity:0.85; } 100% { opacity:1; } }
+    .star-twinkle { animation: startwinkle var(--st,3s) ease-in-out infinite alternate; }
+    @keyframes startwinkle { 0% { opacity:var(--so,0.6); } 100% { opacity:0.08; } }
+    .glow-pulse { animation: glowpulse 4s ease-in-out infinite alternate; }
+    @keyframes glowpulse { 0% { opacity:0.05; } 100% { opacity:0.12; } }
+
+    @media (max-width: 768px) { .wallpaper-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; } .lightbox-prev { left: 0.25rem; } .lightbox-next { right: 0.25rem; } .res-picker { display: none; } }
+    @media (max-width: 640px) { .site-nav { padding: 0 1rem; } .nav-links a { padding: 0.3rem 0.4rem; font-size: 0.65rem; } .breadcrumb { padding: 0.75rem 1.25rem; } .page-header, .grid-section, .more-section, .site-footer { padding-left: 1.25rem; padding-right: 1.25rem; } }
+    @media (prefers-reduced-motion: reduce) { .wp-card:hover { transform: none; } .wp-card:hover .wp-thumb img { transform: none; } .dl-btn:hover { transform: none; } }
   </style>
 </head>
 <body>
+
+  <!-- NAV -->
   <header>
     <nav class="site-nav" aria-label="Main navigation">
-      <a href="../index.html" class="nav-brand">The <span>Somnolescent</span> Dragon</a>
+      <a href="/index.html" class="nav-brand">The <span>Somnolescent</span> Dragon</a>
       <ul class="nav-links">
-        <li><a href="../index.html#collections">Collections</a></li>
-        <li><a href="../whats-new.html">What's New</a></li>
-        <li><a href="../suggest.html">Suggest a theme</a></li>
-        <li><a href="../help.html">Help</a></li>
-        <li><a href="../about.html">About the art</a></li>
+        <li><a href="../../index.html#collections">Collections</a></li>
+        <li><a href="/whats-new.html">What's New</a></li>
+        <li><a href="/suggest.html">Suggest a theme</a></li>
+        <li><a href="/help.html">Help</a></li>
+        <li><a href="/about.html">About the art</a></li>
       </ul>
     </nav>
   </header>
+
+  <!-- BREADCRUMB -->
   <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="../index.html">🐉 Home</a>
+    <a href="/index.html">🐉 Home</a>
     <span class="breadcrumb-sep">·</span>
-    <span class="breadcrumb-current">Christmas Heart</span>
+    <a href="/christmas-heart/index.html">Christmas Heart</a>
+    <span class="breadcrumb-sep">·</span>
+    <span class="breadcrumb-current">Tannenbaum</span>
   </nav>
+
   <main>
-    <div class="cat-hero">
-      <p class="cat-eyebrow">Collection</p>
-      <h1 class="cat-title">Christmas Heart</h1>
-      <p class="cat-description">Festive warmth and Yule magic in ultrawide splendor. The season's wonder rendered in painterly light and quiet joy.</p>
-      <div class="cat-stats">
-        <div class="cat-stat"><strong>Coming soon</strong>Wallpapers</div>
-        <div class="cat-stat"><strong>Mixed</strong>Art style</div>
-        <div class="cat-stat"><strong>21:9</strong>Ultrawide</div>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="header-left">
+        <p class="page-eyebrow">Christmas Heart</p>
+        <h1 class="page-title">Tannenbaum</h1>
+        <p class="page-subtitle">One tree. Twenty-three worlds. From arctic igloos to gothic cathedrals, from canyon rims to Venetian canals — the Tannenbaum goes everywhere.</p>
+      </div>
+      <div class="header-right">
+        <span class="wallpaper-count" id="wp-count">— wallpapers</span>
+        <div class="search-wrap">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input class="search-input" type="search" placeholder="Search this collection..." id="search-input" aria-label="Search wallpapers" />
+        </div>
       </div>
     </div>
-    <section class="collections-section" aria-label="Sub-collections">
-      <p class="section-eyebrow">Browse the collections</p>
-      <div class="collections-grid">
-        <!-- Named collections go here as they are ready — The Miscellany is always last -->
-        <a class="collection-card" href="/christmas-heart/tannenbaum/index.html">
-          <div class="collection-thumb">
-            <span class="collection-thumb-placeholder">🎄</span>
+
+    <!-- WALLPAPER GRID -->
+    <section class="grid-section" aria-label="Wallpaper grid">
+      <div class="wallpaper-grid" id="wallpaper-grid">
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-canyon-rim-golden-hour-red-walls-ultrawide.png" data-name="christmas-tree-canyon-rim-golden-hour-red-walls-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-canyon-rim-golden-hour-red-walls-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-canyon-rim-golden-hour-red-walls-ultrawide.png" alt="christmas-tree-canyon-rim-golden-hour-red-walls-ultrawide" loading="lazy" />
           </div>
-          <div class="collection-body">
-            <p class="collection-name">Tannenbaum</p>
-            <p class="collection-desc">One tree. Twenty-three worlds. From arctic igloos to gothic cathedrals, from canyon rims to Venetian canals.</p>
-            <span class="collection-meta">Now open</span>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-canyon-rim-golden-hour-red-walls-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
           </div>
-        </a>
-        <a class="collection-card" href="the-miscellany/index.html">
-          <div class="collection-thumb">
-            <span class="collection-thumb-placeholder">✨</span>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-castle-courtyard-torches-snow-medieval-ultrawide.png" data-name="christmas-tree-castle-courtyard-torches-snow-medieval-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-castle-courtyard-torches-snow-medieval-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-castle-courtyard-torches-snow-medieval-ultrawide.png" alt="christmas-tree-castle-courtyard-torches-snow-medieval-ultrawide" loading="lazy" />
           </div>
-          <div class="collection-body">
-            <p class="collection-name">The Miscellany</p>
-            <p class="collection-desc">Every piece here belongs — some are just finding their collection. Check back as new collections take shape.</p>
-            <span class="collection-meta">Various</span>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-castle-courtyard-torches-snow-medieval-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
           </div>
-        </a>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-cave-grotto-stalactites-bioluminescent-ultrawide.png" data-name="christmas-tree-cave-grotto-stalactites-bioluminescent-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-cave-grotto-stalactites-bioluminescent-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-cave-grotto-stalactites-bioluminescent-ultrawide.png" alt="christmas-tree-cave-grotto-stalactites-bioluminescent-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-cave-grotto-stalactites-bioluminescent-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-city-plaza-grand-snowfall-night-lights-ultrawide.png" data-name="christmas-tree-city-plaza-grand-snowfall-night-lights-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-city-plaza-grand-snowfall-night-lights-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-city-plaza-grand-snowfall-night-lights-ultrawide.png" alt="christmas-tree-city-plaza-grand-snowfall-night-lights-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-city-plaza-grand-snowfall-night-lights-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-coastal-cliff-storm-golden-sunset-waves-ultrawide.png" data-name="christmas-tree-coastal-cliff-storm-golden-sunset-waves-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-coastal-cliff-storm-golden-sunset-waves-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-coastal-cliff-storm-golden-sunset-waves-ultrawide.png" alt="christmas-tree-coastal-cliff-storm-golden-sunset-waves-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-coastal-cliff-storm-golden-sunset-waves-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-english-garden-dusk-frozen-pond-reflection-ultrawide.png" data-name="christmas-tree-english-garden-dusk-frozen-pond-reflection-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-english-garden-dusk-frozen-pond-reflection-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-english-garden-dusk-frozen-pond-reflection-ultrawide.png" alt="christmas-tree-english-garden-dusk-frozen-pond-reflection-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-english-garden-dusk-frozen-pond-reflection-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-european-blizzard-gothic-cobblestone-ultrawide.png" data-name="christmas-tree-european-blizzard-gothic-cobblestone-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-european-blizzard-gothic-cobblestone-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-european-blizzard-gothic-cobblestone-ultrawide.png" alt="christmas-tree-european-blizzard-gothic-cobblestone-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-european-blizzard-gothic-cobblestone-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-european-market-square-cobblestone-night-ultrawide.png" data-name="christmas-tree-european-market-square-cobblestone-night-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-european-market-square-cobblestone-night-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-european-market-square-cobblestone-night-ultrawide.png" alt="christmas-tree-european-market-square-cobblestone-night-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-european-market-square-cobblestone-night-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-farmhouse-kitchen-cranberry-garland-warm-ultrawide.png" data-name="christmas-tree-farmhouse-kitchen-cranberry-garland-warm-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-farmhouse-kitchen-cranberry-garland-warm-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-farmhouse-kitchen-cranberry-garland-warm-ultrawide.png" alt="christmas-tree-farmhouse-kitchen-cranberry-garland-warm-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-farmhouse-kitchen-cranberry-garland-warm-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-frozen-waterfall-blue-ice-warm-lights-ultrawide.png" data-name="christmas-tree-frozen-waterfall-blue-ice-warm-lights-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-frozen-waterfall-blue-ice-warm-lights-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-frozen-waterfall-blue-ice-warm-lights-ultrawide.png" alt="christmas-tree-frozen-waterfall-blue-ice-warm-lights-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-frozen-waterfall-blue-ice-warm-lights-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-gothic-cathedral-candlelight-stained-glass-ultrawide.png" data-name="christmas-tree-gothic-cathedral-candlelight-stained-glass-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-gothic-cathedral-candlelight-stained-glass-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-gothic-cathedral-candlelight-stained-glass-ultrawide.png" alt="christmas-tree-gothic-cathedral-candlelight-stained-glass-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-gothic-cathedral-candlelight-stained-glass-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-grand-library-leather-books-candlelight-ultrawide.png" data-name="christmas-tree-grand-library-leather-books-candlelight-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-grand-library-leather-books-candlelight-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-grand-library-leather-books-candlelight-ultrawide.png" alt="christmas-tree-grand-library-leather-books-candlelight-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-grand-library-leather-books-candlelight-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-husky-sled-team-arctic-dusk-partially-decorated-ultrawide.png" data-name="christmas-tree-husky-sled-team-arctic-dusk-partially-decorated-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-husky-sled-team-arctic-dusk-partially-decorated-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-husky-sled-team-arctic-dusk-partially-decorated-ultrawide.png" alt="christmas-tree-husky-sled-team-arctic-dusk-partially-decorated-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-husky-sled-team-arctic-dusk-partially-decorated-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-igloo-arctic-night-aurora-starfield-ultrawide.png" data-name="christmas-tree-igloo-arctic-night-aurora-starfield-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-igloo-arctic-night-aurora-starfield-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-igloo-arctic-night-aurora-starfield-ultrawide.png" alt="christmas-tree-igloo-arctic-night-aurora-starfield-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-igloo-arctic-night-aurora-starfield-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-lot-vintage-red-pickup-firepit-autumn-evening-ultrawide.png" data-name="christmas-tree-lot-vintage-red-pickup-firepit-autumn-evening-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-lot-vintage-red-pickup-firepit-autumn-evening-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-lot-vintage-red-pickup-firepit-autumn-evening-ultrawide.png" alt="christmas-tree-lot-vintage-red-pickup-firepit-autumn-evening-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-lot-vintage-red-pickup-firepit-autumn-evening-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-olympics-podium-first-place-scraggly-winner-ultrawide.png" data-name="christmas-tree-olympics-podium-first-place-scraggly-winner-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-olympics-podium-first-place-scraggly-winner-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-olympics-podium-first-place-scraggly-winner-ultrawide.png" alt="christmas-tree-olympics-podium-first-place-scraggly-winner-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-olympics-podium-first-place-scraggly-winner-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-orchard-harvest-moon-amber-silhouette-ultrawide.png" data-name="christmas-tree-orchard-harvest-moon-amber-silhouette-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-orchard-harvest-moon-amber-silhouette-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-orchard-harvest-moon-amber-silhouette-ultrawide.png" alt="christmas-tree-orchard-harvest-moon-amber-silhouette-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-orchard-harvest-moon-amber-silhouette-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-palatial-manor-hall-red-gold-chandelier-ultrawide.png" data-name="christmas-tree-palatial-manor-hall-red-gold-chandelier-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-palatial-manor-hall-red-gold-chandelier-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-palatial-manor-hall-red-gold-chandelier-ultrawide.png" alt="christmas-tree-palatial-manor-hall-red-gold-chandelier-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-palatial-manor-hall-red-gold-chandelier-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-stone-cottage-candlelight-fireplace-cozy-ultrawide.png" data-name="christmas-tree-stone-cottage-candlelight-fireplace-cozy-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-stone-cottage-candlelight-fireplace-cozy-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-stone-cottage-candlelight-fireplace-cozy-ultrawide.png" alt="christmas-tree-stone-cottage-candlelight-fireplace-cozy-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-stone-cottage-candlelight-fireplace-cozy-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-treehouse-snow-forest-warm-windows-ultrawide.png" data-name="christmas-tree-treehouse-snow-forest-warm-windows-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-treehouse-snow-forest-warm-windows-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-treehouse-snow-forest-warm-windows-ultrawide.png" alt="christmas-tree-treehouse-snow-forest-warm-windows-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-treehouse-snow-forest-warm-windows-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-venetian-canal-palazzo-reflection-night-ultrawide.png" data-name="christmas-tree-venetian-canal-palazzo-reflection-night-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-venetian-canal-palazzo-reflection-night-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-venetian-canal-palazzo-reflection-night-ultrawide.png" alt="christmas-tree-venetian-canal-palazzo-reflection-night-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-venetian-canal-palazzo-reflection-night-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-victorian-greenhouse-glass-tropical-snow-ultrawide.png" data-name="christmas-tree-victorian-greenhouse-glass-tropical-snow-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-victorian-greenhouse-glass-tropical-snow-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-victorian-greenhouse-glass-tropical-snow-ultrawide.png" alt="christmas-tree-victorian-greenhouse-glass-tropical-snow-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-victorian-greenhouse-glass-tropical-snow-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-victorian-train-station-vaulted-ceiling-ultrawide.png" data-name="christmas-tree-victorian-train-station-vaulted-ceiling-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-victorian-train-station-vaulted-ceiling-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/christmas-tree-victorian-train-station-vaulted-ceiling-ultrawide.png" alt="christmas-tree-victorian-train-station-vaulted-ceiling-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">christmas-tree-victorian-train-station-vaulted-ceiling-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/lone-christmas-tree-snowy-hill-starfield-night-ultrawide.png" data-name="lone-christmas-tree-snowy-hill-starfield-night-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/lone-christmas-tree-snowy-hill-starfield-night-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/tannenbaum/lone-christmas-tree-snowy-hill-starfield-night-ultrawide.png" alt="lone-christmas-tree-snowy-hill-starfield-night-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">lone-christmas-tree-snowy-hill-starfield-night-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+      </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-balcony-coffee-provence-lavender-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-beach-normandy-tidal-island-ultrawide.png" data-name="castle-belonging-beach-normandy-tidal-island-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-beach-normandy-tidal-island-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-beach-normandy-tidal-island-ultrawide.png" alt="castle-belonging-beach-normandy-tidal-island-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-beach-normandy-tidal-island-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-bookshop-window-edinburgh-crag-ultrawide.png" data-name="castle-belonging-bookshop-window-edinburgh-crag-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-bookshop-window-edinburgh-crag-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-bookshop-window-edinburgh-crag-ultrawide.png" alt="castle-belonging-bookshop-window-edinburgh-crag-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-bookshop-window-edinburgh-crag-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-cafe-window-burgundy-france-ultrawide.png" data-name="castle-belonging-cafe-window-burgundy-france-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-cafe-window-burgundy-france-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-cafe-window-burgundy-france-ultrawide.png" alt="castle-belonging-cafe-window-burgundy-france-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-cafe-window-burgundy-france-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-cemetery-gate-transylvania-autumn-ultrawide.png" data-name="castle-belonging-cemetery-gate-transylvania-autumn-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-cemetery-gate-transylvania-autumn-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-cemetery-gate-transylvania-autumn-ultrawide.png" alt="castle-belonging-cemetery-gate-transylvania-autumn-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-cemetery-gate-transylvania-autumn-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-church-steps-salzburg-fortress-ultrawide.png" data-name="castle-belonging-church-steps-salzburg-fortress-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-church-steps-salzburg-fortress-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-church-steps-salzburg-fortress-ultrawide.png" alt="castle-belonging-church-steps-salzburg-fortress-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-church-steps-salzburg-fortress-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-covered-bridge-swiss-river-castle-ultrawide.png" data-name="castle-belonging-covered-bridge-swiss-river-castle-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-covered-bridge-swiss-river-castle-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-covered-bridge-swiss-river-castle-ultrawide.png" alt="castle-belonging-covered-bridge-swiss-river-castle-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-covered-bridge-swiss-river-castle-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-dock-dawn-norwegian-fjord-ultrawide.png" data-name="castle-belonging-dock-dawn-norwegian-fjord-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-dock-dawn-norwegian-fjord-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-dock-dawn-norwegian-fjord-ultrawide.png" alt="castle-belonging-dock-dawn-norwegian-fjord-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-dock-dawn-norwegian-fjord-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-farmhouse-kitchen-tuscany-olive-grove-ultrawide.png" data-name="castle-belonging-farmhouse-kitchen-tuscany-olive-grove-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-farmhouse-kitchen-tuscany-olive-grove-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-farmhouse-kitchen-tuscany-olive-grove-ultrawide.png" alt="castle-belonging-farmhouse-kitchen-tuscany-olive-grove-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-farmhouse-kitchen-tuscany-olive-grove-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-fishing-boat-scottish-loch-ultrawide.png" data-name="castle-belonging-fishing-boat-scottish-loch-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-fishing-boat-scottish-loch-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-fishing-boat-scottish-loch-ultrawide.png" alt="castle-belonging-fishing-boat-scottish-loch-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-fishing-boat-scottish-loch-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-garden-bench-cotswold-copper-beech-ultrawide.png" data-name="castle-belonging-garden-bench-cotswold-copper-beech-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-garden-bench-cotswold-copper-beech-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-garden-bench-cotswold-copper-beech-ultrawide.png" alt="castle-belonging-garden-bench-cotswold-copper-beech-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-garden-bench-cotswold-copper-beech-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-greenhouse-english-estate-rose-garden-ultrawide.png" data-name="castle-belonging-greenhouse-english-estate-rose-garden-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-greenhouse-english-estate-rose-garden-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-greenhouse-english-estate-rose-garden-ultrawide.png" alt="castle-belonging-greenhouse-english-estate-rose-garden-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-greenhouse-english-estate-rose-garden-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hammock-amalfi-coast-lemon-trees-ultrawide.png" data-name="castle-belonging-hammock-amalfi-coast-lemon-trees-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hammock-amalfi-coast-lemon-trees-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hammock-amalfi-coast-lemon-trees-ultrawide.png" alt="castle-belonging-hammock-amalfi-coast-lemon-trees-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-hammock-amalfi-coast-lemon-trees-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hilltop-orchard-welsh-borders-ultrawide.png" data-name="castle-belonging-hilltop-orchard-welsh-borders-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hilltop-orchard-welsh-borders-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hilltop-orchard-welsh-borders-ultrawide.png" alt="castle-belonging-hilltop-orchard-welsh-borders-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-hilltop-orchard-welsh-borders-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hot-air-balloon-loire-valley-ultrawide.png" data-name="castle-belonging-hot-air-balloon-loire-valley-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hot-air-balloon-loire-valley-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-hot-air-balloon-loire-valley-ultrawide.png" alt="castle-belonging-hot-air-balloon-loire-valley-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-hot-air-balloon-loire-valley-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-market-square-alsace-ultrawide.png" data-name="castle-belonging-market-square-alsace-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-market-square-alsace-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-market-square-alsace-ultrawide.png" alt="castle-belonging-market-square-alsace-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-market-square-alsace-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-monastery-garden-tuscany-ultrawide.png" data-name="castle-belonging-monastery-garden-tuscany-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-monastery-garden-tuscany-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-monastery-garden-tuscany-ultrawide.png" alt="castle-belonging-monastery-garden-tuscany-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-monastery-garden-tuscany-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-painters-easel-dordogne-river-chateau-ultrawide.png" data-name="castle-belonging-painters-easel-dordogne-river-chateau-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-painters-easel-dordogne-river-chateau-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-painters-easel-dordogne-river-chateau-ultrawide.png" alt="castle-belonging-painters-easel-dordogne-river-chateau-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-painters-easel-dordogne-river-chateau-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-riverside-reading-loire-chateau-ultrawide.png" data-name="castle-belonging-riverside-reading-loire-chateau-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-riverside-reading-loire-chateau-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-riverside-reading-loire-chateau-ultrawide.png" alt="castle-belonging-riverside-reading-loire-chateau-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-riverside-reading-loire-chateau-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-rowboat-bavarian-lake-alpine-reflection-ultrawide.png" data-name="castle-belonging-rowboat-bavarian-lake-alpine-reflection-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-rowboat-bavarian-lake-alpine-reflection-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-rowboat-bavarian-lake-alpine-reflection-ultrawide.png" alt="castle-belonging-rowboat-bavarian-lake-alpine-reflection-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-rowboat-bavarian-lake-alpine-reflection-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-stone-wall-irish-tower-house-ultrawide.png" data-name="castle-belonging-stone-wall-irish-tower-house-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-stone-wall-irish-tower-house-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-stone-wall-irish-tower-house-ultrawide.png" alt="castle-belonging-stone-wall-irish-tower-house-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-stone-wall-irish-tower-house-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-train-window-swiss-alps-lake-ultrawide.png" data-name="castle-belonging-train-window-swiss-alps-lake-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-train-window-swiss-alps-lake-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-train-window-swiss-alps-lake-ultrawide.png" alt="castle-belonging-train-window-swiss-alps-lake-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-train-window-swiss-alps-lake-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-vineyard-terrace-rhineland-ultrawide.png" data-name="castle-belonging-vineyard-terrace-rhineland-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-vineyard-terrace-rhineland-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-vineyard-terrace-rhineland-ultrawide.png" alt="castle-belonging-vineyard-terrace-rhineland-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-vineyard-terrace-rhineland-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-winery-doorway-piedmont-vineyard-ultrawide.png" data-name="castle-belonging-winery-doorway-piedmont-vineyard-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-winery-doorway-piedmont-vineyard-ultrawide.png">
+          <div class="wp-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/castle-belonging/castle-belonging-winery-doorway-piedmont-vineyard-ultrawide.png" alt="castle-belonging-winery-doorway-piedmont-vineyard-ultrawide" loading="lazy" />
+          </div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body">
+            <span class="wp-name">castle-belonging-winery-doorway-piedmont-vineyard-ultrawide</span>
+            <span class="wp-res">3128×1344</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="empty-state" id="empty-state" aria-live="polite">
+        <p>No wallpapers match that search. Try a different word.</p>
       </div>
     </section>
+
+    <!-- MORE COLLECTIONS STRIP -->
     <section class="more-section" aria-label="More collections">
       <p class="section-eyebrow">More collections</p>
       <div class="more-strip" role="list">
-        <a class="more-card" href="../flights-of-fantasy/index.html" role="listitem">
-          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/flights-of-fantasy/thumbs/thumb_1.jpeg" alt="flights-of-fantasy" loading="lazy" /></div>
+        <a class="more-card" href="/christmas-heart/the-miscellany/index.html" role="listitem">
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/thumbs/thumb_1.jpeg" alt="Christmas Heart" loading="lazy" /></div>
+          <p class="more-card-name">The Miscellany</p>
+          <span class="more-card-count">Christmas Heart</span>
+        </a>
+        <a class="more-card" href="/flights-of-fantasy/index.html" role="listitem">
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/flights-of-fantasy/thumbs/thumb_1.jpeg" alt="Flights of Fantasy" loading="lazy" /></div>
           <p class="more-card-name">Flights of Fantasy</p>
           <span class="more-card-count">64 wallpapers</span>
         </a>
-        <a class="more-card" href="../dreamscapes/index.html" role="listitem">
-          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/dreamscapes/thumbs/thumb_1.jpeg" alt="dreamscapes" loading="lazy" /></div>
+        <a class="more-card" href="/dreamscapes/index.html" role="listitem">
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/dreamscapes/thumbs/thumb_1.jpeg" alt="Dreamscapes" loading="lazy" /></div>
           <p class="more-card-name">Dreamscapes</p>
           <span class="more-card-count">25 wallpapers</span>
         </a>
-        <a class="more-card" href="../cosmic-codex/index.html" role="listitem">
-          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/cosmic-codex/thumbs/thumb_1.jpeg" alt="cosmic-codex" loading="lazy" /></div>
-          <p class="more-card-name">Cosmic Codex</p>
-          <span class="more-card-count">~30 wallpapers</span>
-        </a>
-        <a class="more-card" href="../castles-and-keeps/index.html" role="listitem">
-          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/thumbs/thumb_1.jpeg" alt="castles-and-keeps" loading="lazy" /></div>
+        <a class="more-card" href="/castles-and-keeps/index.html" role="listitem">
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/thumbs/thumb_1.jpeg" alt="Castles and Keeps" loading="lazy" /></div>
           <p class="more-card-name">Castles and Keeps</p>
-          <span class="more-card-count">44 wallpapers</span>
+          <span class="more-card-count">24 wallpapers</span>
         </a>
-        <a class="more-card" href="../wondrous-water/index.html" role="listitem">
-          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/wondrous-water/thumbs/thumb_1.jpeg" alt="wondrous-water" loading="lazy" /></div>
+        <a class="more-card" href="/wondrous-water/index.html" role="listitem">
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/wondrous-water/thumbs/thumb_1.jpeg" alt="Wondrous Water" loading="lazy" /></div>
           <p class="more-card-name">Wondrous Water</p>
           <span class="more-card-count">~46 wallpapers</span>
         </a>
-        <a class="more-card" href="../musical-spice/index.html" role="listitem">
-          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/musical-spice/thumbs/thumb_1.jpeg" alt="musical-spice" loading="lazy" /></div>
-          <p class="more-card-name">Musical Spice</p>
-          <span class="more-card-count">Coming soon</span>
-        </a>
-        <a class="more-card" href="../halloween-and-haunts/index.html" role="listitem">
-          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/thumbs/thumb_1.jpeg" alt="halloween-and-haunts" loading="lazy" /></div>
+        <a class="more-card" href="/halloween-and-haunts/index.html" role="listitem">
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/thumbs/thumb_1.jpeg" alt="Halloween and Haunts" loading="lazy" /></div>
           <p class="more-card-name">Halloween and Haunts</p>
           <span class="more-card-count">In progress</span>
         </a>
-        <a class="more-card" href="../winters-embrace/index.html" role="listitem">
-          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/thumbs/thumb_1.jpeg" alt="winters-embrace" loading="lazy" /></div>
-          <p class="more-card-name">Winter's Embrace</p>
-          <span class="more-card-count">Coming soon</span>
-        </a>
-        <a class="more-card" href="../magical-miscellany/index.html" role="listitem">
-          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/magical-miscellany/thumbs/thumb_1.jpeg" alt="magical-miscellany" loading="lazy" /></div>
-          <p class="more-card-name">Magical Miscellany</p>
-          <span class="more-card-count">Coming soon</span>
-        </a>
-      </div>
-    </section>
+      </div></section>
+
   </main>
+
+
+    <!-- BOTTOM SCENE -->
+    <div class="dragon-scene" aria-hidden="true">
+      <svg width="100%" viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="ch-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0A0C18"/>
+            <stop offset="100%" stop-color="#1A1428"/>
+          </linearGradient>
+          <linearGradient id="ch-snow" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#C8D4E8"/>
+            <stop offset="100%" stop-color="#8A9AB8"/>
+          </linearGradient>
+          <linearGradient id="ch-tree" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0A1E0A"/>
+            <stop offset="100%" stop-color="#061006"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="260" fill="url(#ch-sky)"/>
+        <ellipse cx="600" cy="220" rx="550" ry="100" fill="#C84820" opacity="0.05" class="glow-pulse"/>
+        <circle class="star-twinkle" style="--st:3.2s;--so:0.7" cx="60" cy="18" r="1.2" fill="#E8D8C0"/>
+        <circle class="star-twinkle" style="--st:2.6s;--so:0.5" cx="150" cy="10" r="0.9" fill="#F0E8D0"/>
+        <circle class="star-twinkle" style="--st:4.1s;--so:0.8" cx="260" cy="25" r="1.1" fill="#E8D8C0"/>
+        <circle class="star-twinkle" style="--st:3.5s;--so:0.6" cx="380" cy="8" r="0.8" fill="#F0E8D0"/>
+        <circle class="star-twinkle" style="--st:2.8s;--so:0.7" cx="460" cy="30" r="1" fill="#E8D8C0"/>
+        <circle class="star-twinkle" style="--st:3.9s;--so:0.65" cx="720" cy="18" r="1" fill="#F0E8D0"/>
+        <circle class="star-twinkle" style="--st:2.4s;--so:0.6" cx="820" cy="28" r="0.9" fill="#E8D8C0"/>
+        <circle class="star-twinkle" style="--st:4.3s;--so:0.75" cx="950" cy="14" r="1.2" fill="#F0E8D0"/>
+        <circle class="star-twinkle" style="--st:3.1s;--so:0.5" cx="1060" cy="25" r="0.8" fill="#E8D8C0"/>
+        <circle class="star-twinkle" style="--st:2.9s;--so:0.65" cx="1150" cy="18" r="1" fill="#F0E8D0"/>
+        <circle cx="600" cy="55" r="3.5" fill="#FFE880" opacity="0.95"/>
+        <line x1="600" y1="44" x2="600" y2="40" stroke="#FFE880" stroke-width="1.5" opacity="0.8"/>
+        <line x1="600" y1="66" x2="600" y2="70" stroke="#FFE880" stroke-width="1.5" opacity="0.8"/>
+        <line x1="589" y1="55" x2="585" y2="55" stroke="#FFE880" stroke-width="1.5" opacity="0.8"/>
+        <line x1="611" y1="55" x2="615" y2="55" stroke="#FFE880" stroke-width="1.5" opacity="0.8"/>
+        <circle cx="600" cy="55" r="10" fill="#FFE880" opacity="0.15"/>
+        <g opacity="0.3" fill="#080C18">
+          <polygon points="50,200 62,148 74,200"/><rect x="60" y="198" width="3" height="14"/>
+          <polygon points="140,205 154,146 168,205"/><rect x="152" y="203" width="3" height="14"/>
+          <polygon points="260,202 272,150 284,202"/><rect x="270" y="200" width="3" height="14"/>
+          <polygon points="400,204 414,147 428,204"/><rect x="412" y="202" width="3" height="14"/>
+          <polygon points="760,204 774,147 788,204"/><rect x="772" y="202" width="3" height="14"/>
+          <polygon points="900,202 912,150 924,202"/><rect x="910" y="200" width="3" height="14"/>
+          <polygon points="1030,204 1044,147 1058,204"/><rect x="1042" y="202" width="3" height="14"/>
+          <polygon points="1140,202 1152,150 1164,202"/><rect x="1150" y="200" width="3" height="14"/>
+        </g>
+        <g class="tree-sway" style="--d:5s;--r1:-0.6deg;--r2:0.8deg;transform-origin:120px 225px">
+          <polygon points="80,225 120,105 160,225" fill="url(#ch-tree)"/>
+          <polygon points="85,190 120,120 155,190" fill="#0A1E0A"/>
+          <polygon points="90,210 120,140 150,210" fill="#0E2410"/>
+          <polygon points="82,225 120,110 158,225" fill="#B8C8E0" opacity="0.12"/>
+          <circle cx="100" cy="175" r="5" fill="#C82020" opacity="0.9"/>
+          <circle cx="140" cy="170" r="4" fill="#C8A020" opacity="0.9"/>
+          <circle cx="108" cy="197" r="4" fill="#2060C8" opacity="0.9"/>
+          <circle cx="132" cy="200" r="5" fill="#C82020" opacity="0.9"/>
+          <circle cx="118" cy="155" r="3.5" fill="#20C860" opacity="0.9"/>
+          <circle cx="100" cy="175" r="9" fill="#C82020" opacity="0.12"/>
+          <circle cx="140" cy="170" r="8" fill="#C8A020" opacity="0.12"/>
+          <rect x="116" y="223" width="8" height="16" fill="#3A1A08"/>
+          <ellipse cx="120" cy="107" rx="12" ry="5" fill="#D8E8F8" opacity="0.55"/>
+        </g>
+        <g class="tree-sway" style="--d:4.5s;--r1:-0.5deg;--r2:0.7deg;transform-origin:600px 228px">
+          <polygon points="548,228 600,88 652,228" fill="url(#ch-tree)"/>
+          <polygon points="554,195 600,108 646,195" fill="#0A1E0A"/>
+          <polygon points="558,215 600,128 642,215" fill="#0E2410"/>
+          <polygon points="550,228 600,92 650,228" fill="#B8C8E0" opacity="0.10"/>
+          <circle cx="570" cy="180" r="6" fill="#C82020" opacity="0.9"/>
+          <circle cx="630" cy="175" r="5" fill="#C8A020" opacity="0.9"/>
+          <circle cx="578" cy="205" r="5" fill="#2060C8" opacity="0.9"/>
+          <circle cx="622" cy="200" r="6" fill="#C82020" opacity="0.9"/>
+          <circle cx="585" cy="155" r="4.5" fill="#20C860" opacity="0.9"/>
+          <circle cx="615" cy="158" r="4" fill="#C8A020" opacity="0.9"/>
+          <circle cx="600" cy="135" r="4" fill="#C82020" opacity="0.9"/>
+          <circle cx="570" cy="180" r="11" fill="#C82020" opacity="0.10"/>
+          <circle cx="630" cy="175" r="10" fill="#C8A020" opacity="0.10"/>
+          <rect x="595" y="226" width="10" height="18" fill="#3A1A08"/>
+          <ellipse cx="600" cy="90" rx="15" ry="6" fill="#D8E8F8" opacity="0.6"/>
+        </g>
+        <g class="tree-sway" style="--d:4.8s;--r1:-0.7deg;--r2:0.6deg;transform-origin:1080px 225px">
+          <polygon points="1040,225 1080,105 1120,225" fill="url(#ch-tree)"/>
+          <polygon points="1045,190 1080,120 1115,190" fill="#0A1E0A"/>
+          <polygon points="1050,210 1080,140 1110,210" fill="#0E2410"/>
+          <polygon points="1042,225 1080,110 1118,225" fill="#B8C8E0" opacity="0.12"/>
+          <circle cx="1060" cy="175" r="5" fill="#C8A020" opacity="0.9"/>
+          <circle cx="1100" cy="170" r="4" fill="#C82020" opacity="0.9"/>
+          <circle cx="1065" cy="198" r="5" fill="#20C860" opacity="0.9"/>
+          <circle cx="1095" cy="202" r="4" fill="#2060C8" opacity="0.9"/>
+          <circle cx="1078" cy="152" r="3.5" fill="#C82020" opacity="0.9"/>
+          <circle cx="1060" cy="175" r="9" fill="#C8A020" opacity="0.12"/>
+          <rect x="1076" y="223" width="8" height="16" fill="#3A1A08"/>
+          <ellipse cx="1080" cy="107" rx="12" ry="5" fill="#D8E8F8" opacity="0.55"/>
+        </g>
+        <rect x="220" y="218" width="10" height="28" fill="#E8E0C8" rx="2"/>
+        <ellipse cx="225" cy="218" rx="5" ry="2" fill="#F8F0D8"/>
+        <line x1="225" y1="218" x2="225" y2="215" stroke="#333" stroke-width="0.8"/>
+        <ellipse cx="225" cy="209" rx="4" ry="7" fill="#FFB820" opacity="0.88" class="flame" style="--fl:0.7s"/>
+        <ellipse cx="225" cy="208" rx="2.5" ry="4.5" fill="#FFE060" opacity="0.95" class="flame" style="--fl:0.7s"/>
+        <circle cx="225" cy="210" r="20" fill="#FF9020" opacity="0.07"/>
+        <rect x="355" y="212" width="12" height="34" fill="#E8D8C8" rx="2"/>
+        <ellipse cx="361" cy="212" rx="6" ry="2.5" fill="#F8E8D8"/>
+        <line x1="361" y1="212" x2="361" y2="208" stroke="#333" stroke-width="0.8"/>
+        <ellipse cx="361" cy="201" rx="4.5" ry="8" fill="#FFB820" opacity="0.88" class="flame" style="--fl:0.9s"/>
+        <ellipse cx="361" cy="200" rx="2.8" ry="5" fill="#FFE060" opacity="0.95" class="flame" style="--fl:0.9s"/>
+        <circle cx="361" cy="202" r="22" fill="#FF9020" opacity="0.07"/>
+        <rect x="488" y="220" width="9" height="26" fill="#F0E0C8" rx="2"/>
+        <ellipse cx="492" cy="220" rx="4.5" ry="2" fill="#FFF0D8"/>
+        <line x1="492" y1="220" x2="492" y2="217" stroke="#333" stroke-width="0.8"/>
+        <ellipse cx="492" cy="211" rx="3.5" ry="6.5" fill="#FFB820" opacity="0.88" class="flame" style="--fl:0.65s"/>
+        <ellipse cx="492" cy="210" rx="2.2" ry="4" fill="#FFE060" opacity="0.95" class="flame" style="--fl:0.65s"/>
+        <circle cx="492" cy="212" r="18" fill="#FF9020" opacity="0.07"/>
+        <rect x="698" y="220" width="9" height="26" fill="#F0E0C8" rx="2"/>
+        <ellipse cx="702" cy="220" rx="4.5" ry="2" fill="#FFF0D8"/>
+        <line x1="702" y1="220" x2="702" y2="217" stroke="#333" stroke-width="0.8"/>
+        <ellipse cx="702" cy="211" rx="3.5" ry="6.5" fill="#FFB820" opacity="0.88" class="flame" style="--fl:0.82s"/>
+        <ellipse cx="702" cy="210" rx="2.2" ry="4" fill="#FFE060" opacity="0.95" class="flame" style="--fl:0.82s"/>
+        <circle cx="702" cy="212" r="18" fill="#FF9020" opacity="0.07"/>
+        <rect x="828" y="212" width="12" height="34" fill="#E8D8C8" rx="2"/>
+        <ellipse cx="834" cy="212" rx="6" ry="2.5" fill="#F8E8D8"/>
+        <line x1="834" y1="212" x2="834" y2="208" stroke="#333" stroke-width="0.8"/>
+        <ellipse cx="834" cy="201" rx="4.5" ry="8" fill="#FFB820" opacity="0.88" class="flame" style="--fl:0.75s"/>
+        <ellipse cx="834" cy="200" rx="2.8" ry="5" fill="#FFE060" opacity="0.95" class="flame" style="--fl:0.75s"/>
+        <circle cx="834" cy="202" r="22" fill="#FF9020" opacity="0.07"/>
+        <rect x="965" y="218" width="10" height="28" fill="#E8E0C8" rx="2"/>
+        <ellipse cx="970" cy="218" rx="5" ry="2" fill="#F8F0D8"/>
+        <line x1="970" y1="218" x2="970" y2="215" stroke="#333" stroke-width="0.8"/>
+        <ellipse cx="970" cy="209" rx="4" ry="7" fill="#FFB820" opacity="0.88" class="flame" style="--fl:0.68s"/>
+        <ellipse cx="970" cy="208" rx="2.5" ry="4.5" fill="#FFE060" opacity="0.95" class="flame" style="--fl:0.68s"/>
+        <circle cx="970" cy="210" r="20" fill="#FF9020" opacity="0.07"/>
+        <rect x="0" y="240" width="1200" height="20" fill="url(#ch-snow)" opacity="0.85"/>
+        <circle class="snowflake" style="--sf:7s;--sx:10px;--so:0.8;animation-delay:0s" cx="80" cy="0" r="2" fill="white"/>
+        <circle class="snowflake" style="--sf:9s;--sx:-8px;--so:0.6;animation-delay:1s" cx="200" cy="0" r="1.5" fill="white"/>
+        <circle class="snowflake" style="--sf:8s;--sx:12px;--so:0.7;animation-delay:2s" cx="340" cy="0" r="2" fill="white"/>
+        <circle class="snowflake" style="--sf:10s;--sx:-6px;--so:0.8;animation-delay:0.5s" cx="480" cy="0" r="1.5" fill="white"/>
+        <circle class="snowflake" style="--sf:7.5s;--sx:8px;--so:0.6;animation-delay:3s" cx="620" cy="0" r="2.5" fill="white"/>
+        <circle class="snowflake" style="--sf:9.5s;--sx:-10px;--so:0.7;animation-delay:1.5s" cx="750" cy="0" r="1.5" fill="white"/>
+        <circle class="snowflake" style="--sf:8.5s;--sx:6px;--so:0.8;animation-delay:4s" cx="880" cy="0" r="2" fill="white"/>
+        <circle class="snowflake" style="--sf:7s;--sx:-12px;--so:0.6;animation-delay:2.5s" cx="1010" cy="0" r="1.5" fill="white"/>
+        <circle class="snowflake" style="--sf:9s;--sx:9px;--so:0.7;animation-delay:0.8s" cx="1130" cy="0" r="2" fill="white"/>
+        <circle class="snowflake" style="--sf:8s;--sx:-7px;--so:0.8;animation-delay:3.5s" cx="140" cy="0" r="1.5" fill="white"/>
+        <circle class="snowflake" style="--sf:10s;--sx:11px;--so:0.6;animation-delay:1.2s" cx="560" cy="0" r="2" fill="white"/>
+        <circle class="snowflake" style="--sf:7.8s;--sx:-9px;--so:0.7;animation-delay:4.5s" cx="950" cy="0" r="1.5" fill="white"/>
+      </svg>
+    </div>
+
+  <!-- FOOTER -->
   <footer>
     <div class="site-footer">
       <span class="footer-brand">The Somnolescent Dragon</span>
       <ul class="footer-links">
-        <li><a href="../whats-new.html">What's New</a></li>
-        <li><a href="../suggest.html">Suggest a theme</a></li>
-        <li><a href="../help.html">Help</a></li>
-        <li><a href="../about.html">About the art</a></li>
+        <li><a href="/whats-new.html">What's New</a></li>
+        <li><a href="/suggest.html">Suggest a theme</a></li>
+        <li><a href="/help.html">Help</a></li>
+        <li><a href="/about.html">About the art</a></li>
       </ul>
-      <p class="footer-disclosure">All wallpapers created using AI image generation, directed by fully detailed cinematic prompts and curated for quality. Free for personal desktop use.</p>
+      <p class="footer-disclosure">All wallpapers created using AI image generation, directed by fully detailed cinematic prompts and curated for quality. Free for personal desktop use. No accounts, no ads, no tracking.</p>
     </div>
   </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Wallpaper preview">
+    <button class="lightbox-close" id="lb-close" aria-label="Close preview">✕</button>
+    <button class="lightbox-prev" id="lb-prev" aria-label="Previous wallpaper">‹</button>
+    <button class="lightbox-next" id="lb-next" aria-label="Next wallpaper">›</button>
+    <div class="lightbox-inner">
+      <div class="lightbox-img-wrap"><img id="lb-img" src="" alt="" /></div>
+      <div class="lightbox-footer">
+        <div class="lightbox-info">
+          <p class="lightbox-title" id="lb-title"></p>
+          <p class="lightbox-meta">3128 × 1344 &nbsp;·&nbsp; Ultrawide 21:9 &nbsp;·&nbsp; Free download</p>
+        </div>
+        <div class="lightbox-actions">
+          <div class="res-picker" id="res-picker">
+            <span>Your screen:</span>
+            <span class="res-detected" id="res-detected"></span>
+            <span class="res-change" id="res-change">change</span>
+          </div>
+          <button class="dl-btn" id="dl-btn">⬇ Download</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const grid      = document.getElementById('wallpaper-grid');
+    const searchIn  = document.getElementById('search-input');
+    const emptyState = document.getElementById('empty-state');
+    const wpCount   = document.getElementById('wp-count');
+    const lightbox  = document.getElementById('lightbox');
+    const lbImg     = document.getElementById('lb-img');
+    const lbTitle   = document.getElementById('lb-title');
+    const lbClose   = document.getElementById('lb-close');
+    const lbPrev    = document.getElementById('lb-prev');
+    const lbNext    = document.getElementById('lb-next');
+    const dlBtn     = document.getElementById('dl-btn');
+
+    let cards = Array.from(grid.querySelectorAll('.wp-card'));
+    let currentIndex = 0;
+
+    function updateCount() {
+      const v = cards.filter(c => c.style.display !== 'none').length;
+      wpCount.textContent = v + ' wallpaper' + (v !== 1 ? 's' : '');
+      emptyState.classList.toggle('visible', v === 0);
+    }
+    updateCount();
+
+    searchIn.addEventListener('input', function() {
+      const q = this.value.toLowerCase().trim();
+      cards.forEach(c => { c.style.display = (!q || (c.dataset.name || '').toLowerCase().includes(q)) ? '' : 'none'; });
+      updateCount();
+    });
+
+
+
+    function getVisible() { return cards.filter(c => c.style.display !== 'none'); }
+
+    function openLightbox(card) {
+      const v = getVisible();
+      currentIndex = v.indexOf(card);
+      loadLightbox(v[currentIndex]);
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function loadLightbox(card) {
+      const src = card.dataset.full || card.dataset.src;
+      const name = card.dataset.name || 'wallpaper';
+      lbImg.src = src;
+      lbImg.alt = name;
+      lbTitle.textContent = name;
+      dlBtn.onclick = () => triggerDownload(src, name);
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+
+    function navigateLightbox(dir) {
+      const v = getVisible();
+      currentIndex = (currentIndex + dir + v.length) % v.length;
+      loadLightbox(v[currentIndex]);
+    }
+
+    grid.addEventListener('click', function(e) {
+      const card = e.target.closest('.wp-card');
+      if (!card) return;
+      if (e.target.closest('.wp-quick-dl')) {
+        e.stopPropagation();
+        triggerDownload(card.dataset.src, card.dataset.name);
+        return;
+      }
+      if (card.dataset.src && card.dataset.src !== '#') openLightbox(card);
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click', () => navigateLightbox(-1));
+    lbNext.addEventListener('click', () => navigateLightbox(1));
+    lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLightbox(); });
+
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigateLightbox(-1);
+      if (e.key === 'ArrowRight') navigateLightbox(1);
+    });
+
+    function triggerDownload(src, name) {
+      if (!src || src === '#') return;
+      var workerSrc = src.replace('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev', 'https://jolly-snowflake-8dd0.thomascox7509.workers.dev');
+      var a = document.createElement('a');
+      a.href = workerSrc;
+      a.download = name + '.png';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  </script>
+
 </body>
 </html>
