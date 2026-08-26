@@ -124,6 +124,21 @@
     @keyframes hwghost { 0% { transform: translateY(0); opacity:0.65; } 100% { transform: translateY(-14px); opacity:0.9; } }
     .hw-moon { animation: hwmoon 6s ease-in-out infinite alternate; }
     @keyframes hwmoon { 0% { opacity:0.1; } 100% { opacity:0.22; } }
+
+    .jol-glow { animation: jolglow var(--g,1.8s) ease-in-out infinite alternate; }
+    @keyframes jolglow { 0% { opacity:var(--g1,0.6); } 100% { opacity:var(--g2,1); } }
+    .fog-roll { animation: fogroll var(--fd,22s) linear infinite; }
+    @keyframes fogroll { 0% { transform:translateX(0); } 100% { transform:translateX(-300px); } }
+    .fog-roll-r { animation: fogrollr var(--fd,28s) linear infinite; }
+    @keyframes fogrollr { 0% { transform:translateX(0); } 100% { transform:translateX(300px); } }
+    .vine-sway { animation: vinesway var(--v,4s) ease-in-out infinite alternate; transform-origin: bottom center; }
+    @keyframes vinesway { 0% { transform:rotate(var(--v1,-2deg)); } 100% { transform:rotate(var(--v2,2deg)); } }
+    .jol-star { animation: startwinkle var(--st,3s) ease-in-out infinite alternate; }
+    @keyframes startwinkle { 0% { opacity:var(--so,0.6); } 100% { opacity:0.08; } }
+    .jol-moon { animation: moonpulse 5s ease-in-out infinite alternate; }
+    @keyframes moonpulse { 0% { opacity:0.08; } 100% { opacity:0.18; } }
+    .jol-bat { animation: jolbatdrift var(--bf,14s) linear infinite; }
+    @keyframes jolbatdrift { 0% { transform:translateX(0) translateY(0); opacity:0; } 5% { opacity:1; } 45% { transform:translateX(var(--bx,200px)) translateY(var(--by,-20px)); opacity:1; } 50% { opacity:0; } 100% { opacity:0; } }
   </style>
 </head>
 <body>
