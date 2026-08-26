@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unsorted Candies — Halloween and Haunts — The Somnolescent Dragon</title>
+  <meta name="description" content="The Halloween and Haunts miscellany — vintage carnivals, gothic manors, steampunk signs, and everything that didn't quite fit anywhere else. Free ultrawide 21:9 AI wallpapers from The Somnolescent Dragon." />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --page-bg:#1C1714;--surface-1:#231E1A;--surface-2:#2C2318;--border:#3A2E22;
+      --border-hover:#C9893A;--text-primary:#FFFFFF;--text-muted:#C9893A;
+      --text-dim:#A89070;--accent:#C9893A;--accent-soft:#9E6B72;
+      --font-display:'Playfair Display',Georgia,serif;--font-body:'Lato',system-ui,sans-serif;
+      --radius-sm:6px;--radius-md:10px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--page-bg);color:var(--text-primary);font-family:var(--font-body);font-weight:400;line-height:1.7;min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    main{width:100%}
+    .site-nav{position:sticky;top:0;z-index:100;background:rgba(28,23,20,0.92);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:52px}
+    .nav-brand{font-family:var(--font-display);font-style:italic;font-size:1rem;color:var(--text-primary);white-space:nowrap}
+    .nav-brand span{color:var(--accent)}
+    .nav-links{display:flex;align-items:center;gap:0.25rem;list-style:none}
+    .nav-links a{font-size:0.828rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim);padding:0.35rem 0.65rem;border-radius:var(--radius-sm);transition:color 0.2s,background 0.2s;white-space:nowrap}
+    .nav-links a:hover{color:var(--text-primary);background:var(--surface-2)}
+    .breadcrumb{padding:0.85rem 2rem;border-bottom:0.5px solid var(--border);display:flex;align-items:center;gap:0.5rem;font-size:0.828rem;color:var(--text-dim);flex-wrap:wrap}
+    .breadcrumb a{color:var(--text-dim);transition:color 0.2s}
+    .breadcrumb a:hover{color:var(--accent)}
+    .breadcrumb-sep{opacity:0.5}
+    .breadcrumb-current{color:var(--text-muted);font-style:italic}
+    .page-header{padding:2rem 2rem 1.5rem;max-width:1400px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-bottom:0.5px solid var(--border)}
+    .page-eyebrow{font-size:0.7820rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--accent);margin-bottom:0.4rem}
+    .page-title{font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2rem);font-weight:700;color:var(--text-primary);line-height:1.2;margin-bottom:0.4rem}
+    .page-subtitle{font-size:0.92rem;color:var(--text-dim);max-width:480px;line-height:1.8}
+    .header-right{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap}
+    .wallpaper-count{font-size:0.828rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em}
+    .search-wrap{position:relative}
+    .search-input{background:var(--surface-1);border:0.5px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);font-family:var(--font-body);font-size:0.897rem;padding:0.45rem 0.75rem 0.45rem 2rem;width:200px;transition:border-color 0.2s;outline:none}
+    .search-input::placeholder{color:var(--text-dim)}
+    .search-input:focus{border-color:var(--border-hover)}
+    .search-icon{position:absolute;left:0.6rem;top:50%;transform:translateY(-50%);font-size:0.8625rem;color:var(--text-dim);pointer-events:none}
+    .grid-section{padding:1.5rem 2rem 2rem;max-width:1400px;margin:0 auto}
+    .wallpaper-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+    .wp-card{background:var(--surface-1);border:0.5px solid var(--border);border-radius:var(--radius-md);overflow:hidden;cursor:pointer;transition:border-color 0.25s,transform 0.2s;position:relative;display:block}
+    .wp-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
+    .wp-card::after{content:'';position:absolute;top:-50%;left:-75%;width:50%;height:200%;background:linear-gradient(to right,rgba(255,255,255,0) 0%,rgba(255,255,255,0.08) 50%,rgba(255,255,255,0) 100%);transform:skewX(-20deg);opacity:0;pointer-events:none}
+    .wp-card:hover::after{animation:shimmer 0.6s ease forwards}
+    @keyframes shimmer{0%{left:-75%;opacity:1}100%{left:125%;opacity:1}}
+    .wp-thumb{width:100%;aspect-ratio:21/9;overflow:hidden;background:var(--surface-2);position:relative;display:flex;align-items:center;justify-content:center}
+    .wp-thumb img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease,opacity 0.25s;opacity:0.85}
+    .wp-card:hover .wp-thumb img{transform:scale(1.03);opacity:1}
+    .wp-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(28,23,20,0.85) 0%,transparent 50%);opacity:0;transition:opacity 0.25s;display:flex;align-items:flex-end;padding:0.75rem}
+    .wp-card:hover .wp-overlay{opacity:1}
+    .wp-quick-dl{font-size:0.782rem;text-transform:uppercase;letter-spacing:0.08em;color:#1C1714;background:var(--accent);padding:0.3rem 0.75rem;border-radius:var(--radius-sm);font-weight:700}
+    .wp-body{padding:0.6rem 0.75rem;display:flex;align-items:center;justify-content:space-between;gap:0.5rem}
+    .wp-name{font-size:0.828rem;color:var(--text-dim);line-height:1.4;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .wp-res{font-size:0.713rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;flex-shrink:0}
+    .empty-state{text-align:center;padding:4rem 2rem;display:none}
+    .empty-state.visible{display:block}
+    .empty-state p{font-family:var(--font-display);font-style:italic;font-size:1rem;color:var(--text-dim)}
+    .lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(14,11,9,0.96);align-items:center;justify-content:center;padding:1.5rem}
+    .lightbox.open{display:flex}
+    .lightbox-inner{max-width:1200px;width:100%;display:flex;flex-direction:column;gap:1rem}
+    .lightbox-img-wrap{width:100%;border-radius:var(--radius-md);overflow:hidden;background:var(--surface-1);border:0.5px solid var(--border)}
+    .lightbox-img-wrap img{width:100%;height:auto;display:block;max-height:70vh;object-fit:contain}
+    .lightbox-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .lightbox-title{font-family:var(--font-display);font-size:1rem;color:var(--text-primary);margin-bottom:0.2rem}
+    .lightbox-meta{font-size:0.828rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em}
+    .lightbox-actions{display:flex;gap:0.75rem;align-items:center}
+    .dl-btn{display:inline-flex;align-items:center;gap:0.4rem;background:var(--accent);color:#1C1714;font-size:0.897rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.55rem 1.25rem;border-radius:var(--radius-sm);transition:opacity 0.2s,transform 0.15s;cursor:pointer;border:none}
+    .dl-btn:hover{opacity:0.88;transform:translateY(-1px)}
+    .lightbox-close{position:fixed;top:1.25rem;right:1.5rem;font-size:1.5rem;color:var(--text-dim);cursor:pointer;transition:color 0.2s;background:none;border:none;line-height:1}
+    .lightbox-close:hover{color:var(--text-primary)}
+    .lightbox-prev,.lightbox-next{position:fixed;top:50%;transform:translateY(-50%);font-size:1.5rem;color:var(--text-dim);cursor:pointer;background:var(--surface-1);border:0.5px solid var(--border);border-radius:var(--radius-sm);padding:0.5rem 0.75rem;transition:color 0.2s,border-color 0.2s;line-height:1}
+    .lightbox-prev{left:1rem}
+    .lightbox-next{right:1rem}
+    .lightbox-prev:hover,.lightbox-next:hover{color:var(--text-primary);border-color:var(--border-hover)}
+    .more-section{padding:2rem 2rem 3rem;max-width:1400px;margin:0 auto;border-top:0.5px solid var(--border)}
+    .section-eyebrow{font-size:0.782rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--accent);margin-bottom:1rem}
+    .more-strip{display:flex;gap:10px;overflow-x:auto;padding-bottom:0.5rem;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+    .more-card{flex:0 0 160px;background:var(--surface-1);border:0.5px solid var(--border);border-radius:var(--radius-md);cursor:pointer;transition:border-color 0.25s,background 0.25s;display:block;overflow:hidden}
+    .more-card:hover{border-color:var(--border-hover);background:var(--surface-2)}
+    .more-card-thumb{width:100%;aspect-ratio:8/3;overflow:hidden;background:var(--surface-2)}
+    .more-card-thumb img{width:100%;height:100%;object-fit:cover;opacity:0.85;transition:opacity 0.25s}
+    .more-card:hover .more-card-thumb img{opacity:1}
+    .more-card-name{font-family:var(--font-display);font-size:0.92rem;color:var(--text-primary);line-height:1.3;margin-bottom:0.2rem;padding:0.6rem 0.875rem 0}
+    .more-card-count{font-size:0.7475rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.04em;padding:0 0.875rem 0.6rem;display:block}
+    .more-card:hover .more-card-count{color:var(--text-muted)}
+    .site-footer{border-top:0.5px solid var(--border);padding:1.5rem 2rem;max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:var(--font-display);font-style:italic;font-size:0.943rem;color:var(--text-dim)}
+    .footer-links{display:flex;gap:1.25rem;list-style:none}
+    .footer-links a{font-size:0.782rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim);transition:color 0.2s}
+    .footer-links a:hover{color:var(--accent)}
+    .footer-disclosure{font-size:0.782rem;color:var(--text-dim);width:100%;padding-top:0.75rem;border-top:0.5px solid var(--border);line-height:1.6}
+    @media(max-width:768px){.wallpaper-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}.lightbox-prev{left:0.25rem}.lightbox-next{right:0.25rem}}
+    @media(max-width:640px){.site-nav{padding:0 1rem}.nav-links a{padding:0.3rem 0.4rem;font-size:0.65rem}.breadcrumb{padding:0.75rem 1.25rem}.page-header,.grid-section,.more-section,.site-footer{padding-left:1.25rem;padding-right:1.25rem}}
+    @media(prefers-reduced-motion:reduce){.wp-card:hover{transform:none}.wp-card:hover .wp-thumb img{transform:none}.dl-btn:hover{transform:none}}
+    
+    .dragon-scene { width: 100%; display: block; margin-top: -2px; line-height: 0; }
+    .tree-sway { animation: treesway var(--d,5s) ease-in-out infinite alternate; }
+    @keyframes treesway { 0% { transform: rotate(var(--r1,-0.8deg)); } 100% { transform: rotate(var(--r2,0.8deg)); } }
+    .snowflake { animation: snowfall var(--sf,8s) linear infinite; }
+    @keyframes snowfall { 0% { transform: translateY(-10px); opacity:0; } 10% { opacity:var(--so,0.7); } 90% { opacity:0.5; } 100% { transform: translateY(270px) translateX(var(--sx,10px)); opacity:0; } }
+    .flame { animation: flicker var(--fl,0.8s) ease-in-out infinite alternate; }
+    @keyframes flicker { 0% { opacity:0.85; } 100% { opacity:1; } }
+    .star-twinkle { animation: startwinkle var(--st,3s) ease-in-out infinite alternate; }
+    @keyframes startwinkle { 0% { opacity:var(--so,0.6); } 100% { opacity:0.08; } }
+    .glow-pulse { animation: glowpulse 4s ease-in-out infinite alternate; }
+    @keyframes glowpulse { 0% { opacity:0.05; } 100% { opacity:0.12; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/index.html" class="nav-brand">The <span>Somnolescent</span> Dragon</a>
+      <ul class="nav-links">
+        <li><a href="/index.html#collections">Collections</a></li>
+        <li><a href="/whats-new.html">What's New</a></li>
+        <li><a href="/suggest.html">Suggest a theme</a></li>
+        <li><a href="/help.html">Help</a></li>
+        <li><a href="/about.html">About the art</a></li>
+      </ul>
+    </nav>
+  </header>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/index.html">🐉 Home</a>
+    <span class="breadcrumb-sep">·</span>
+    <a href="/halloween-and-haunts/index.html">Halloween and Haunts</a>
+    <span class="breadcrumb-sep">·</span>
+    <span class="breadcrumb-current">Unsorted Candies</span>
+  </nav>
+  <main>
+    <div class="page-header">
+      <div class="header-left">
+        <p class="page-eyebrow">Halloween and Haunts</p>
+        <h1 class="page-title">Unsorted Candies</h1>
+        <p class="page-subtitle">Vintage carnivals, gothic manors, steampunk trick-or-treat signs, haunted swamps. 24 Halloween scenes that defy easy categorisation.</p>
+      </div>
+      <div class="header-right">
+        <span class="wallpaper-count" id="wp-count">— wallpapers</span>
+        <div class="search-wrap">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input class="search-input" type="search" placeholder="Search this collection..." id="search-input" aria-label="Search wallpapers" />
+        </div>
+      </div>
+    </div>
+    <section class="grid-section" aria-label="Wallpaper grid">
+      <div class="wallpaper-grid" id="wallpaper-grid">
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-abandoned-midway-black-cat-ultrawide.png" data-name="halloween-carnival-vintage-abandoned-midway-black-cat-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-abandoned-midway-black-cat-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-abandoned-midway-black-cat-ultrawide.png" alt="halloween-carnival-vintage-abandoned-midway-black-cat-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-carnival-vintage-abandoned-midway-black-cat-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-big-top-tent-jack-o-lanterns-ultrawide.png" data-name="halloween-carnival-vintage-big-top-tent-jack-o-lanterns-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-big-top-tent-jack-o-lanterns-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-big-top-tent-jack-o-lanterns-ultrawide.png" alt="halloween-carnival-vintage-big-top-tent-jack-o-lanterns-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-carnival-vintage-big-top-tent-jack-o-lanterns-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-calliope-steam-brass-pipes-ultrawide.png" data-name="halloween-carnival-vintage-calliope-steam-brass-pipes-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-calliope-steam-brass-pipes-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-calliope-steam-brass-pipes-ultrawide.png" alt="halloween-carnival-vintage-calliope-steam-brass-pipes-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-carnival-vintage-calliope-steam-brass-pipes-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-fortune-teller-wagon-crystal-balls-ultrawide.png" data-name="halloween-carnival-vintage-fortune-teller-wagon-crystal-balls-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-fortune-teller-wagon-crystal-balls-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-fortune-teller-wagon-crystal-balls-ultrawide.png" alt="halloween-carnival-vintage-fortune-teller-wagon-crystal-balls-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-carnival-vintage-fortune-teller-wagon-crystal-balls-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-mirror-maze-entrance-grotesque-ultrawide.png" data-name="halloween-carnival-vintage-mirror-maze-entrance-grotesque-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-mirror-maze-entrance-grotesque-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-mirror-maze-entrance-grotesque-ultrawide.png" alt="halloween-carnival-vintage-mirror-maze-entrance-grotesque-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-carnival-vintage-mirror-maze-entrance-grotesque-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-puppet-theater-marionettes-ultrawide.png" data-name="halloween-carnival-vintage-puppet-theater-marionettes-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-puppet-theater-marionettes-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-puppet-theater-marionettes-ultrawide.png" alt="halloween-carnival-vintage-puppet-theater-marionettes-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-carnival-vintage-puppet-theater-marionettes-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-strongman-stage-sideshow-ultrawide.png" data-name="halloween-carnival-vintage-strongman-stage-sideshow-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-strongman-stage-sideshow-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-strongman-stage-sideshow-ultrawide.png" alt="halloween-carnival-vintage-strongman-stage-sideshow-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-carnival-vintage-strongman-stage-sideshow-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-ticket-booth-crossroads-ultrawide.png" data-name="halloween-carnival-vintage-ticket-booth-crossroads-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-ticket-booth-crossroads-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-carnival-vintage-ticket-booth-crossroads-ultrawide.png" alt="halloween-carnival-vintage-ticket-booth-crossroads-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-carnival-vintage-ticket-booth-crossroads-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-gothic-cemetery-angel-lantern-ghosts-moonlit-ultrawide.png" data-name="halloween-gothic-cemetery-angel-lantern-ghosts-moonlit-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-gothic-cemetery-angel-lantern-ghosts-moonlit-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-gothic-cemetery-angel-lantern-ghosts-moonlit-ultrawide.png" alt="halloween-gothic-cemetery-angel-lantern-ghosts-moonlit-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-gothic-cemetery-angel-lantern-ghosts-moonlit-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-gothic-covered-bridge-midnight-jack-o-lantern-ultrawide.png" data-name="halloween-gothic-covered-bridge-midnight-jack-o-lantern-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-gothic-covered-bridge-midnight-jack-o-lantern-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-gothic-covered-bridge-midnight-jack-o-lantern-ultrawide.png" alt="halloween-gothic-covered-bridge-midnight-jack-o-lantern-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-gothic-covered-bridge-midnight-jack-o-lantern-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-gothic-vampire-lord-castle-battlement-moonlit-ultrawide.png" data-name="halloween-gothic-vampire-lord-castle-battlement-moonlit-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-gothic-vampire-lord-castle-battlement-moonlit-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-gothic-vampire-lord-castle-battlement-moonlit-ultrawide.png" alt="halloween-gothic-vampire-lord-castle-battlement-moonlit-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-gothic-vampire-lord-castle-battlement-moonlit-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-haunted-portrait-hallway-glowing-eyes-candle-ultrawide.png" data-name="halloween-haunted-portrait-hallway-glowing-eyes-candle-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-haunted-portrait-hallway-glowing-eyes-candle-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-haunted-portrait-hallway-glowing-eyes-candle-ultrawide.png" alt="halloween-haunted-portrait-hallway-glowing-eyes-candle-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-haunted-portrait-hallway-glowing-eyes-candle-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-haunted-swamp-glowing-mushrooms-spider-eyes-ultrawide.png" data-name="halloween-haunted-swamp-glowing-mushrooms-spider-eyes-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-haunted-swamp-glowing-mushrooms-spider-eyes-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-haunted-swamp-glowing-mushrooms-spider-eyes-ultrawide.png" alt="halloween-haunted-swamp-glowing-mushrooms-spider-eyes-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-haunted-swamp-glowing-mushrooms-spider-eyes-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-hilltop-manor-lantern-bridge-tree-tunnel-ultrawide.png" data-name="halloween-hilltop-manor-lantern-bridge-tree-tunnel-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-hilltop-manor-lantern-bridge-tree-tunnel-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-hilltop-manor-lantern-bridge-tree-tunnel-ultrawide.png" alt="halloween-hilltop-manor-lantern-bridge-tree-tunnel-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-hilltop-manor-lantern-bridge-tree-tunnel-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-hilltop-manor-pumpkin-path-harvest-moon-ultrawide.png" data-name="halloween-hilltop-manor-pumpkin-path-harvest-moon-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-hilltop-manor-pumpkin-path-harvest-moon-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-hilltop-manor-pumpkin-path-harvest-moon-ultrawide.png" alt="halloween-hilltop-manor-pumpkin-path-harvest-moon-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-hilltop-manor-pumpkin-path-harvest-moon-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-hilltop-manor-stone-staircase-fog-ascent-ultrawide.png" data-name="halloween-hilltop-manor-stone-staircase-fog-ascent-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-hilltop-manor-stone-staircase-fog-ascent-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-hilltop-manor-stone-staircase-fog-ascent-ultrawide.png" alt="halloween-hilltop-manor-stone-staircase-fog-ascent-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-hilltop-manor-stone-staircase-fog-ascent-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-happy-halloween-ghosts-steampunk-letters-harvest-ultrawide.png" data-name="halloween-sign-happy-halloween-ghosts-steampunk-letters-harvest-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-happy-halloween-ghosts-steampunk-letters-harvest-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-happy-halloween-ghosts-steampunk-letters-harvest-ultrawide.png" alt="halloween-sign-happy-halloween-ghosts-steampunk-letters-harvest-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-sign-happy-halloween-ghosts-steampunk-letters-harvest-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-happy-halloween-steampunk-wood-gears-mechanical-ultrawide.png" data-name="halloween-sign-happy-halloween-steampunk-wood-gears-mechanical-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-happy-halloween-steampunk-wood-gears-mechanical-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-happy-halloween-steampunk-wood-gears-mechanical-ultrawide.png" alt="halloween-sign-happy-halloween-steampunk-wood-gears-mechanical-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-sign-happy-halloween-steampunk-wood-gears-mechanical-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-happy-halloween-stone-carved-letters-mechanical-ultrawide.png" data-name="halloween-sign-happy-halloween-stone-carved-letters-mechanical-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-happy-halloween-stone-carved-letters-mechanical-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-happy-halloween-stone-carved-letters-mechanical-ultrawide.png" alt="halloween-sign-happy-halloween-stone-carved-letters-mechanical-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-sign-happy-halloween-stone-carved-letters-mechanical-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-trick-or-treat-burlap-stitched-letters-voodoo-doll-ultrawide.png" data-name="halloween-sign-trick-or-treat-burlap-stitched-letters-voodoo-doll-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-trick-or-treat-burlap-stitched-letters-voodoo-doll-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-trick-or-treat-burlap-stitched-letters-voodoo-doll-ultrawide.png" alt="halloween-sign-trick-or-treat-burlap-stitched-letters-voodoo-doll-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-sign-trick-or-treat-burlap-stitched-letters-voodoo-doll-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-trick-or-treat-candy-steampunk-factory-conveyor-ultrawide.png" data-name="halloween-sign-trick-or-treat-candy-steampunk-factory-conveyor-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-trick-or-treat-candy-steampunk-factory-conveyor-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-trick-or-treat-candy-steampunk-factory-conveyor-ultrawide.png" alt="halloween-sign-trick-or-treat-candy-steampunk-factory-conveyor-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-sign-trick-or-treat-candy-steampunk-factory-conveyor-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-trick-or-treat-mossy-wood-letters-witch-cottage-ultrawide.png" data-name="halloween-sign-trick-or-treat-mossy-wood-letters-witch-cottage-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-trick-or-treat-mossy-wood-letters-witch-cottage-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-trick-or-treat-mossy-wood-letters-witch-cottage-ultrawide.png" alt="halloween-sign-trick-or-treat-mossy-wood-letters-witch-cottage-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-sign-trick-or-treat-mossy-wood-letters-witch-cottage-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-trick-or-treat-steampunk-iron-plate-mechanical-ultrawide.png" data-name="halloween-sign-trick-or-treat-steampunk-iron-plate-mechanical-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-trick-or-treat-steampunk-iron-plate-mechanical-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-sign-trick-or-treat-steampunk-iron-plate-mechanical-ultrawide.png" alt="halloween-sign-trick-or-treat-steampunk-iron-plate-mechanical-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-sign-trick-or-treat-steampunk-iron-plate-mechanical-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-vampire-awakening-sarcophagus-candles-crypt-ultrawide.png" data-name="halloween-vampire-awakening-sarcophagus-candles-crypt-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-vampire-awakening-sarcophagus-candles-crypt-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/unsorted-candies/halloween-vampire-awakening-sarcophagus-candles-crypt-ultrawide.png" alt="halloween-vampire-awakening-sarcophagus-candles-crypt-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">halloween-vampire-awakening-sarcophagus-candles-crypt-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+      </div>
+
+      <div class="empty-state" id="empty-state" aria-live="polite">
+        <p>No wallpapers match that search. Try a different word.</p>
+      </div>
+    </section>
+    <section class="more-section" aria-label="More collections">
+      <p class="section-eyebrow">More collections</p>
+      <div class="more-strip" role="list">
+        <a class="more-card" href="/halloween-and-haunts/candy-capers/index.html" role="listitem">
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/candy-capers/thumb.jpeg" alt="Candy and Capers" loading="lazy" /></div>
+          <p class="more-card-name">Candy &amp; Capers</p><span class="more-card-count">32 wallpapers</span>
+        </a>
+        <a class="more-card" href="/halloween-and-haunts/impish-impastos/index.html" role="listitem">
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/halloween-and-haunts/impish-impastos/thumb.jpeg" alt="Impish Impastos" loading="lazy" /></div>
+          <p class="more-card-name">Impish Impastos</p><span class="more-card-count">28 wallpapers</span>
+        </a>
+        <a class="more-card" href="/castles-and-keeps/index.html" role="listitem">
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/thumbs/thumb_1.jpeg" alt="Castles and Keeps" loading="lazy" /></div>
+          <p class="more-card-name">Castles and Keeps</p><span class="more-card-count">24 wallpapers</span>
+        </a>
+        <a class="more-card" href="/cosmic-codex/index.html" role="listitem">
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/cosmic-codex/thumbs/thumb_1.jpeg" alt="Cosmic Codex" loading="lazy" /></div>
+          <p class="more-card-name">Cosmic Codex</p><span class="more-card-count">28 wallpapers</span>
+        </a>
+        <a class="more-card" href="/christmas-heart/index.html" role="listitem">
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/thumbs/thumb_1.jpeg" alt="Christmas Heart" loading="lazy" /></div>
+          <p class="more-card-name">Christmas Heart</p><span class="more-card-count">24 wallpapers</span>
+        </a>
+        <a class="more-card" href="/flights-of-fantasy/index.html" role="listitem">
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/flights-of-fantasy/thumbs/thumb_1.jpeg" alt="Flights of Fantasy" loading="lazy" /></div>
+          <p class="more-card-name">Flights of Fantasy</p><span class="more-card-count">64 wallpapers</span>
+        </a>
+        <a class="more-card" href="/wondrous-water/index.html" role="listitem">
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/wondrous-water/thumbs/thumb_1.jpeg" alt="Wondrous Water" loading="lazy" /></div>
+          <p class="more-card-name">Wondrous Water</p><span class="more-card-count">~46 wallpapers</span>
+        </a>
+      </div>
+    </section>
+  </main>
+  <!-- FOOTER -->
+  <footer>
+    <div class="site-footer">
+      <span class="footer-brand">The Somnolescent Dragon</span>
+      <ul class="footer-links">
+        <li><a href="/whats-new.html">What's New</a></li>
+        <li><a href="/suggest.html">Suggest a theme</a></li>
+        <li><a href="/help.html">Help</a></li>
+        <li><a href="/about.html">About the art</a></li>
+      </ul>
+      <p class="footer-disclosure">All wallpapers created using AI image generation, directed by fully detailed cinematic prompts and curated for quality. Free for personal desktop use. No accounts, no ads, no tracking.</p>
+    </div>
+  </footer>
+  <!-- BOTTOM SCENE -->
+    <div class="dragon-scene" aria-hidden="true">
+      <svg width="100%" viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="hw-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#080C1A"/>
+            <stop offset="100%" stop-color="#140C1E"/>
+          </linearGradient>
+          <linearGradient id="hw-ground" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1C1410"/>
+            <stop offset="100%" stop-color="#100C08"/>
+          </linearGradient>
+          <linearGradient id="hw-fog1" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#3A2848" stop-opacity="0"/>
+            <stop offset="20%" stop-color="#3A2848" stop-opacity="0.65"/>
+            <stop offset="80%" stop-color="#3A2848" stop-opacity="0.65"/>
+            <stop offset="100%" stop-color="#3A2848" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="hw-fog2" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#281838" stop-opacity="0"/>
+            <stop offset="30%" stop-color="#281838" stop-opacity="0.5"/>
+            <stop offset="70%" stop-color="#281838" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#281838" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="260" fill="url(#hw-sky)"/>
+        <circle cx="200" cy="45" r="65" fill="#9070B0" opacity="0.08" class="hw-moon"/>
+        <circle cx="200" cy="45" r="42" fill="#A080C0" opacity="0.14" class="hw-moon"/>
+        <circle cx="200" cy="45" r="24" fill="#C8A8E0" opacity="0.92"/>
+        <circle cx="209" cy="41" r="19" fill="#080C1A" opacity="0.94"/>
+        <circle cx="196" cy="50" r="7" fill="#D0B8E8" opacity="0.25"/>
+        <ellipse cx="200" cy="200" rx="300" ry="80" fill="#9070B0" opacity="0.04"/>
+        <circle class="hw-star" style="--st:3.2s;--so:0.7" cx="350" cy="15" r="1.3" fill="#C8B8E0"/>
+        <circle class="hw-star" style="--st:2.6s;--so:0.55" cx="480" cy="8" r="1" fill="#B8A8D0"/>
+        <circle class="hw-star" style="--st:4.1s;--so:0.8" cx="600" cy="22" r="1.2" fill="#C8B8E0"/>
+        <circle class="hw-star" style="--st:3.5s;--so:0.65" cx="720" cy="10" r="0.9" fill="#B8A8D0"/>
+        <circle class="hw-star" style="--st:2.8s;--so:0.75" cx="850" cy="28" r="1.1" fill="#C8B8E0"/>
+        <circle class="hw-star" style="--st:3.9s;--so:0.6" cx="950" cy="12" r="1" fill="#B8A8D0"/>
+        <circle class="hw-star" style="--st:2.4s;--so:0.7" cx="1060" cy="25" r="0.9" fill="#C8B8E0"/>
+        <circle class="hw-star" style="--st:4.3s;--so:0.8" cx="1150" cy="18" r="1.3" fill="#B8A8D0"/>
+        <circle class="hw-star" style="--st:3.1s;--so:0.55" cx="80" cy="20" r="0.9" fill="#C8B8E0"/>
+        <circle class="hw-star" style="--st:2.9s;--so:0.7" cx="300" cy="35" r="1" fill="#B8A8D0"/>
+
+        <!-- Bats drifting across scene, fading in and out -->
+        <g class="hw-bat" style="--bf:14s;--bx:350px;--by:-25px;animation-delay:0s" transform="translate(100,55)">
+          <path d="M0,0 C-8,-5 -18,-2 -20,4 C-18,9 -10,7 0,0 C10,7 18,9 20,4 C18,-2 8,-5 0,0Z" fill="#4A2060"/>
+          <ellipse cx="0" cy="2" rx="4" ry="5" fill="#3A1850"/>
+        </g>
+        <g class="hw-bat" style="--bf:18s;--bx:280px;--by:-15px;animation-delay:4s" transform="translate(200,75)">
+          <path d="M0,0 C-6,-4 -14,-2 -15,3 C-14,7 -8,5 0,0 C8,5 14,7 15,3 C14,-2 6,-4 0,0Z" fill="#4A2060"/>
+          <ellipse cx="0" cy="1" rx="3" ry="4" fill="#3A1850"/>
+        </g>
+        <g class="hw-bat" style="--bf:16s;--bx:400px;--by:-30px;animation-delay:8s" transform="translate(350,45)">
+          <path d="M0,0 C-5,-3 -12,-1 -13,3 C-12,6 -7,4 0,0 C7,4 12,6 13,3 C12,-1 5,-3 0,0Z" fill="#4A2060"/>
+          <ellipse cx="0" cy="1" rx="2.5" ry="3.5" fill="#3A1850"/>
+        </g>
+
+        <!-- Trees -->
+        <g class="hw-tree-sway" style="--d:4.5s;--r1:-2.5deg;--r2:1.5deg;transform-origin:60px 230px">
+          <path d="M55 230 Q52 200 48 170 Q44 140 50 110 Q54 85 58 60" stroke="#3A2840" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <path d="M52 180 Q38 165 28 155 Q18 148 8 150" stroke="#3A2840" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path d="M50 160 Q40 142 34 130" stroke="#3A2840" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M54 138 Q64 120 70 108" stroke="#3A2840" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M56 112 Q46 96 42 86" stroke="#3A2840" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M59 90 Q68 74 74 65" stroke="#3A2840" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </g>
+        <g class="hw-tree-sway" style="--d:5.2s;--r1:-1.8deg;--r2:2.2deg;transform-origin:240px 228px">
+          <path d="M238 228 Q234 195 231 162 Q227 126 234 94 Q239 68 244 44" stroke="#3C2A44" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M233 190 Q214 172 198 162 Q186 154 175 153" stroke="#3C2A44" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+          <path d="M214 163 Q202 148 194 137" stroke="#3C2A44" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M231 165 Q218 148 212 132" stroke="#3C2A44" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M234 140 Q249 122 260 108" stroke="#3C2A44" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+          <path d="M252 118 Q260 102 264 90" stroke="#3C2A44" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M236 120 Q226 104 222 91" stroke="#3C2A44" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M240 94 Q249 77 253 64" stroke="#3C2A44" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M242 70 Q233 54 229 44" stroke="#3C2A44" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        </g>
+        <g class="hw-tree-sway" style="--d:4.8s;--r1:-2deg;--r2:1.8deg;transform-origin:780px 230px">
+          <path d="M778 230 Q774 198 771 164 Q767 128 774 96 Q779 70 784 47" stroke="#3C2A44" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M773 192 Q754 174 738 163 Q726 155 715 154" stroke="#3C2A44" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+          <path d="M754 168 Q741 152 734 140" stroke="#3C2A44" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M773 168 Q760 150 753 136" stroke="#3C2A44" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M775 140 Q791 122 802 108" stroke="#3C2A44" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+          <path d="M798 118 Q808 100 812 88" stroke="#3C2A44" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M777 118 Q768 103 764 90" stroke="#3C2A44" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M782 95 Q791 78 795 62" stroke="#3C2A44" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </g>
+        <g class="hw-tree-sway" style="--d:4.2s;--r1:-1.5deg;--r2:2.5deg;transform-origin:1140px 228px">
+          <path d="M1138 228 Q1134 198 1131 168 Q1127 133 1134 100 Q1138 74 1142 50" stroke="#3A2840" stroke-width="9" fill="none" stroke-linecap="round"/>
+          <path d="M1132 195 Q1113 178 1098 168 Q1086 160 1075 158" stroke="#3A2840" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+          <path d="M1113 172 Q1100 156 1093 144" stroke="#3A2840" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M1135 168 Q1148 150 1158 136" stroke="#3A2840" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M1150 142 Q1160 125 1164 110" stroke="#3A2840" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M1137 118 Q1128 102 1124 88" stroke="#3A2840" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M1140 95 Q1150 78 1154 64" stroke="#3A2840" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </g>
+
+        <!-- Mid fog -->
+        <g class="hw-fog-roll" style="--fd:20s"><rect x="-300" y="178" width="1800" height="42" fill="url(#hw-fog1)" opacity="0.9"/></g>
+        <g class="hw-fog-roll-r" style="--fd:26s"><rect x="-200" y="190" width="1800" height="32" fill="url(#hw-fog2)" opacity="0.7"/></g>
+
+        <!-- Gravestones -->
+        <rect x="340" y="194" width="30" height="40" rx="15" fill="#3A2848"/>
+        <rect x="335" y="229" width="40" height="7" rx="2" fill="#2E2038"/>
+        <line x1="355" y1="207" x2="355" y2="223" stroke="#6A4880" stroke-width="1.2"/>
+        <line x1="347" y1="215" x2="363" y2="215" stroke="#6A4880" stroke-width="1.2"/>
+        <g transform="rotate(-5,422,235)">
+          <rect x="408" y="191" width="26" height="44" rx="13" fill="#342240"/>
+          <rect x="403" y="230" width="36" height="7" rx="2" fill="#281838"/>
+        </g>
+        <polygon points="490,186 503,172 516,186" fill="#3A2848"/>
+        <rect x="490" y="186" width="26" height="46" fill="#3A2848"/>
+        <rect x="485" y="228" width="36" height="7" rx="2" fill="#2E2038"/>
+        <line x1="503" y1="198" x2="503" y2="218" stroke="#6A4880" stroke-width="1.2"/>
+        <line x1="495" y1="208" x2="511" y2="208" stroke="#6A4880" stroke-width="1.2"/>
+        <rect x="580" y="195" width="24" height="38" rx="12" fill="#342240"/>
+        <rect x="575" y="228" width="34" height="7" rx="2" fill="#281838"/>
+        <path d="M590 199 L592 216 L589 228" stroke="#5A3870" stroke-width="0.9" fill="none"/>
+        <g transform="rotate(3,672,235)">
+          <rect x="656" y="184" width="32" height="48" rx="16" fill="#3A2848"/>
+          <rect x="650" y="228" width="44" height="7" rx="2" fill="#2E2038"/>
+          <line x1="672" y1="197" x2="672" y2="216" stroke="#6A4880" stroke-width="1.4"/>
+          <line x1="663" y1="206" x2="681" y2="206" stroke="#6A4880" stroke-width="1.4"/>
+        </g>
+
+        <!-- Ghost -->
+        <g class="hw-ghost" style="--gf:4.5s" transform="translate(432,152)">
+          <ellipse cx="0" cy="0" rx="20" ry="24" fill="#D8C8F0" opacity="0.75"/>
+          <ellipse cx="-7" cy="-7" rx="3.5" ry="4.5" fill="#1A0A2A" opacity="0.9"/>
+          <ellipse cx="7" cy="-7" rx="3.5" ry="4.5" fill="#1A0A2A" opacity="0.9"/>
+          <path d="M-20,14 Q-13,22 -6,16 Q0,22 6,16 Q13,22 20,16 L20,24 Q0,32 -20,24Z" fill="#D8C8F0" opacity="0.75"/>
+          <circle cx="0" cy="24" r="10" fill="#D8C8F0" opacity="0.35"/>
+        </g>
+
+        <!-- Candle -->
+        <rect x="500" y="180" width="6" height="12" fill="#EEE8D0" rx="1"/>
+        <ellipse cx="503" cy="178" rx="3.5" ry="6" fill="#FFB820" opacity="0.95" class="hw-candle" style="--fl:0.65s"/>
+        <circle cx="503" cy="178" r="14" fill="#FF8020" opacity="0.12"/>
+
+        <!-- Ground fog -->
+        <g class="hw-fog-roll" style="--fd:16s;animation-delay:-4s"><rect x="-300" y="210" width="1800" height="30" fill="url(#hw-fog1)" opacity="0.8"/></g>
+        <g class="hw-fog-roll-r" style="--fd:22s;animation-delay:-8s"><rect x="-200" y="220" width="1800" height="25" fill="url(#hw-fog2)" opacity="0.65"/></g>
+        <g class="hw-fog-roll" style="--fd:30s"><rect x="-400" y="228" width="1800" height="20" fill="url(#hw-fog1)" opacity="0.5"/></g>
+
+        <!-- Ground -->
+        <rect x="0" y="234" width="1200" height="26" fill="url(#hw-ground)"/>
+        <ellipse cx="355" cy="234" rx="30" ry="7" fill="#221428" opacity="0.9"/>
+        <ellipse cx="421" cy="234" rx="26" ry="6" fill="#221428" opacity="0.9"/>
+        <ellipse cx="503" cy="234" rx="28" ry="7" fill="#221428" opacity="0.9"/>
+        <ellipse cx="592" cy="234" rx="24" ry="6" fill="#221428" opacity="0.9"/>
+        <ellipse cx="672" cy="234" rx="32" ry="7" fill="#221428" opacity="0.9"/>
+      </svg>
+    </div>
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Wallpaper preview">
+    <button class="lightbox-close" id="lb-close" aria-label="Close preview">✕</button>
+    <button class="lightbox-prev" id="lb-prev" aria-label="Previous wallpaper">‹</button>
+    <button class="lightbox-next" id="lb-next" aria-label="Next wallpaper">›</button>
+    <div class="lightbox-inner">
+      <div class="lightbox-img-wrap"><img id="lb-img" src="" alt="" /></div>
+      <div class="lightbox-footer">
+        <div class="lightbox-info">
+          <p class="lightbox-title" id="lb-title"></p>
+          <p class="lightbox-meta">3128 × 1344 &nbsp;·&nbsp; Ultrawide 21:9 &nbsp;·&nbsp; Free download</p>
+        </div>
+        <div class="lightbox-actions">
+          <button class="dl-btn" id="dl-btn">⬇ Download</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const grid=document.getElementById('wallpaper-grid');
+    const searchIn=document.getElementById('search-input');
+    const emptyState=document.getElementById('empty-state');
+    const wpCount=document.getElementById('wp-count');
+    const lightbox=document.getElementById('lightbox');
+    const lbImg=document.getElementById('lb-img');
+    const lbTitle=document.getElementById('lb-title');
+    const lbClose=document.getElementById('lb-close');
+    const lbPrev=document.getElementById('lb-prev');
+    const lbNext=document.getElementById('lb-next');
+    const dlBtn=document.getElementById('dl-btn');
+    let cards=Array.from(grid.querySelectorAll('.wp-card'));
+    let currentIndex=0;
+    function updateCount(){const v=cards.filter(c=>c.style.display!=='none').length;wpCount.textContent=v+' wallpaper'+(v!==1?'s':'');emptyState.classList.toggle('visible',v===0);}
+    updateCount();
+    searchIn.addEventListener('input',function(){const q=this.value.toLowerCase().trim();cards.forEach(c=>{c.style.display=(!q||(c.dataset.name||'').toLowerCase().includes(q))?'':'none';});updateCount();});
+    function getVisible(){return cards.filter(c=>c.style.display!=='none');}
+    function openLightbox(card){const v=getVisible();currentIndex=v.indexOf(card);loadLightbox(v[currentIndex]);lightbox.classList.add('open');document.body.style.overflow='hidden';}
+    function loadLightbox(card){const src=card.dataset.full||card.dataset.src;const name=card.dataset.name||'wallpaper';lbImg.src=src;lbImg.alt=name;lbTitle.textContent=name;dlBtn.onclick=()=>triggerDownload(src,name);}
+    function closeLightbox(){lightbox.classList.remove('open');document.body.style.overflow='';lbImg.src='';}
+    function navigateLightbox(dir){const v=getVisible();currentIndex=(currentIndex+dir+v.length)%v.length;loadLightbox(v[currentIndex]);}
+    grid.addEventListener('click',function(e){const card=e.target.closest('.wp-card');if(!card)return;if(e.target.closest('.wp-quick-dl')){e.stopPropagation();triggerDownload(card.dataset.src,card.dataset.name);return;}if(card.dataset.src&&card.dataset.src!=='#')openLightbox(card);});
+    lbClose.addEventListener('click',closeLightbox);
+    lbPrev.addEventListener('click',()=>navigateLightbox(-1));
+    lbNext.addEventListener('click',()=>navigateLightbox(1));
+    lightbox.addEventListener('click',function(e){if(e.target===lightbox)closeLightbox();});
+    document.addEventListener('keydown',function(e){if(!lightbox.classList.contains('open'))return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')navigateLightbox(-1);if(e.key==='ArrowRight')navigateLightbox(1);});
+    function triggerDownload(src,name){if(!src||src==='#')return;var workerSrc=src.replace('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev','https://jolly-snowflake-8dd0.thomascox7509.workers.dev');var a=document.createElement('a');a.href=workerSrc;a.download=name+'.png';document.body.appendChild(a);a.click();document.body.removeChild(a);}
+  </script>
+</body>
+</html>
