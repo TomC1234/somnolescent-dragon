@@ -494,7 +494,8 @@
       padding: 1rem;
       cursor: pointer;
       transition: border-color 0.25s, background 0.25s, transform 0.2s;
-      display: block;
+      display: flex;
+      flex-direction: column;
       position: relative;
       text-align: center;
     }
@@ -536,17 +537,21 @@
       font-size: 0.828rem;
       color: var(--text-muted);
       line-height: 1.5;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
+      flex: 1;
     }
 
-    .cat-meta {
+    .cat-size {
       font-size: 0.7475rem;
       color: var(--text-dim);
       letter-spacing: 0.04em;
       text-transform: uppercase;
+      margin-top: auto;
+      padding-top: 0.5rem;
+      border-top: 0.5px solid var(--border);
     }
 
-    .cat-card:hover .cat-meta { color: var(--text-muted); }
+    .cat-card:hover .cat-size { color: var(--text-muted); }
 
     /* ============================================================
        CATEGORY CARD CYCLING THUMBNAILS
@@ -900,8 +905,8 @@
           </div>
           <span class="cat-icon" aria-hidden="true">🌿</span>
           <p class="cat-name">Flights of Fantasy</p>
-          <p class="cat-desc">Cheerful warm fantasy — whimsical, adventurous, full of wonder.</p>
-          <span class="cat-meta">64 wallpapers</span>
+          <p class="cat-desc">Warm fantasy adventures<br>filled with whimsy, wonder,<br>and impossible places.</p>
+          <span class="cat-size">3 collections • 88 wallpapers</span>
         </a>
 
         <a class="cat-card" href="dreamscapes/index.html" data-slug="dreamscapes">
@@ -913,8 +918,8 @@
           </div>
           <span class="cat-icon" aria-hidden="true">🌫️</span>
           <p class="cat-name">Dreamscapes</p>
-          <p class="cat-desc">Surreal ethereal landscapes that feel like a dream or a memory.</p>
-          <span class="cat-meta">25 wallpapers</span>
+          <p class="cat-desc">Surreal ethereal worlds<br>shaped like dreams, memories,<br>and half-remembered places.</p>
+          <span class="cat-size">2 collections • 88 wallpapers</span>
         </a>
 
         <a class="cat-card" href="cosmic-codex/index.html" data-slug="cosmic-codex">
@@ -926,8 +931,8 @@
           </div>
           <span class="cat-icon" aria-hidden="true">🪐</span>
           <p class="cat-name">Cosmic Codex</p>
-          <p class="cat-desc">Planets, alien worlds, ancient remnants among the stars.</p>
-          <span class="cat-meta">~30 wallpapers</span>
+          <p class="cat-desc">Planets and alien worlds,<br>ancient remnants, and wonders<br>scattered among the stars.</p>
+          <span class="cat-size">3 collections • 58 wallpapers</span>
         </a>
 
         <a class="cat-card" href="castles-and-keeps/index.html" data-slug="castles-and-keeps">
@@ -940,8 +945,8 @@
           </div>
           <span class="cat-icon" aria-hidden="true">🏰</span>
           <p class="cat-name">Castles and Keeps</p>
-          <p class="cat-desc">Historic castle architecture from Europe, Japan, India, and beyond.</p>
-          <span class="cat-meta">24 wallpapers</span>
+          <p class="cat-desc">Historic castles and keeps<br>from Europe, Japan, India,<br>and remarkable lands beyond.</p>
+          <span class="cat-size">3 collections • 56 wallpapers</span>
         </a>
 
         <a class="cat-card" href="wondrous-water/index.html" data-slug="wondrous-water">
@@ -953,8 +958,8 @@
           </div>
           <span class="cat-icon" aria-hidden="true">🌊</span>
           <p class="cat-name">Wondrous Water</p>
-          <p class="cat-desc">Waterfalls in nature, cities, ruins, and perspectives never seen.</p>
-          <span class="cat-meta">~46 wallpapers</span>
+          <p class="cat-desc">Waterfalls through wilderness,<br>cities, ruins, and strange<br>perspectives rarely imagined.</p>
+          <span class="cat-size">3 collections • 76 wallpapers</span>
         </a>
 
         <a class="cat-card" href="musical-spice/index.html" data-slug="musical-spice">
@@ -966,8 +971,8 @@
           </div>
           <span class="cat-icon" aria-hidden="true">🎻</span>
           <p class="cat-name">Musical Spice</p>
-          <p class="cat-desc">Instruments in extraordinary, surreal, and exotic settings.</p>
-          <span class="cat-meta">Coming soon</span>
+          <p class="cat-desc">Musical instruments placed<br>in extraordinary, surreal,<br>and unexpected settings.</p>
+          <span class="cat-size">2 collections • 70 wallpapers</span>
         </a>
 
         <a class="cat-card" href="halloween-and-haunts/index.html" data-slug="halloween-and-haunts">
@@ -980,8 +985,8 @@
           </div>
           <span class="cat-icon" aria-hidden="true">🕯️</span>
           <p class="cat-name">Halloween and Haunts</p>
-          <p class="cat-desc">Atmospheric and charming spooky — never threatening, always haunting.</p>
-          <span class="cat-meta">In progress</span>
+          <p class="cat-desc">Charming autumn spookiness,<br>atmospheric, playful, and<br>haunting without the horror.</p>
+          <span class="cat-size">3 collections • 86 wallpapers</span>
         </a>
 
         <a class="cat-card" href="winters-embrace/index.html" data-slug="winters-embrace">
@@ -993,8 +998,8 @@
           </div>
           <span class="cat-icon" aria-hidden="true">❄️</span>
           <p class="cat-name">Winter's Embrace</p>
-          <p class="cat-desc">Cold beauty — stark, silver-blue, and atmospheric.</p>
-          <span class="cat-meta">Coming soon</span>
+          <p class="cat-desc">Cold beauty in silver-blue,<br>stark landscapes, quiet light,<br>and deep winter atmosphere.</p>
+          <span class="cat-size">1 collection • 24 wallpapers</span>
         </a>
 
         <a class="cat-card" href="christmas-heart/index.html" data-slug="christmas-heart">
@@ -1006,8 +1011,8 @@
           </div>
           <span class="cat-icon" aria-hidden="true">🕯️</span>
           <p class="cat-name">Christmas Heart</p>
-          <p class="cat-desc">Festive warmth and Yule magic in ultrawide splendor.</p>
-          <span class="cat-meta">Coming soon</span>
+          <p class="cat-desc">Festive warmth, Yule magic,<br>snowy wonder, and glowing<br>ultrawide holiday splendor.</p>
+          <span class="cat-size">3 collections • 54 wallpapers</span>
         </a>
 
         <a class="cat-card" href="magical-miscellany/index.html" data-slug="magical-miscellany">
@@ -1019,8 +1024,8 @@
           </div>
           <span class="cat-icon" aria-hidden="true">🍂</span>
           <p class="cat-name">Magical Miscellany</p>
-          <p class="cat-desc">Other holidays, Autumn, Thanksgiving, and the wonderful catch-all.</p>
-          <span class="cat-meta">Coming soon</span>
+          <p class="cat-desc">Other holidays and autumn,<br>Thanksgiving, odd wonders,<br>and everything in between.</p>
+          <span class="cat-size">1 collection • 24 wallpapers</span>
         </a>
 
       </div>
