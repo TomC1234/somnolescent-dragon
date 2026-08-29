@@ -53,16 +53,16 @@
     .collections-section { padding: 2.5rem 2rem 1rem; max-width: 1200px; margin: 0 auto; }
     .section-eyebrow { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 1.25rem; }
     .collections-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
-    .collection-card { background: var(--surface-1); border: 0.5px solid var(--border); border-radius: var(--radius-md); overflow: hidden; cursor: pointer; transition: border-color 0.25s, transform 0.2s; display: block; position: relative; }
+    .collection-card { background: var(--surface-1); border: 0.5px solid var(--border); border-radius: var(--radius-md); overflow: hidden; cursor: pointer; transition: border-color 0.25s, transform 0.2s; display: flex; flex-direction: column; position: relative; }
     .collection-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
     .collection-thumb { width: 100%; height: 130px; background: var(--surface-2); display: flex; align-items: center; justify-content: center; font-size: 2rem; border-bottom: 0.5px solid var(--border); overflow: hidden; }
     .collection-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.25s; }
     .collection-card:hover .collection-thumb img { opacity: 1; }
     .collection-thumb-placeholder { opacity: 0.3; }
-    .collection-body { padding: 1rem 1rem 0.875rem; }
+    .collection-body { padding: 1rem 1rem 0.875rem; display: flex; flex-direction: column; flex: 1; text-align: center; }
     .collection-name { font-family: var(--font-display); font-size: 1rem; color: var(--text-muted); font-style: italic; margin-bottom: 0.35rem; line-height: 1.3; }
-    .collection-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.6rem; }
-    .collection-meta { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); }
+    .collection-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.6rem; flex: 1; }
+    .collection-meta { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); margin-top: auto; padding-top: 0.5rem; border-top: 0.5px solid var(--border); }
     .collection-card:hover .collection-meta { color: var(--text-muted); }
     .more-section { padding: 2.5rem 2rem 3rem; max-width: 1200px; margin: 2rem auto 0; border-top: 0.5px solid var(--border); }
     .more-strip { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 0.5rem; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
@@ -165,7 +165,7 @@
       <h1 class="cat-title">Halloween and Haunts</h1>
       <p class="cat-description">Atmospheric and charming spooky — never threatening, always haunting. Skeletons, ghosts, bats, and graveyards that charm rather than frighten.</p>
       <div class="cat-stats">
-        <div class="cat-stat"><strong>In progress</strong>Wallpapers</div>
+        <div class="cat-stat"><strong>84</strong>Wallpapers</div>
         <div class="cat-stat"><strong>Painterly</strong>Art style</div>
         <div class="cat-stat"><strong>21:9</strong>Ultrawide</div>
       </div>
@@ -180,8 +180,8 @@
           </div>
           <div class="collection-body">
             <p class="collection-name">Candy &amp; Capers</p>
-            <p class="collection-desc">Monsters, Witches, Ghosts, and radical Candy all having a wonderful, chaotic time.</p>
-            <span class="collection-meta">Now open</span>
+            <p class="collection-desc">Monsters, witches, ghosts, and radical candy all having a wonderful, chaotic time.</p>
+            <span class="collection-meta">Now open · 32 wallpapers</span>
           </div>
         </a>
         <a class="collection-card" href="/halloween-and-haunts/impish-impastos/index.html">
@@ -190,8 +190,8 @@
           </div>
           <div class="collection-body">
             <p class="collection-name">Impish Impastos</p>
-            <p class="collection-desc">Thick impasto brushwork, haunted harbors, bioluminescent swamps, crimson skies. 28 atmospheric Halloween scenes.</p>
-            <span class="collection-meta">Now open</span>
+            <p class="collection-desc">Thick impasto brushwork, haunted harbors, bioluminescent swamps, and crimson skies. Atmospheric Halloween scenes with real painterly soul.</p>
+            <span class="collection-meta">Now open · 28 wallpapers</span>
           </div>
         </a>
         <a class="collection-card" href="/halloween-and-haunts/unsorted-candies/index.html">
@@ -200,8 +200,8 @@
           </div>
           <div class="collection-body">
             <p class="collection-name">Unsorted Candies</p>
-            <p class="collection-desc">Vintage carnivals, gothic manors, steampunk trick-or-treat signs, haunted swamps. Halloween scenes that defy easy categorisation.</p>
-            <span class="collection-meta">Now open</span>
+            <p class="collection-desc">Odds, ends, and hidden gems — wallpapers still finding their place. Every great collection starts with a single image.</p>
+            <span class="collection-meta">The Miscellany · 24 wallpapers</span>
           </div>
         </a>
       </div>
@@ -212,47 +212,47 @@
         <a class="more-card" href="../flights-of-fantasy/index.html" role="listitem">
           <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/flights-of-fantasy/thumbs/thumb_1.jpeg" alt="flights-of-fantasy" loading="lazy" /></div>
           <p class="more-card-name">Flights of Fantasy</p>
-          <span class="more-card-count">64 wallpapers</span>
+          <span class="more-card-count">84 wallpapers</span>
         </a>
         <a class="more-card" href="../dreamscapes/index.html" role="listitem">
           <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/dreamscapes/thumbs/thumb_1.jpeg" alt="dreamscapes" loading="lazy" /></div>
           <p class="more-card-name">Dreamscapes</p>
-          <span class="more-card-count">25 wallpapers</span>
+          <span class="more-card-count">53 wallpapers</span>
         </a>
         <a class="more-card" href="../cosmic-codex/index.html" role="listitem">
           <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/cosmic-codex/thumbs/thumb_1.jpeg" alt="cosmic-codex" loading="lazy" /></div>
           <p class="more-card-name">Cosmic Codex</p>
-          <span class="more-card-count">~30 wallpapers</span>
+          <span class="more-card-count">54 wallpapers</span>
         </a>
         <a class="more-card" href="../castles-and-keeps/index.html" role="listitem">
           <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/castles-and-keeps/thumbs/thumb_1.jpeg" alt="castles-and-keeps" loading="lazy" /></div>
           <p class="more-card-name">Castles and Keeps</p>
-          <span class="more-card-count">44 wallpapers</span>
+          <span class="more-card-count">55 wallpapers</span>
         </a>
         <a class="more-card" href="../wondrous-water/index.html" role="listitem">
           <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/wondrous-water/thumbs/thumb_1.jpeg" alt="wondrous-water" loading="lazy" /></div>
           <p class="more-card-name">Wondrous Water</p>
-          <span class="more-card-count">~46 wallpapers</span>
+          <span class="more-card-count">71 wallpapers</span>
         </a>
         <a class="more-card" href="../musical-spice/index.html" role="listitem">
           <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/musical-spice/thumbs/thumb_1.jpeg" alt="musical-spice" loading="lazy" /></div>
           <p class="more-card-name">Musical Spice</p>
-          <span class="more-card-count">Coming soon</span>
+          <span class="more-card-count">70 wallpapers</span>
         </a>
         <a class="more-card" href="../winters-embrace/index.html" role="listitem">
-          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/thumbs/thumb_1.jpeg" alt="winters-embrace" loading="lazy" /></div>
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/silent-ice/thumb.jpeg" alt="winters-embrace" loading="lazy" /></div>
           <p class="more-card-name">Winter's Embrace</p>
-          <span class="more-card-count">Coming soon</span>
+          <span class="more-card-count">24 wallpapers</span>
         </a>
         <a class="more-card" href="../christmas-heart/index.html" role="listitem">
           <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/christmas-heart/thumbs/thumb_1.jpeg" alt="christmas-heart" loading="lazy" /></div>
           <p class="more-card-name">Christmas Heart</p>
-          <span class="more-card-count">Coming soon</span>
+          <span class="more-card-count">53 wallpapers</span>
         </a>
         <a class="more-card" href="../magical-miscellany/index.html" role="listitem">
-          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/magical-miscellany/thumbs/thumb_1.jpeg" alt="magical-miscellany" loading="lazy" /></div>
+          <div class="more-card-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/magical-miscellany/autumn-reflections/thumb.jpeg" alt="magical-miscellany" loading="lazy" /></div>
           <p class="more-card-name">Magical Miscellany</p>
-          <span class="more-card-count">Coming soon</span>
+          <span class="more-card-count">23 wallpapers</span>
         </a>
       </div>
     </section>
