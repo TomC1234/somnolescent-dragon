@@ -213,7 +213,8 @@
       overflow: hidden;
       cursor: pointer;
       transition: border-color 0.25s, transform 0.2s;
-      display: block;
+      display: flex;
+      flex-direction: column;
       position: relative;
     }
 
@@ -267,6 +268,10 @@
 
     .collection-body {
       padding: 1rem 1rem 0.875rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      text-align: center;
     }
 
     .collection-name {
@@ -282,6 +287,7 @@
       color: var(--text-muted);
       line-height: 1.6;
       margin-bottom: 0.6rem;
+      flex: 1;
     }
 
     .collection-meta {
@@ -289,6 +295,9 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--text-dim);
+      margin-top: auto;
+      padding-top: 0.5rem;
+      border-top: 0.5px solid var(--border);
     }
 
     .collection-card:hover .collection-meta { color: var(--text-muted); }
@@ -520,8 +529,8 @@
           </div>
           <div class="collection-body">
             <p class="collection-name">Wingless Flights</p>
-            <p class="collection-desc">Dwarven crystal caverns, elven treehouses, steampunk airship docks, floating sky cities, and barbarians rolling dice by firelight. No wings required.</p>
-            <span class="collection-meta">Now open · 25 wallpapers</span>
+            <p class="collection-desc">Odds, ends, and hidden gems — wallpapers still finding their place. Every great collection starts with a single image.</p>
+            <span class="collection-meta">The Miscellany · 25 wallpapers</span>
           </div>
         </a>
 
