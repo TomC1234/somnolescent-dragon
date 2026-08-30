@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Winter Wild — Winters Embrace — The Somnolescent Dragon</title>
+  <meta name="description" content="Arctic foxes, polar bears, wolves, wolverines, lynx, and moose in the frozen wilderness — winter wildlife in its most extraordinary, untamed form. Free ultrawide 21:9 AI wallpapers from The Somnolescent Dragon." />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --page-bg:#1C1714;--surface-1:#231E1A;--surface-2:#2C2318;--border:#3A2E22;
+      --border-hover:#C9893A;--text-primary:#FFFFFF;--text-muted:#C9893A;
+      --text-dim:#A89070;--accent:#C9893A;--accent-soft:#9E6B72;
+      --font-display:'Playfair Display',Georgia,serif;--font-body:'Lato',system-ui,sans-serif;
+      --radius-sm:6px;--radius-md:10px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--page-bg);color:var(--text-primary);font-family:var(--font-body);font-weight:400;line-height:1.7;min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    main{width:100%}
+    .site-nav{position:sticky;top:0;z-index:100;background:rgba(28,23,20,0.92);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:52px}
+    .nav-brand{font-family:var(--font-display);font-style:italic;font-size:1rem;color:var(--text-primary);white-space:nowrap}
+    .nav-brand span{color:var(--accent)}
+    .nav-links{display:flex;align-items:center;gap:0.25rem;list-style:none}
+    .nav-links a{font-size:0.828rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim);padding:0.35rem 0.65rem;border-radius:var(--radius-sm);transition:color 0.2s,background 0.2s;white-space:nowrap}
+    .nav-links a:hover{color:var(--text-primary);background:var(--surface-2)}
+    .breadcrumb{padding:0.85rem 2rem;border-bottom:0.5px solid var(--border);display:flex;align-items:center;gap:0.5rem;font-size:0.828rem;color:var(--text-dim);flex-wrap:wrap}
+    .breadcrumb a{color:var(--text-dim);transition:color 0.2s}
+    .breadcrumb a:hover{color:var(--accent)}
+    .breadcrumb-sep{opacity:0.5}
+    .breadcrumb-current{color:var(--text-muted);font-style:italic}
+    .page-header{padding:2rem 2rem 1.5rem;max-width:1400px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-bottom:0.5px solid var(--border)}
+    .page-eyebrow{font-size:0.7820rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--accent);margin-bottom:0.4rem}
+    .page-title{font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2rem);font-weight:700;color:var(--text-primary);line-height:1.2;margin-bottom:0.4rem}
+    .page-subtitle{font-size:0.92rem;color:var(--text-dim);max-width:480px;line-height:1.8}
+    .header-right{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap}
+    .wallpaper-count{font-size:0.828rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em}
+    .search-wrap{position:relative}
+    .search-input{background:var(--surface-1);border:0.5px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);font-family:var(--font-body);font-size:0.897rem;padding:0.45rem 0.75rem 0.45rem 2rem;width:200px;transition:border-color 0.2s;outline:none}
+    .search-input::placeholder{color:var(--text-dim)}
+    .search-input:focus{border-color:var(--border-hover)}
+    .search-icon{position:absolute;left:0.6rem;top:50%;transform:translateY(-50%);font-size:0.8625rem;color:var(--text-dim);pointer-events:none}
+    .grid-section{padding:1.5rem 2rem 2rem;max-width:1400px;margin:0 auto}
+    .wallpaper-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+    .wp-card{background:var(--surface-1);border:0.5px solid var(--border);border-radius:var(--radius-md);overflow:hidden;cursor:pointer;transition:border-color 0.25s,transform 0.2s;position:relative;display:block}
+    .wp-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
+    .wp-card::after{content:'';position:absolute;top:-50%;left:-75%;width:50%;height:200%;background:linear-gradient(to right,rgba(255,255,255,0) 0%,rgba(255,255,255,0.08) 50%,rgba(255,255,255,0) 100%);transform:skewX(-20deg);opacity:0;pointer-events:none}
+    .wp-card:hover::after{animation:shimmer 0.6s ease forwards}
+    @keyframes shimmer{0%{left:-75%;opacity:1}100%{left:125%;opacity:1}}
+    .wp-thumb{width:100%;aspect-ratio:21/9;overflow:hidden;background:var(--surface-2);position:relative}
+    .wp-thumb img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease,opacity 0.25s;opacity:0.85}
+    .wp-card:hover .wp-thumb img{transform:scale(1.03);opacity:1}
+    .wp-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(28,23,20,0.85) 0%,transparent 50%);opacity:0;transition:opacity 0.25s;display:flex;align-items:flex-end;padding:0.75rem}
+    .wp-card:hover .wp-overlay{opacity:1}
+    .wp-quick-dl{font-size:0.782rem;text-transform:uppercase;letter-spacing:0.08em;color:#1C1714;background:var(--accent);padding:0.3rem 0.75rem;border-radius:var(--radius-sm);font-weight:700}
+    .wp-body{padding:0.6rem 0.75rem;display:flex;align-items:center;justify-content:space-between;gap:0.5rem}
+    .wp-name{font-size:0.828rem;color:var(--text-dim);line-height:1.4;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .wp-res{font-size:0.713rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;flex-shrink:0}
+    .empty-state{text-align:center;padding:4rem 2rem;display:none}
+    .empty-state.visible{display:block}
+    .empty-state p{font-family:var(--font-display);font-style:italic;font-size:1rem;color:var(--text-dim)}
+    .lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(14,11,9,0.96);align-items:center;justify-content:center;padding:1.5rem}
+    .lightbox.open{display:flex}
+    .lightbox-inner{max-width:1200px;width:100%;display:flex;flex-direction:column;gap:1rem}
+    .lightbox-img-wrap{width:100%;border-radius:var(--radius-md);overflow:hidden;background:var(--surface-1);border:0.5px solid var(--border)}
+    .lightbox-img-wrap img{width:100%;height:auto;display:block;max-height:70vh;object-fit:contain}
+    .lightbox-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .lightbox-title{font-family:var(--font-display);font-size:1rem;color:var(--text-primary);margin-bottom:0.2rem}
+    .lightbox-meta{font-size:0.828rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em}
+    .lightbox-actions{display:flex;gap:0.75rem;align-items:center}
+    .dl-btn{display:inline-flex;align-items:center;gap:0.4rem;background:var(--accent);color:#1C1714;font-size:0.897rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.55rem 1.25rem;border-radius:var(--radius-sm);transition:opacity 0.2s,transform 0.15s;cursor:pointer;border:none}
+    .dl-btn:hover{opacity:0.88;transform:translateY(-1px)}
+    .lightbox-close{position:fixed;top:1.25rem;right:1.5rem;font-size:1.5rem;color:var(--text-dim);cursor:pointer;transition:color 0.2s;background:none;border:none;line-height:1}
+    .lightbox-close:hover{color:var(--text-primary)}
+    .lightbox-prev,.lightbox-next{position:fixed;top:50%;transform:translateY(-50%);font-size:1.5rem;color:var(--text-dim);cursor:pointer;background:var(--surface-1);border:0.5px solid var(--border);border-radius:var(--radius-sm);padding:0.5rem 0.75rem;transition:color 0.2s,border-color 0.2s;line-height:1}
+    .lightbox-prev{left:1rem}
+    .lightbox-next{right:1rem}
+    .lightbox-prev:hover,.lightbox-next:hover{color:var(--text-primary);border-color:var(--border-hover)}
+    .more-section{padding:2rem 2rem 3rem;max-width:1400px;margin:0 auto;border-top:0.5px solid var(--border)}
+    .section-eyebrow{font-size:0.782rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--accent);margin-bottom:1rem}
+    .more-strip{display:flex;gap:10px;overflow-x:auto;padding-bottom:0.5rem;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+    .more-card{flex:0 0 160px;background:var(--surface-1);border:0.5px solid var(--border);border-radius:var(--radius-md);cursor:pointer;transition:border-color 0.25s,background 0.25s;display:block;overflow:hidden}
+    .more-card:hover{border-color:var(--border-hover);background:var(--surface-2)}
+    .more-card-thumb{width:100%;aspect-ratio:8/3;overflow:hidden;background:var(--surface-2)}
+    .more-card-thumb img{width:100%;height:100%;object-fit:cover;opacity:0.85;transition:opacity 0.25s}
+    .more-card:hover .more-card-thumb img{opacity:1}
+    .more-card-name{font-family:var(--font-display);font-size:0.92rem;color:var(--text-primary);line-height:1.3;margin-bottom:0.2rem;padding:0.6rem 0.875rem 0}
+    .more-card-count{font-size:0.7475rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.04em;padding:0 0.875rem 0.6rem;display:block}
+    .more-card:hover .more-card-count{color:var(--text-muted)}
+    .site-footer{border-top:0.5px solid var(--border);padding:1.5rem 2rem;max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:var(--font-display);font-style:italic;font-size:0.943rem;color:var(--text-dim)}
+    .footer-links{display:flex;gap:1.25rem;list-style:none}
+    .footer-links a{font-size:0.782rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim);transition:color 0.2s}
+    .footer-links a:hover{color:var(--accent)}
+    .footer-disclosure{font-size:0.782rem;color:var(--text-dim);width:100%;padding-top:0.75rem;border-top:0.5px solid var(--border);line-height:1.6}
+    @media(max-width:768px){.wallpaper-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}.lightbox-prev{left:0.25rem}.lightbox-next{right:0.25rem}}
+    @media(max-width:640px){.site-nav{padding:0 1rem}.nav-links a{padding:0.3rem 0.4rem;font-size:0.65rem}.breadcrumb{padding:0.75rem 1.25rem}.page-header,.grid-section,.more-section,.site-footer{padding-left:1.25rem;padding-right:1.25rem}}
+    @media(prefers-reduced-motion:reduce){.wp-card:hover{transform:none}.wp-card:hover .wp-thumb img{transform:none}.dl-btn:hover{transform:none}}
+    .dragon-scene{width:100%;display:block;margin-top:-2px;line-height:0}
+    .tree-sway{animation:treesway var(--d,5s) ease-in-out infinite alternate}
+    @keyframes treesway{0%{transform:rotate(var(--r1,-0.8deg))}100%{transform:rotate(var(--r2,0.8deg))}}
+    .star-twinkle{animation:startwinkle var(--st,3s) ease-in-out infinite alternate}
+    @keyframes startwinkle{0%{opacity:var(--so,0.6)}100%{opacity:0.08}}
+    .firefly{animation:fireflyFloat var(--ff,6s) ease-in-out infinite alternate}
+    @keyframes fireflyFloat{0%{transform:translate(0,0);opacity:var(--fo,0.7)}50%{opacity:1}100%{transform:translate(var(--fx,8px),var(--fy,-6px));opacity:var(--fo,0.7)}}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/index.html" class="nav-brand">The <span>Somnolescent</span> Dragon</a>
+      <ul class="nav-links">
+        <li><a href="/index.html#collections">Collections</a></li>
+        <li><a href="/whats-new.html">What's New</a></li>
+        <li><a href="/suggest.html">Suggest a theme</a></li>
+        <li><a href="/help.html">Help</a></li>
+        <li><a href="/about.html">About the art</a></li>
+      </ul>
+    </nav>
+  </header>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/index.html">🐉 Home</a>
+    <span class="breadcrumb-sep">·</span>
+    <a href="/winters-embrace/index.html">Winters Embrace</a>
+    <span class="breadcrumb-sep">·</span>
+    <span class="breadcrumb-current">Winter Wild</span>
+  </nav>
+  <main>
+    <div class="page-header">
+      <div class="header-left">
+        <p class="page-eyebrow">Winters Embrace</p>
+        <h1 class="page-title">Winter Wild</h1>
+        <p class="page-subtitle">Arctic foxes, polar bears, wolves, wolverines, lynx, and moose in the frozen wilderness — winter wildlife in its most extraordinary and untamed form.</p>
+      </div>
+      <div class="header-right">
+        <span class="wallpaper-count" id="wp-count">— wallpapers</span>
+        <div class="search-wrap">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input class="search-input" type="search" placeholder="Search this collection..." id="search-input" aria-label="Search wallpapers" />
+        </div>
+      </div>
+    </div>
+    <section class="grid-section" aria-label="Wallpaper grid">
+      <div class="wallpaper-grid" id="wallpaper-grid">
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-arctic-fox-frozen-coastal-sea-stacks-sunset-ultrawide.png" data-name="winter-wild-arctic-fox-frozen-coastal-sea-stacks-sunset-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-arctic-fox-frozen-coastal-sea-stacks-sunset-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-arctic-fox-frozen-coastal-sea-stacks-sunset-ultrawide.png" alt="winter-wild-arctic-fox-frozen-coastal-sea-stacks-sunset-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-arctic-fox-frozen-coastal-sea-stacks-sunset-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-bighorn-ram-precipice-frozen-valley-ultrawide.png" data-name="winter-wild-bighorn-ram-precipice-frozen-valley-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-bighorn-ram-precipice-frozen-valley-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-bighorn-ram-precipice-frozen-valley-ultrawide.png" alt="winter-wild-bighorn-ram-precipice-frozen-valley-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-bighorn-ram-precipice-frozen-valley-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-blue-ice-cave-mouth-arctic-fox-ultrawide.png" data-name="winter-wild-blue-ice-cave-mouth-arctic-fox-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-blue-ice-cave-mouth-arctic-fox-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-blue-ice-cave-mouth-arctic-fox-ultrawide.png" alt="winter-wild-blue-ice-cave-mouth-arctic-fox-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-blue-ice-cave-mouth-arctic-fox-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-bull-moose-broad-antlers-frozen-river-gorge-ultrawide.png" data-name="winter-wild-bull-moose-broad-antlers-frozen-river-gorge-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-bull-moose-broad-antlers-frozen-river-gorge-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-bull-moose-broad-antlers-frozen-river-gorge-ultrawide.png" alt="winter-wild-bull-moose-broad-antlers-frozen-river-gorge-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-bull-moose-broad-antlers-frozen-river-gorge-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-four-wolves-frozen-mountain-lake-ultrawide.png" data-name="winter-wild-four-wolves-frozen-mountain-lake-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-four-wolves-frozen-mountain-lake-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-four-wolves-frozen-mountain-lake-ultrawide.png" alt="winter-wild-four-wolves-frozen-mountain-lake-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-four-wolves-frozen-mountain-lake-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-gray-wolves-mountain-pass-snow-ultrawide.png" data-name="winter-wild-gray-wolves-mountain-pass-snow-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-gray-wolves-mountain-pass-snow-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-gray-wolves-mountain-pass-snow-ultrawide.png" alt="winter-wild-gray-wolves-mountain-pass-snow-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-gray-wolves-mountain-pass-snow-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-hawk-outpacing-avalanche-mountainside-ultrawide.png" data-name="winter-wild-hawk-outpacing-avalanche-mountainside-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-hawk-outpacing-avalanche-mountainside-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-hawk-outpacing-avalanche-mountainside-ultrawide.png" alt="winter-wild-hawk-outpacing-avalanche-mountainside-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-hawk-outpacing-avalanche-mountainside-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-lynx-snowy-rock-overhang-icicles-forest-ultrawide.png" data-name="winter-wild-lynx-snowy-rock-overhang-icicles-forest-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-lynx-snowy-rock-overhang-icicles-forest-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-lynx-snowy-rock-overhang-icicles-forest-ultrawide.png" alt="winter-wild-lynx-snowy-rock-overhang-icicles-forest-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-lynx-snowy-rock-overhang-icicles-forest-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-moose-birch-forest-fresh-snow-ultrawide.png" data-name="winter-wild-moose-birch-forest-fresh-snow-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-moose-birch-forest-fresh-snow-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-moose-birch-forest-fresh-snow-ultrawide.png" alt="winter-wild-moose-birch-forest-fresh-snow-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-moose-birch-forest-fresh-snow-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-mountain-goat-icy-cliff-gorge-ultrawide.png" data-name="winter-wild-mountain-goat-icy-cliff-gorge-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-mountain-goat-icy-cliff-gorge-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-mountain-goat-icy-cliff-gorge-ultrawide.png" alt="winter-wild-mountain-goat-icy-cliff-gorge-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-mountain-goat-icy-cliff-gorge-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-polar-bear-beneath-glassy-blue-glacier-ultrawide.png" data-name="winter-wild-polar-bear-beneath-glassy-blue-glacier-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-polar-bear-beneath-glassy-blue-glacier-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-polar-bear-beneath-glassy-blue-glacier-ultrawide.png" alt="winter-wild-polar-bear-beneath-glassy-blue-glacier-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-polar-bear-beneath-glassy-blue-glacier-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-polar-bear-mother-cub-ice-floe-labyrinth-ultrawide.png" data-name="winter-wild-polar-bear-mother-cub-ice-floe-labyrinth-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-polar-bear-mother-cub-ice-floe-labyrinth-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-polar-bear-mother-cub-ice-floe-labyrinth-ultrawide.png" alt="winter-wild-polar-bear-mother-cub-ice-floe-labyrinth-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-polar-bear-mother-cub-ice-floe-labyrinth-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-polar-bear-pressure-ridge-maze-ultrawide.png" data-name="winter-wild-polar-bear-pressure-ridge-maze-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-polar-bear-pressure-ridge-maze-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-polar-bear-pressure-ridge-maze-ultrawide.png" alt="winter-wild-polar-bear-pressure-ridge-maze-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-polar-bear-pressure-ridge-maze-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-raven-flight-frozen-canyon-ultrawide.png" data-name="winter-wild-raven-flight-frozen-canyon-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-raven-flight-frozen-canyon-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-raven-flight-frozen-canyon-ultrawide.png" alt="winter-wild-raven-flight-frozen-canyon-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-raven-flight-frozen-canyon-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-raven-frozen-waterfall-chasm-ultrawide.png" data-name="winter-wild-raven-frozen-waterfall-chasm-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-raven-frozen-waterfall-chasm-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-raven-frozen-waterfall-chasm-ultrawide.png" alt="winter-wild-raven-frozen-waterfall-chasm-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-raven-frozen-waterfall-chasm-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-reindeer-bull-open-tundra-sunset-ultrawide.png" data-name="winter-wild-reindeer-bull-open-tundra-sunset-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-reindeer-bull-open-tundra-sunset-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-reindeer-bull-open-tundra-sunset-ultrawide.png" alt="winter-wild-reindeer-bull-open-tundra-sunset-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-reindeer-bull-open-tundra-sunset-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-snowy-owl-buried-conifer-forest-ultrawide.png" data-name="winter-wild-snowy-owl-buried-conifer-forest-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-snowy-owl-buried-conifer-forest-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-snowy-owl-buried-conifer-forest-ultrawide.png" alt="winter-wild-snowy-owl-buried-conifer-forest-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-snowy-owl-buried-conifer-forest-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-three-bison-geothermal-basin-steam-snow-ultrawide.png" data-name="winter-wild-three-bison-geothermal-basin-steam-snow-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-three-bison-geothermal-basin-steam-snow-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-three-bison-geothermal-basin-steam-snow-ultrawide.png" alt="winter-wild-three-bison-geothermal-basin-steam-snow-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-three-bison-geothermal-basin-steam-snow-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-three-mountain-goats-beneath-snow-cornice-ultrawide.png" data-name="winter-wild-three-mountain-goats-beneath-snow-cornice-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-three-mountain-goats-beneath-snow-cornice-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-three-mountain-goats-beneath-snow-cornice-ultrawide.png" alt="winter-wild-three-mountain-goats-beneath-snow-cornice-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-three-mountain-goats-beneath-snow-cornice-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-three-seals-wave-sculpted-blue-ice-cathedral-ultrawide.png" data-name="winter-wild-three-seals-wave-sculpted-blue-ice-cathedral-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-three-seals-wave-sculpted-blue-ice-cathedral-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-three-seals-wave-sculpted-blue-ice-cathedral-ultrawide.png" alt="winter-wild-three-seals-wave-sculpted-blue-ice-cathedral-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-three-seals-wave-sculpted-blue-ice-cathedral-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-three-walrus-pack-ice-coast-ultrawide.png" data-name="winter-wild-three-walrus-pack-ice-coast-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-three-walrus-pack-ice-coast-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-three-walrus-pack-ice-coast-ultrawide.png" alt="winter-wild-three-walrus-pack-ice-coast-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-three-walrus-pack-ice-coast-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-winter-hare-snow-hollow-dawn-ultrawide.png" data-name="winter-wild-winter-hare-snow-hollow-dawn-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-winter-hare-snow-hollow-dawn-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-winter-hare-snow-hollow-dawn-ultrawide.png" alt="winter-wild-winter-hare-snow-hollow-dawn-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-winter-hare-snow-hollow-dawn-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-wolverine-frozen-alpine-lake-ice-cliffs-ultrawide.png" data-name="winter-wild-wolverine-frozen-alpine-lake-ice-cliffs-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-wolverine-frozen-alpine-lake-ice-cliffs-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-wolverine-frozen-alpine-lake-ice-cliffs-ultrawide.png" alt="winter-wild-wolverine-frozen-alpine-lake-ice-cliffs-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-wolverine-frozen-alpine-lake-ice-cliffs-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+        <div class="wp-card" data-src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-wolverine-glacier-crevasse-natural-snow-bridge-ultrawide.png" data-name="winter-wild-wolverine-glacier-crevasse-natural-snow-bridge-ultrawide" data-full="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-wolverine-glacier-crevasse-natural-snow-bridge-ultrawide.png">
+          <div class="wp-thumb"><img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/winters-embrace/winter-wild/winter-wild-wolverine-glacier-crevasse-natural-snow-bridge-ultrawide.png" alt="winter-wild-wolverine-glacier-crevasse-natural-snow-bridge-ultrawide" loading="lazy" /></div>
+          <div class="wp-overlay"><span class="wp-quick-dl">Download</span></div>
+          <div class="wp-body"><span class="wp-name">winter-wild-wolverine-glacier-crevasse-natural-snow-bridge-ultrawide</span><span class="wp-res">3128×1344</span></div>
+        </div>
+
+      </div>
+      <div class="empty-state" id="empty-state" aria-live="polite">
+        <p>No wallpapers match that search. Try a different word.</p>
+      </div>
+    </section>
+    <section class="more-section" aria-label="More collections">
+      <p class="section-eyebrow">More in Winters Embrace</p>
+      <div class="more-strip" id="more-strip" role="list"></div>
+    </section>
+  </main>
+  <footer>
+    <div class="site-footer">
+      <span class="footer-brand">The Somnolescent Dragon</span>
+      <ul class="footer-links">
+        <li><a href="/whats-new.html">What's New</a></li>
+        <li><a href="/suggest.html">Suggest a theme</a></li>
+        <li><a href="/help.html">Help</a></li>
+        <li><a href="/about.html">About the art</a></li>
+      </ul>
+      <p class="footer-disclosure">All wallpapers created using AI image generation, directed by fully detailed cinematic prompts and curated for quality. Free for personal desktop use. No accounts, no ads, no tracking.</p>
+    </div>
+  </footer>
+  <div class="dragon-scene" aria-hidden="true">
+    <svg width="100%" viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="ww2-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0D0C08"/><stop offset="100%" stop-color="#1A1610"/></linearGradient>
+        <linearGradient id="ww2-ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A1408"/><stop offset="100%" stop-color="#0D0A04"/></linearGradient>
+        <radialGradient id="ww2-moon-glow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#F5D76E" stop-opacity="0.18"/><stop offset="100%" stop-color="#F5D76E" stop-opacity="0"/></radialGradient>
+      </defs>
+      <rect width="1200" height="260" fill="url(#ww2-sky)"/>
+      <circle cx="600" cy="62" r="38" fill="#F5D76E" opacity="0.92"/>
+      <circle cx="600" cy="62" r="60" fill="url(#ww2-moon-glow)"/>
+      <circle class="star-twinkle" style="--st:3.2s;--so:0.7" cx="60" cy="18" r="1.2" fill="#E8D8A0"/>
+      <circle class="star-twinkle" style="--st:2.6s;--so:0.5" cx="150" cy="10" r="0.9" fill="#F0E8C0"/>
+      <circle class="star-twinkle" style="--st:4.1s;--so:0.8" cx="260" cy="25" r="1.1" fill="#E8D8A0"/>
+      <circle class="star-twinkle" style="--st:3.5s;--so:0.6" cx="380" cy="8" r="0.8" fill="#F0E8C0"/>
+      <circle class="star-twinkle" style="--st:2.8s;--so:0.7" cx="460" cy="30" r="1" fill="#E8D8A0"/>
+      <circle class="star-twinkle" style="--st:3.9s;--so:0.65" cx="720" cy="18" r="1" fill="#F0E8C0"/>
+      <circle class="star-twinkle" style="--st:2.4s;--so:0.6" cx="820" cy="28" r="0.9" fill="#E8D8A0"/>
+      <circle class="star-twinkle" style="--st:4.3s;--so:0.75" cx="950" cy="14" r="1.2" fill="#F0E8C0"/>
+      <circle class="star-twinkle" style="--st:3.1s;--so:0.5" cx="1060" cy="25" r="0.8" fill="#E8D8A0"/>
+      <circle class="star-twinkle" style="--st:2.9s;--so:0.65" cx="1150" cy="18" r="1" fill="#F0E8C0"/>
+      <g opacity="0.35" fill="#080A04">
+        <polygon points="30,220 44,155 58,220"/><rect x="41" y="218" width="5" height="18"/>
+        <polygon points="100,215 116,148 132,215"/><rect x="113" y="213" width="5" height="18"/>
+        <polygon points="200,218 212,158 224,218"/><rect x="209" y="216" width="4" height="16"/>
+        <polygon points="310,220 326,150 342,220"/><rect x="323" y="218" width="5" height="18"/>
+        <polygon points="490,215 508,142 526,215"/><rect x="505" y="213" width="6" height="20"/>
+        <polygon points="670,218 684,155 698,218"/><rect x="681" y="216" width="4" height="16"/>
+        <polygon points="790,220 806,148 822,220"/><rect x="803" y="218" width="5" height="18"/>
+        <polygon points="910,215 924,152 938,215"/><rect x="921" y="213" width="5" height="18"/>
+        <polygon points="1040,218 1054,155 1068,218"/><rect x="1051" y="216" width="4" height="16"/>
+        <polygon points="1140,220 1156,148 1172,220"/><rect x="1153" y="218" width="5" height="18"/>
+      </g>
+      <g class="tree-sway" style="--d:6s;--r1:-0.7deg;--r2:0.9deg;transform-origin:120px 230px">
+        <polygon points="75,230 120,100 165,230" fill="#0A0E06"/><polygon points="80,200 120,118 160,200" fill="#0E1408"/><polygon points="85,218 120,135 155,218" fill="#121808"/><rect x="116" y="228" width="8" height="20" fill="#1A0E04"/>
+      </g>
+      <g class="tree-sway" style="--d:5s;--r1:-0.5deg;--r2:0.7deg;transform-origin:600px 235px">
+        <polygon points="548,235 600,85 652,235" fill="#0A0E06"/><polygon points="554,202 600,105 646,202" fill="#0E1408"/><polygon points="560,220 600,125 640,220" fill="#121808"/><rect x="595" y="233" width="10" height="22" fill="#1A0E04"/>
+      </g>
+      <g class="tree-sway" style="--d:5.5s;--r1:-0.8deg;--r2:0.6deg;transform-origin:1080px 230px">
+        <polygon points="1035,230 1080,100 1125,230" fill="#0A0E06"/><polygon points="1040,200 1080,118 1120,200" fill="#0E1408"/><polygon points="1046,218 1080,135 1114,218" fill="#121808"/><rect x="1076" y="228" width="8" height="20" fill="#1A0E04"/>
+      </g>
+      <rect x="0" y="238" width="1200" height="22" fill="url(#ww2-ground)"/>
+      <circle class="firefly" style="--ff:5s;--fx:10px;--fy:-8px;--fo:0.8" cx="200" cy="200" r="2" fill="#D4C840"/>
+      <circle class="firefly" style="--ff:7s;--fx:-8px;--fy:-5px;--fo:0.6" cx="420" cy="195" r="1.5" fill="#C8C030"/>
+      <circle class="firefly" style="--ff:6s;--fx:6px;--fy:-10px;--fo:0.7" cx="780" cy="205" r="2" fill="#D4C840"/>
+      <circle class="firefly" style="--ff:8s;--fx:-10px;--fy:-6px;--fo:0.65" cx="980" cy="198" r="1.5" fill="#C8C030"/>
+    </svg>
+  </div>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Wallpaper preview">
+    <button class="lightbox-close" id="lb-close" aria-label="Close preview">✕</button>
+    <button class="lightbox-prev" id="lb-prev" aria-label="Previous wallpaper">‹</button>
+    <button class="lightbox-next" id="lb-next" aria-label="Next wallpaper">›</button>
+    <div class="lightbox-inner">
+      <div class="lightbox-img-wrap"><img id="lb-img" src="" alt="" /></div>
+      <div class="lightbox-footer">
+        <div class="lightbox-info"><p class="lightbox-title" id="lb-title"></p><p class="lightbox-meta">3128 × 1344 &nbsp;·&nbsp; Ultrawide 21:9 &nbsp;·&nbsp; Free download</p></div>
+        <div class="lightbox-actions"><button class="dl-btn" id="dl-btn">⬇ Download</button></div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/more-strip.js" defer></script>
+  <script>
+    const grid=document.getElementById('wallpaper-grid'),searchIn=document.getElementById('search-input'),emptyState=document.getElementById('empty-state'),wpCount=document.getElementById('wp-count'),lightbox=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img'),lbTitle=document.getElementById('lb-title'),lbClose=document.getElementById('lb-close'),lbPrev=document.getElementById('lb-prev'),lbNext=document.getElementById('lb-next'),dlBtn=document.getElementById('dl-btn');
+    let cards=Array.from(grid.querySelectorAll('.wp-card')),currentIndex=0;
+    function updateCount(){const v=cards.filter(c=>c.style.display!=='none').length;wpCount.textContent=v+' wallpaper'+(v!==1?'s':'');emptyState.classList.toggle('visible',v===0);}updateCount();
+    searchIn.addEventListener('input',function(){const q=this.value.toLowerCase().trim();cards.forEach(c=>{c.style.display=(!q||(c.dataset.name||'').toLowerCase().includes(q))?'':'none';});updateCount();});
+    function getVisible(){return cards.filter(c=>c.style.display!=='none');}
+    function openLightbox(card){const v=getVisible();currentIndex=v.indexOf(card);loadLightbox(v[currentIndex]);lightbox.classList.add('open');document.body.style.overflow='hidden';}
+    function loadLightbox(card){const src=card.dataset.full||card.dataset.src,name=card.dataset.name||'wallpaper';lbImg.src=src;lbImg.alt=name;lbTitle.textContent=name;dlBtn.onclick=()=>triggerDownload(src,name);}
+    function closeLightbox(){lightbox.classList.remove('open');document.body.style.overflow='';lbImg.src='';}
+    function navigateLightbox(dir){const v=getVisible();currentIndex=(currentIndex+dir+v.length)%v.length;loadLightbox(v[currentIndex]);}
+    grid.addEventListener('click',function(e){const card=e.target.closest('.wp-card');if(!card)return;if(e.target.closest('.wp-quick-dl')){e.stopPropagation();triggerDownload(card.dataset.src,card.dataset.name);return;}if(card.dataset.src&&card.dataset.src!=='#')openLightbox(card);});
+    lbClose.addEventListener('click',closeLightbox);lbPrev.addEventListener('click',()=>navigateLightbox(-1));lbNext.addEventListener('click',()=>navigateLightbox(1));
+    lightbox.addEventListener('click',function(e){if(e.target===lightbox)closeLightbox();});
+    document.addEventListener('keydown',function(e){if(!lightbox.classList.contains('open'))return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')navigateLightbox(-1);if(e.key==='ArrowRight')navigateLightbox(1);});
+    function triggerDownload(src,name){if(!src||src==='#')return;var workerSrc=src.replace('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev','https://jolly-snowflake-8dd0.thomascox7509.workers.dev');var a=document.createElement('a');a.href=workerSrc;a.download=name+'.png';document.body.appendChild(a);a.click();document.body.removeChild(a);}
+  </script>
+</body>
+</html>
