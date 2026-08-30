@@ -101,17 +101,31 @@
     }
 
     .consider-card {
-      background: var(--surface-1);
       border: 0.5px solid var(--border);
       border-radius: var(--radius-md);
-      padding: 1rem 1rem 0.875rem;
+      padding: 1.25rem 1.25rem 1rem;
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      transition: border-color 0.25s;
     }
 
-    .consider-icon {
-      font-size: 1.38rem;
-      display: block;
-      margin-bottom: 0.4rem;
+    .consider-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14,11,9,0.92) 0%, rgba(14,11,9,0.55) 60%, rgba(14,11,9,0.3) 100%);
+      border-radius: var(--radius-md);
     }
+
+    .consider-card:hover { border-color: var(--border-hover); }
+
+    .consider-card > * { position: relative; z-index: 1; }
 
     .consider-title {
       font-family: var(--font-display);
@@ -277,26 +291,22 @@
         <p class="consider-eyebrow">What makes a good suggestion</p>
         <div class="consider-grid">
 
-          <div class="consider-card">
-            <span class="consider-icon" aria-hidden="true">🌿</span>
+          <div class="consider-card" style="background-image:url('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_1.png')">
             <p class="consider-title">A feeling, not just a subject</p>
             <p class="consider-desc">"Autumn forests at dusk" is stronger than "trees." The more evocative, the better.</p>
           </div>
 
-          <div class="consider-card">
-            <span class="consider-icon" aria-hidden="true">🌍</span>
+          <div class="consider-card" style="background-image:url('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_2.png')">
             <p class="consider-title">A world worth wandering</p>
             <p class="consider-desc">Places real or imagined, familiar or exotic — anywhere a desktop could transport you.</p>
           </div>
 
-          <div class="consider-card">
-            <span class="consider-icon" aria-hidden="true">🕯️</span>
+          <div class="consider-card" style="background-image:url('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_3.png')">
             <p class="consider-title">Warmth over edge</p>
             <p class="consider-desc">The Dragon leans toward wonder and beauty. Atmospheric is welcome. Disturbing is not.</p>
           </div>
 
-          <div class="consider-card">
-            <span class="consider-icon" aria-hidden="true">✨</span>
+          <div class="consider-card" style="background-image:url('https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/fresh/dragons-private-selection_4.png')">
             <p class="consider-title">Something you'd actually use</p>
             <p class="consider-desc">The best test: would you put it on your own desktop? If yes, it belongs here.</p>
           </div>
