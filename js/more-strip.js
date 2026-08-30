@@ -3,15 +3,10 @@
   if (!strip) return;
 
   // Detect current gallery slug from URL path
-  // e.g. /flights-of-fantasy/index.html → "flights-of-fantasy"
-  var parts = window.location.pathname.replace(/\/$/, '').split('/');
-  var currentSlug = '';
-  for (var i = parts.length - 1; i >= 0; i--) {
-    if (parts[i] && parts[i] !== 'index.html') {
-      currentSlug = parts[i];
-      break;
-    }
-  }
+  // Handles both /gallery-slug/ and /gallery-slug/index.html
+  var pathname = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '');
+  var parts = pathname.split('/');
+  var currentSlug = parts[parts.length - 1] || '';
 
   // Resolve the correct depth for the data path
   // Gallery indexes are one level deep: /gallery-slug/index.html
