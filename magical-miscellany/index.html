@@ -52,7 +52,14 @@
     .cat-stat strong { display: block; font-size: 1.1rem; font-family: var(--font-display); color: var(--text-primary); font-weight: 400; letter-spacing: 0; text-transform: none; }
     .collections-section { padding: 2.5rem 2rem 1rem; max-width: 1200px; margin: 0 auto; }
     .section-eyebrow { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 1.25rem; }
-    .collections-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+    .collections-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; justify-content: center; }
+    .collection-card { background: var(--surface-1); border: 0.5px solid var(--border); border-radius: var(--radius-md); overflow: hidden; cursor: pointer; transition: border-color 0.25s, transform 0.2s; display: flex; flex-direction: column; position: relative; }
+    .collection-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .collection-thumb { width: 100%; height: 130px; overflow: hidden; border-bottom: 0.5px solid var(--border); flex-shrink: 0; }
+    .collection-body { padding: 1rem 1rem 0.875rem; display: flex; flex-direction: column; flex: 1; text-align: center; }
+    .collection-name { font-family: var(--font-display); font-size: 1rem; color: var(--text-muted); font-style: italic; margin-bottom: 0.35rem; line-height: 1.3; }
+    .collection-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.6rem; flex: 1; }
+    .collection-meta { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); margin-top: auto; padding-top: 0.5rem; border-top: 0.5px solid var(--border); }
     .collection-card { background: var(--surface-1); border: 0.5px solid var(--border); border-radius: var(--radius-md); overflow: hidden; cursor: pointer; transition: border-color 0.25s, transform 0.2s; display: block; position: relative; }
     .collection-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
     .collection-thumb { width: 100%; height: 130px; background: var(--surface-2); display: flex; align-items: center; justify-content: center; font-size: 2rem; border-bottom: 0.5px solid var(--border); overflow: hidden; }
@@ -130,7 +137,7 @@
       <h1 class="cat-title">Magical Miscellany</h1>
       <p class="cat-description">Other holidays, Autumn, Thanksgiving, and the wonderful catch-all for everything that doesn't fit neatly elsewhere — but belongs here completely.</p>
       <div class="cat-stats">
-        <div class="cat-stat"><strong>23</strong>Wallpapers</div>
+        <div class="cat-stat"><strong>48</strong>Wallpapers</div>
         <div class="cat-stat"><strong>Mixed</strong>Art style</div>
         <div class="cat-stat"><strong>21:9</strong>Ultrawide</div>
       </div>
@@ -145,7 +152,17 @@
           <div class="collection-body">
             <p class="collection-name">Autumn Reflections</p>
             <p class="collection-desc">Puddles, ponds, and still water catching the last of autumn's fire — cobblestone lanes, iron bridges, cottage gardens, and cathedral squares in amber and copper light.</p>
-            <span class="collection-meta">Now open · 23 wallpapers</span>
+            <span class="collection-meta">Now open · 24 wallpapers</span>
+          </div>
+        </a>
+        <a class="collection-card" href="/magical-miscellany/harvest-home/index.html">
+          <div class="collection-thumb">
+            <img src="https://pub-aac32561dff64c60bd8e53ad066e98ba.r2.dev/magical-miscellany/harvest-home/thumb.jpeg" alt="Harvest Home" loading="lazy" style="width:100%;height:100%;object-fit:cover;opacity:0.85;" />
+          </div>
+          <div class="collection-body">
+            <p class="collection-name">Harvest Home</p>
+            <p class="collection-desc">Farmhouse porches, candlelit kitchens, laden tables, and harvest abundance — the warmth of Thanksgiving seen through open doors and golden windows.</p>
+            <span class="collection-meta">Now open · 24 wallpapers</span>
           </div>
         </a>
       </div>
