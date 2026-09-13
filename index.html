@@ -787,14 +787,22 @@
     @keyframes startwinkle { 0% { opacity:var(--so,0.5); } 100% { opacity:0.08; } }
 
     /* SMILE BUTTON */
-    .smile-section { display:flex; justify-content:center; padding:1.5rem 2rem; }
-    .smile-btn { display:inline-flex; align-items:center; gap:0.6rem; background:transparent; border:1.5px solid #C9893A; border-radius:40px; padding:0.7rem 2rem; cursor:pointer; font-family:'Lato',system-ui,sans-serif; font-size:0.85rem; font-weight:400; letter-spacing:0.04em; color:#C9893A; transition:background 0.25s, color 0.25s, border-color 0.25s, transform 0.15s, box-shadow 0.25s; }
-    .smile-btn:hover:not(:disabled) { background:#C9893A; color:#1C1714; box-shadow:0 0 18px rgba(201,137,58,0.35); transform:translateY(-1px); }
-    .smile-btn:disabled { border-color:#4A7C82; color:#4A7C82; cursor:default; transform:none; }
-    .smile-btn.felt { border-color:#4A7C82; color:#4A7C82; }
-    .smile-btn-icon { font-size:1rem; transition:transform 0.4s ease; }
-    .smile-btn.felt .smile-btn-icon { animation:dragonStir 0.6s ease forwards; }
-    @keyframes dragonStir { 0%{transform:scale(1)} 40%{transform:scale(1.4) rotate(-10deg)} 70%{transform:scale(1.2) rotate(5deg)} 100%{transform:scale(1) rotate(0deg)} }
+    .smile-section { display:flex; flex-direction:column; align-items:center; padding:2.5rem 2rem; position:relative; }
+    .smile-ornament { display:flex; align-items:center; gap:1rem; width:100%; max-width:420px; margin-bottom:1.25rem; }
+    .smile-ornament-line { flex:1; height:0.5px; background:linear-gradient(to right, transparent, #C9893A, transparent); opacity:0.3; }
+    .smile-ornament-glyph { font-size:0.75rem; color:#C9893A; opacity:0.5; letter-spacing:0.2em; font-family:'Playfair Display',Georgia,serif; font-style:italic; white-space:nowrap; }
+    .smile-tagline { font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:0.85rem; color:#6B5540; margin-bottom:1.25rem; letter-spacing:0.02em; }
+    .smile-btn-wrap { position:relative; }
+    .smile-btn-glow { position:absolute; inset:-12px; border-radius:60px; background:radial-gradient(ellipse, rgba(201,137,58,0.12) 0%, transparent 70%); opacity:0; transition:opacity 0.4s; pointer-events:none; }
+    .smile-btn-wrap:hover .smile-btn-glow { opacity:1; }
+    .smile-btn { display:inline-flex; align-items:center; gap:0.85rem; background:linear-gradient(135deg, #2C2318 0%, #1C1714 100%); border:1px solid #C9893A; border-radius:50px; padding:0.9rem 2.5rem; cursor:pointer; font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:1rem; font-weight:400; letter-spacing:0.03em; color:#C9893A; transition:background 0.3s, color 0.3s, border-color 0.3s, transform 0.2s, box-shadow 0.3s; position:relative; box-shadow:0 2px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(201,137,58,0.1); }
+    .smile-btn:hover:not(:disabled) { background:linear-gradient(135deg, #C9893A 0%, #A8702A 100%); color:#1C1714; transform:translateY(-2px); box-shadow:0 8px 30px rgba(201,137,58,0.3), 0 2px 8px rgba(0,0,0,0.4); }
+    .smile-btn:disabled { border-color:#4A7C82; color:#4A7C82; cursor:default; transform:none; background:linear-gradient(135deg, #1C2320 0%, #1C1714 100%); box-shadow:none; }
+    .smile-btn.felt { border-color:#4A7C82; color:#4A7C82; box-shadow:0 0 20px rgba(74,124,130,0.15); }
+    .smile-btn-dragon { flex-shrink:0; transition:transform 0.4s ease; }
+    .smile-btn.felt .smile-btn-dragon { animation:dragonStir 0.6s ease forwards; }
+    .smile-sub { margin-top:1rem; font-size:0.65rem; color:#3A2E22; text-transform:uppercase; letter-spacing:0.12em; }
+    @keyframes dragonStir { 0%{transform:scale(1) rotate(0)} 40%{transform:scale(1.3) rotate(-15deg)} 70%{transform:scale(1.15) rotate(8deg)} 100%{transform:scale(1) rotate(0)} }
     @media(prefers-reduced-motion:reduce){ .smile-btn{ transition:none; } @keyframes dragonStir{} }
   </style>
 </head>
@@ -907,10 +915,28 @@
 
     <!-- SMILE BUTTON -->
     <section class="smile-section" aria-label="Leave a smile">
-      <button class="smile-btn" id="smile-btn" onclick="dragonSmile()">
-        <span class="smile-btn-text">Leave a Smile for the Dragon</span>
-        <span class="smile-btn-icon">🐉</span>
-      </button>
+      <div class="smile-ornament">
+        <div class="smile-ornament-line"></div>
+        <span class="smile-ornament-glyph">✦ the dragon stirs ✦</span>
+        <div class="smile-ornament-line"></div>
+      </div>
+      <p class="smile-tagline">Did we make you smile today?</p>
+      <div class="smile-btn-wrap">
+        <div class="smile-btn-glow"></div>
+        <button class="smile-btn" id="smile-btn" onclick="dragonSmile()">
+          <svg class="smile-btn-dragon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="12" cy="15" rx="7" ry="5" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="0.8"/>
+            <ellipse cx="17" cy="10" rx="4.5" ry="3.5" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="0.8"/>
+            <ellipse cx="20.5" cy="11" rx="2" ry="1.5" fill="none" stroke="currentColor" stroke-width="0.6"/>
+            <path d="M17 8.5 Q18 7 19 8.5" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+            <path d="M9 13 Q5 8 7 14 Q9 12 9 14Z" fill="currentColor" opacity="0.5" stroke="currentColor" stroke-width="0.5"/>
+            <path d="M7 16 Q3 18 2 14" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" fill="none"/>
+            <path d="M11 11 L11.5 8 M13 10.5 L13.5 7 M15 11 L15.5 8.5" stroke="currentColor" stroke-width="0.6" stroke-linecap="round" opacity="0.7"/>
+          </svg>
+          <span class="smile-btn-text">Leave a Smile for the Dragon</span>
+        </button>
+      </div>
+      <p class="smile-sub" id="smile-sub">Free to give · means the world</p>
     </section>
 
     <!-- CATEGORY GRID -->
@@ -1554,7 +1580,8 @@
       sessionStorage.setItem('dragon-smiled','1');
       // Animate and change text
       btn.classList.add('felt');
-      textEl.textContent = 'Dragon Made Me Smile 🐉';
+      textEl.textContent = 'Dragon Made Me Smile';
+      document.getElementById('smile-sub').textContent = 'Thank you — the dragon stirs ✨';
       setTimeout(()=>{ textEl.textContent = 'The Dragon felt that'; }, 1800);
       // Sparkle chime sound
       try {
