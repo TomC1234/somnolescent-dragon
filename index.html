@@ -785,6 +785,17 @@
     @keyframes moonglow { 0% { opacity:0.08; } 100% { opacity:0.18; } }
     .star-twinkle { animation: startwinkle var(--st,3s) ease-in-out infinite alternate; }
     @keyframes startwinkle { 0% { opacity:var(--so,0.5); } 100% { opacity:0.08; } }
+
+    /* SMILE BUTTON */
+    .smile-section { display:flex; justify-content:center; padding:1.5rem 2rem; }
+    .smile-btn { display:inline-flex; align-items:center; gap:0.6rem; background:transparent; border:1.5px solid #C9893A; border-radius:40px; padding:0.7rem 2rem; cursor:pointer; font-family:'Lato',system-ui,sans-serif; font-size:0.85rem; font-weight:400; letter-spacing:0.04em; color:#C9893A; transition:background 0.25s, color 0.25s, border-color 0.25s, transform 0.15s, box-shadow 0.25s; }
+    .smile-btn:hover:not(:disabled) { background:#C9893A; color:#1C1714; box-shadow:0 0 18px rgba(201,137,58,0.35); transform:translateY(-1px); }
+    .smile-btn:disabled { border-color:#4A7C82; color:#4A7C82; cursor:default; transform:none; }
+    .smile-btn.felt { border-color:#4A7C82; color:#4A7C82; }
+    .smile-btn-icon { font-size:1rem; transition:transform 0.4s ease; }
+    .smile-btn.felt .smile-btn-icon { animation:dragonStir 0.6s ease forwards; }
+    @keyframes dragonStir { 0%{transform:scale(1)} 40%{transform:scale(1.4) rotate(-10deg)} 70%{transform:scale(1.2) rotate(5deg)} 100%{transform:scale(1) rotate(0deg)} }
+    @media(prefers-reduced-motion:reduce){ .smile-btn{ transition:none; } @keyframes dragonStir{} }
   </style>
 </head>
 <body>
@@ -892,6 +903,14 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- SMILE BUTTON -->
+    <section class="smile-section" aria-label="Leave a smile">
+      <button class="smile-btn" id="smile-btn" onclick="dragonSmile()">
+        <span class="smile-btn-text">Leave a Smile for the Dragon</span>
+        <span class="smile-btn-icon">🐉</span>
+      </button>
     </section>
 
     <!-- CATEGORY GRID -->
@@ -1513,6 +1532,33 @@
       if (e.key === 'ArrowLeft') { freshCurrent = (freshCurrent - 1 + freshImages.length) % freshImages.length; loadFreshLightbox(freshCurrent); }
       if (e.key === 'ArrowRight') { freshCurrent = (freshCurrent + 1) % freshImages.length; loadFreshLightbox(freshCurrent); }
     });
+  </script>
+  <script>
+    // SMILE BUTTON — per session, Cloudflare Worker counter
+    (function(){
+      const btn = document.getElementById('smile-btn');
+      const textEl = btn.querySelector('.smile-btn-text');
+      if(sessionStorage.getItem('dragon-smiled')){
+        textEl.textContent = 'The Dragon felt that';
+        btn.classList.add('felt');
+        btn.disabled = true;
+      }
+    })();
+
+    function dragonSmile(){
+      const btn = document.getElementById('smile-btn');
+      const textEl = btn.querySelector('.smile-btn-text');
+      if(btn.disabled) return;
+      // Lock immediately
+      btn.disabled = true;
+      sessionStorage.setItem('dragon-smiled','1');
+      // Animate and change text
+      btn.classList.add('felt');
+      textEl.textContent = 'Dragon Made Me Smile 🐉';
+      setTimeout(()=>{ textEl.textContent = 'The Dragon felt that'; }, 1800);
+      // Ping Worker counter (fire and forget)
+      fetch('https://jolly-snowflake-8dd0.thomascox7509.workers.dev/smile', { method:'POST' }).catch(()=>{});
+    }
   </script>
 </body>
 </html>
